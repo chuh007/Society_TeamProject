@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2800000, guid: ea1317ed2246a3e4bbcce3551e0463df, type: 3}
   number: Notion
-  message: "\uC774\uC81C \uBD80\uD130 \uB10C \uAE30\uD68D\uC774\uC5EC. \uC774\uC81C
-    \uBD80\uD130 \uB10C \uAE30\uD68D\uC774\uC5EC. \uC774\uC81C \uBD80\uD130 \uB10C
-    \uAE30\uD68D\uC774\uC5EC. \uC774\uC81C \uBD80\uD130 \uB10C \uAE30\uD68D\uC774\uC5EC.
-    \uC774\uC81C \uBD80\uD130 \uB10C \uAE30\uD68D\uC774\uC5EC. \uC774\uC81C \uBD80\uD130
-    \uB10C \uAE30\uD68D\uC774\uC5EC."
+  nodes:
+  - messages:
+    - "\uB10C \uAE30\uD68D\uC785\uB2C8\uB2E4."
+    - "\uB10C \uC774\uC81C \uAE30\uD68D\uC784 \u3145\u3131"
+    choices:
+    - answer:
+      - "\uB124...."
+      nextNodeIndex: 1
+  isSpam: 0

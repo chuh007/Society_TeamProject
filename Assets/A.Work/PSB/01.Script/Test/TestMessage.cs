@@ -33,7 +33,6 @@ namespace Scripts.Test
             int rand = Random.Range(0, messages.Length);
             iconImage.texture = messages[rand].icon;
             numTxt.text = messages[rand].number;
-            messageTxt.text = messages[rand].message;
         }
 
         private void ClickMessage()
