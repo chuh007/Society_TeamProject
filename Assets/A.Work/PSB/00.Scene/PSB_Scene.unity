@@ -269,8 +269,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9da492f1deb36645bf1c135d596d5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageDB: {fileID: 11400000, guid: 4c5fd3b8dff90ec498fad494f99ad72d, type: 2}
   messagePrefab: {fileID: 7859477524127762058, guid: 62aa8aaabc970b84285e8a0d7bb19be0, type: 3}
   messageParent: {fileID: 957725490}
+  chatWindowPrefab: {fileID: 2945738624720494145, guid: 9a35d860b227ff24cba95facee5831b1, type: 3}
+  chatParent: {fileID: 896344293}
 --- !u!1 &1382814036
 GameObject:
   m_ObjectHideFlags: 0

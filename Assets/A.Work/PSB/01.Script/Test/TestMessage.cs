@@ -6,40 +6,38 @@ namespace Scripts.Test
 {
     public class TestMessage : MonoBehaviour
     {
-        [SerializeField] private MessageSO[] messages;
         [SerializeField] private RawImage iconImage;
         [SerializeField] private TextMeshProUGUI numTxt;
         [SerializeField] private TextMeshProUGUI messageTxt;
 
-        private Button _messageBtn;
-        
+        private MessageSO _messageData;
+        private Button _button;
+        private TestChatWindow _chatWindowPrefab;
+        private Transform _chatParent;
+
         private void Awake()
         {
-            _messageBtn = GetComponent<Button>();
+            _button = GetComponent<Button>();
+            _button.onClick.AddListener(OnClick);
         }
 
-        private void OnEnable()
+        public void Initialize(MessageSO data, TestChatWindow chatPrefab, Transform chatParent)
         {
-            _messageBtn.onClick.AddListener(ClickMessage);
+            _messageData = data;
+            _chatWindowPrefab = chatPrefab;
+            _chatParent = chatParent;
+
+            iconImage.texture = data.icon;
+            numTxt.text = data.number;
+            messageTxt.text = data.messagePreview.Length > 0 ? data.messagePreview[0] : "";
         }
 
-        private void OnDestroy()
+        private void OnClick()
         {
-            _messageBtn.onClick.AddListener(ClickMessage);
+            var chatInstance = Instantiate(_chatWindowPrefab, _chatParent);
+            chatInstance.Open(_messageData);
         }
-
-        private void Start()
-        {
-            int rand = Random.Range(0, messages.Length);
-            iconImage.texture = messages[rand].icon;
-            numTxt.text = messages[rand].number;
-        }
-
-        private void ClickMessage()
-        {
-            Debug.Log("Clicked!");
-        }
-        
         
     }
+    
 }
