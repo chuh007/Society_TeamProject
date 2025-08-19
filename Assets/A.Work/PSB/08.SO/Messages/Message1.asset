@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: Message1
+  m_EditorClassIdentifier: 
+  roomId: D
+  roomName: DuoLingo
+  icon: {fileID: 2800000, guid: 2fe788e89ca416a478e24db61d072bcc, type: 3}
+  number: "\uB4C0\uC624\uB9C1\uACE0"
+  messagePreview:
+  - "\uC624\uB298 \uB4C0\uC624\uB9C1\uACE0 \uD558\uC168\uB098\uC694?"
+  nodes:
+  - messages:
+    - "\uC624\uB298 \uB4C0\uC624\uB9C1\uACE0 \uD558\uC168\uB098\uC694?"
+    choices:
+    - answer: "\uB124"
+      nextNodeIndex: 1
+    - answer: "\uC544\uB2C8\uC694"
+      nextNodeIndex: 2
+  - messages:
+    - "\uC624 \uD588\uB2E4\uACE0?"
+    choices:
+    - answer: "\uB124"
+      nextNodeIndex: 3
+    - answer: "\uC8C4\uC1A1\uD574\uC694 \uC0AC\uC2E4 \uAC70\uC9D3\uB9D0\uC774\uC5D0\uC694"
+      nextNodeIndex: 4
+  - messages:
+    - "\uC548\uD588\uB2E4\uACE0? \uC9C4\uC2EC\uC774\uC138\uC694?"
+    choices:
+    - answer: "\uB124 \uC548 \uD560 \uC218\uB3C4 \uC788\uC8E0"
+      nextNodeIndex: 4
+    - answer: "\uC544\uB2C8\uC694 \uC2DC\uAC04\uC774 \uC5C6\uC5C8\uC5B4\uC694"
+      nextNodeIndex: 4
+  - messages:
+    - "Reward\uB97C \uBC1B\uC544\uC57C\uACA0\uCC0C??"
+    choices:
+    - answer: "\uAC10\uC0AC\uD569\uB2C8\uB2E4"
+      nextNodeIndex: -1
+    - answer: "\uAC10\uC0AC\uD569\uB2C8\uB2E4"
+      nextNodeIndex: -1
+  - messages:
+    - "\uB4A4\uC838 \uADF8\uB0E5"
+    choices:
+    - answer: "\uAE84\uC545 "
+      nextNodeIndex: -1
+    - answer: "\uAE84\uC545 "
+      nextNodeIndex: -1
+  isSpam: 0
