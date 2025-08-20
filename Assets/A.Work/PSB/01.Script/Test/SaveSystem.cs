@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -27,22 +28,25 @@ namespace Scripts.Test
                 File.Delete(SavePath);
         }
 
-        [System.Serializable]
+        [Serializable]
         private class Wrapper
         {
-            // ... (기존 내용은 동일)
-            public System.Collections.Generic.List<ConversationLog> conversations = new();
+            public List<ConversationLog> conversations = new();
 
             public Wrapper(Dictionary<string, ConversationLog> dict)
             {
-                conversations = new System.Collections.Generic.List<ConversationLog>(dict.Values);
+                conversations = new List<ConversationLog>(dict.Values);
             }
 
             public Dictionary<string, ConversationLog> ToDictionary()
             {
-                var dict = new Dictionary<string, ConversationLog>();
-                foreach (var conv in conversations)
+                Dictionary<string, ConversationLog> dict = new Dictionary<string, ConversationLog>();
+                
+                foreach (ConversationLog conv in conversations)
+                {
                     dict[conv.roomId] = conv;
+                }
+                
                 return dict;
             }
         }

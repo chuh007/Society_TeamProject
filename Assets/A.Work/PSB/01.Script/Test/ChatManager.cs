@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
 using UnityEngine;
@@ -10,12 +9,10 @@ namespace Scripts.Test
     public class ChatManager : MonoBehaviour
     {
         public static ChatManager Instance;
-
-        // 모든 방의 저장 로그
+        
         private Dictionary<string, ConversationLog> _logs = new();
         public IReadOnlyDictionary<string, ConversationLog> Logs => _logs;
-
-        // 열려 있는 창(방당 1개만)
+        
         private readonly Dictionary<string, ChatWindow> _openWindows = new();
 
         private void Awake()
@@ -42,7 +39,6 @@ namespace Scripts.Test
                 Debug.LogError("[ChatManager] MessageSO 혹은 roomId가 비었습니다.");
                 return null;
             }
-
             if (!_logs.TryGetValue(so.roomId, out ConversationLog log))
             {
                 log = new ConversationLog
@@ -50,7 +46,7 @@ namespace Scripts.Test
                     roomId = so.roomId,
                     roomName = so.roomName,
                     currentNodeIndex = 0,
-                    judgedSpam = null
+                    judgeState = SpamJudgeState.UnKnown
                 };
                 _logs[so.roomId] = log;
                 SaveSystem.Save(_logs);
@@ -61,7 +57,7 @@ namespace Scripts.Test
                 if (log.roomName != so.roomName)
                     log.roomName = so.roomName;
             }
-
+            
             return log;
         }
 
@@ -80,23 +76,22 @@ namespace Scripts.Test
             {
                 existing.gameObject.SetActive(true);
                 existing.BringToFront();
-                existing.ReOpen(so, log, () => SaveSystem.Save(_logs)); // <-- ReOpen 호출
+                existing.ReOpen(so, log, () => SaveSystem.Save(_logs));
                 return;
             }
 
             ChatWindow inst = Instantiate(windowPrefab, parent);
             inst.OpenRoom(so, log, () => SaveSystem.Save(_logs));
-
+            
             _openWindows[so.roomId] = inst;
         }
         
         public void ClearAllData()
         {
-            _logs.Clear(); // 메모리에 있는 로그 데이터 삭제
-            SaveSystem.Clear(); // 저장된 JSON 파일 삭제
+            _logs.Clear();
+            SaveSystem.Clear(); 
             
-            // 열려 있는 모든 채팅 창 파괴
-            foreach (var window in _openWindows.Values)
+            foreach (ChatWindow window in _openWindows.Values)
             {
                 if (window != null)
                 {
@@ -130,5 +125,7 @@ namespace Scripts.Test
             _logs.Clear();
             SaveSystem.Clear();
         }
+        
+        
     }
 }

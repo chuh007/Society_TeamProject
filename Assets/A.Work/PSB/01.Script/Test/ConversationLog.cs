@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace Scripts.Test
 {
+    public enum SpamJudgeState
+    {
+        UnKnown = 0,
+        NotSpam = 1,
+        Spam = 2
+    }
+    
     [Serializable]
     public class MessageData
     {
@@ -19,6 +26,6 @@ namespace Scripts.Test
         public List<MessageData> messages = new();
         
         public int currentNodeIndex = 0;
-        public bool? judgedSpam = null;
+        public SpamJudgeState judgeState = SpamJudgeState.UnKnown;
     }
 }

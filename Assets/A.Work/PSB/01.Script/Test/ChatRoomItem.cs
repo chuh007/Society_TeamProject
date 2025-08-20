@@ -14,12 +14,14 @@ namespace Scripts.Test
 
         private MessageSO _so;
         private ConversationLog _log;
-
+        public string id;
+        
         public void Setup(MessageSO so, ConversationLog log, System.Action onOpen)
         {
             _so = so;
             _log = log;
-
+            id = so.roomId;
+            
             if (icon != null) icon.texture = so.icon;
             if (nameTxt != null) nameTxt.text = string.IsNullOrEmpty(so.roomName) ? so.number : so.roomName;
             

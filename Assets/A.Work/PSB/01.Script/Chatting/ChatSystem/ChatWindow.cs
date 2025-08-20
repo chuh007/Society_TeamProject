@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using Scripts.Chatting.ChatCore;
+﻿using System;
+using System.Collections;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
 using Scripts.Test;
@@ -26,7 +26,7 @@ namespace Scripts.Chatting.ChatSystem
         private MessageSO _messageData;
         private int _currentNodeIndex;
         private Coroutine _playCoroutine;
-        private System.Action _onSave;
+        private Action _onSave;
 
         private void Awake()
         {
@@ -42,35 +42,33 @@ namespace Scripts.Chatting.ChatSystem
             _log = log;
             _onSave = onSave;
             _currentNodeIndex = _log.currentNodeIndex;
-        
+
             ClearButtons();
-        
+
             if (_playCoroutine != null) StopCoroutine(_playCoroutine);
-        
+
             foreach (Transform child in contentParent)
             {
                 Destroy(child.gameObject);
             }
-        
-            foreach (var msgData in _log.messages)
+
+            foreach (MessageData msgData in _log.messages)
             {
                 SpawnMessageBubble(msgData.text, msgData.isMine);
             }
-        
-            // 대화가 끝났거나 판별이 완료된 상태를 확인하고 처리
-            if (_currentNodeIndex >= _messageData.nodes.Length)
+            
+            if (_log.judgeState != SpamJudgeState.UnKnown)
             {
-                if (!_log.judgedSpam.HasValue)
-                {
-                    ShowEndJudgeButtons(); // 판별이 안 된 경우 버튼 표시
-                }
-                else
-                {
-                    SpawnMessageBubble("판별이 완료되었습니다.", false);
-                }
+                SpawnMessageBubble("판별이 완료되었습니다.", false);
                 return;
             }
-            
+
+            if (_currentNodeIndex > _messageData.nodes.Length)
+            {
+                ShowEndJudgeButtons();
+                return;
+            }
+    
             _playCoroutine = StartCoroutine(PlayNode(_currentNodeIndex));
         }
 
@@ -80,34 +78,33 @@ namespace Scripts.Chatting.ChatSystem
             _messageData = messageData;
             _log = log;
             _onSave = onSave;
-
-            _currentNodeIndex = Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length);
             
+            _currentNodeIndex = Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length);
+    
             if (_playCoroutine != null)
             {
                 StopCoroutine(_playCoroutine);
             }
-            
+    
             foreach (Transform child in contentParent)
             {
                 Destroy(child.gameObject);
             }
-            
-            foreach (var msgData in _log.messages)
+    
+            foreach (MessageData msgData in _log.messages)
             {
                 SpawnMessageBubble(msgData.text, msgData.isMine);
             }
             
+            if (_log.judgeState != SpamJudgeState.UnKnown)
+            {
+                SpawnMessageBubble("판별이 완료되었습니다.", false);
+                return;
+            }
+    
             if (_currentNodeIndex >= _messageData.nodes.Length)
             {
-                if (!_log.judgedSpam.HasValue)
-                {
-                    ShowEndJudgeButtons();
-                }
-                else
-                {
-                    SpawnMessageBubble("판별이 완료되었습니다.", false);
-                }
+                ShowEndJudgeButtons();
                 return;
             }
 
@@ -128,7 +125,7 @@ namespace Scripts.Chatting.ChatSystem
             foreach (string msg in node.messages)
             {
                 bool isAlreadyLogged = false;
-                foreach (var loggedMsg in _log.messages)
+                foreach (MessageData loggedMsg in _log.messages)
                 {
                     if (loggedMsg.text == msg)
                     {
@@ -148,7 +145,7 @@ namespace Scripts.Chatting.ChatSystem
             
             if (node.choices != null && node.choices.Length > 0)
             {
-                foreach (var choice in node.choices)
+                foreach (DialogueChoice choice in node.choices)
                 {
                     ChoiceButton btn = Instantiate(choiceButtonPrefab, contentParent);
                     btn.Setup(choice.answer, Color.white, () => OnChoice(choice.answer, choice.nextNodeIndex));
@@ -210,10 +207,10 @@ namespace Scripts.Chatting.ChatSystem
             _onSave?.Invoke();
         }
 
-        private void OnSpamJudge(bool judgedSpam)
+        private void OnSpamJudge(SpamJudgeState judgedSpam)
         {
             ClearButtons();
-            _log.judgedSpam = judgedSpam;
+            _log.judgeState = judgedSpam;
 
             Debug.Log(judgedSpam == _messageData.isSpam
                 ? "성공 올바르게 판별했습니다."
@@ -228,10 +225,10 @@ namespace Scripts.Chatting.ChatSystem
             ClearButtons();
 
             ChoiceButton spamBtn = Instantiate(choiceButtonPrefab, contentParent);
-            spamBtn.Setup("스팸", Color.red, () => OnSpamJudge(true));
+            spamBtn.Setup("스팸", Color.red, () => OnSpamJudge(SpamJudgeState.Spam));
 
             ChoiceButton normalBtn = Instantiate(choiceButtonPrefab, contentParent);
-            normalBtn.Setup("정상", Color.green, () => OnSpamJudge(false));
+            normalBtn.Setup("정상", Color.green, () => OnSpamJudge(SpamJudgeState.NotSpam));
 
             ScrollToBottom();
         }

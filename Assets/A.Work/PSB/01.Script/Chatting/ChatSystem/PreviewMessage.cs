@@ -64,6 +64,8 @@ namespace Scripts.Chatting.ChatSystem
             transform.DOLocalMoveY(transform.localPosition.y - 75f, 0.25f)
                     .SetEase(Ease.InCubic)
                     .OnComplete(() => Destroy(gameObject));
+            
+            ChatListWindow.Instance.OnRefreshUI?.Invoke(_messageData);
         }
         
         

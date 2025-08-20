@@ -59,4 +59,4 @@ MonoBehaviour:
     choices:
     - answer: "\uC608?"
       nextNodeIndex: -1
-  isSpam: 1
+  isSpam: 2

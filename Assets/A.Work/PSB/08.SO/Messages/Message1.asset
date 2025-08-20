@@ -54,4 +54,4 @@ MonoBehaviour:
       nextNodeIndex: -1
     - answer: "\uAE84\uC545 "
       nextNodeIndex: -1
-  isSpam: 0
+  isSpam: 1

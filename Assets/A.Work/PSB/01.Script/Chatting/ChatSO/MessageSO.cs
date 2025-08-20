@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.Test;
+using UnityEngine;
 
 namespace Scripts.Chatting.ChatSO
 {
@@ -32,6 +33,6 @@ namespace Scripts.Chatting.ChatSO
         public DialogueNode[] nodes;
         
         [Header("SpamValue")]
-        public bool isSpam;
+        public SpamJudgeState isSpam;
     }
 }
