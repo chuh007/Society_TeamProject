@@ -1,16 +1,17 @@
-﻿using Scripts.Test;
+﻿using System;
+using Scripts.Chatting.ChatSystem;
 using UnityEngine;
 
 namespace Scripts.Chatting.ChatSO
 {
-    [System.Serializable]
+    [Serializable]
     public class DialogueNode
     {
         [TextArea] public string[] messages;
         public DialogueChoice[] choices;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class DialogueChoice
     {
         [TextArea] public string answer;

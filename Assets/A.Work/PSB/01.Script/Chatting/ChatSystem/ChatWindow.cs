@@ -2,7 +2,6 @@
 using System.Collections;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
-using Scripts.Test;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,7 +35,7 @@ namespace Scripts.Chatting.ChatSystem
 
         public void BringToFront() => transform.SetAsLastSibling();
 
-        public void ReOpen(MessageSO messageData, ConversationLog log, System.Action onSave)
+        public void ReOpen(MessageSO messageData, ConversationLog log, Action onSave)
         {
             _messageData = messageData;
             _log = log;
@@ -72,7 +71,7 @@ namespace Scripts.Chatting.ChatSystem
             _playCoroutine = StartCoroutine(PlayNode(_currentNodeIndex));
         }
 
-        public void OpenRoom(MessageSO messageData, ConversationLog log, System.Action onSave)
+        public void OpenRoom(MessageSO messageData, ConversationLog log, Action onSave)
         {
             gameObject.SetActive(true);
             _messageData = messageData;

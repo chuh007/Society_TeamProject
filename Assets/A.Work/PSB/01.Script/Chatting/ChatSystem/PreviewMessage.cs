@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Scripts.Chatting.ChatCore;
 using Scripts.Chatting.ChatSO;
-using Scripts.Test;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
