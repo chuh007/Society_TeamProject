@@ -18,7 +18,7 @@ namespace Scripts.Chatting.ChatSystem
         [SerializeField] private MessageBubble myMessagePrefab;  // 우측 말풍선
         [SerializeField] private ChoiceButton choiceButtonPrefab;
 
-        [Header("Controls (Optional)")]
+        [Header("Controls")]
         [SerializeField] private Button closeButton;
 
         private ConversationLog _log;
@@ -35,72 +35,39 @@ namespace Scripts.Chatting.ChatSystem
 
         public void BringToFront() => transform.SetAsLastSibling();
 
+        #region Public API
         public void ReOpen(MessageSO messageData, ConversationLog log, Action onSave)
         {
-            _messageData = messageData;
-            _log = log;
-            _onSave = onSave;
-            _currentNodeIndex = _log.currentNodeIndex;
-
-            ClearButtons();
-
-            if (_playCoroutine != null) StopCoroutine(_playCoroutine);
-
-            foreach (Transform child in contentParent)
-            {
-                Destroy(child.gameObject);
-            }
-
-            foreach (MessageData msgData in _log.messages)
-            {
-                SpawnMessageBubble(msgData.text, msgData.isMine);
-            }
-            
-            if (_log.judgeState != SpamJudgeState.UnKnown)
-            {
-                SpawnMessageBubble("판별이 완료되었습니다.", false);
-                return;
-            }
-
-            if (_currentNodeIndex > _messageData.nodes.Length)
-            {
-                ShowEndJudgeButtons();
-                return;
-            }
-    
-            _playCoroutine = StartCoroutine(PlayNode(_currentNodeIndex));
+            SetupRoom(messageData, log, onSave, false);
         }
 
         public void OpenRoom(MessageSO messageData, ConversationLog log, Action onSave)
         {
             gameObject.SetActive(true);
+            SetupRoom(messageData, log, onSave, true);
+        }
+        #endregion
+
+        #region Room Setup
+        private void SetupRoom(MessageSO messageData, ConversationLog log, Action onSave, bool clampIndex)
+        {
             _messageData = messageData;
             _log = log;
             _onSave = onSave;
-            
-            _currentNodeIndex = Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length);
-    
-            if (_playCoroutine != null)
-            {
-                StopCoroutine(_playCoroutine);
-            }
-    
-            foreach (Transform child in contentParent)
-            {
-                Destroy(child.gameObject);
-            }
-    
-            foreach (MessageData msgData in _log.messages)
-            {
-                SpawnMessageBubble(msgData.text, msgData.isMine);
-            }
-            
+
+            _currentNodeIndex = clampIndex
+                ? Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length)
+                : _log.currentNodeIndex;
+
+            ResetContent();
+            RestoreMessages();
+
             if (_log.judgeState != SpamJudgeState.UnKnown)
             {
-                SpawnMessageBubble("판별이 완료되었습니다.", false);
+                ShowJudgeResult();
                 return;
             }
-    
+
             if (_currentNodeIndex >= _messageData.nodes.Length)
             {
                 ShowEndJudgeButtons();
@@ -109,7 +76,35 @@ namespace Scripts.Chatting.ChatSystem
 
             _playCoroutine = StartCoroutine(PlayNode(_currentNodeIndex));
         }
-        
+
+        private void ResetContent()
+        {
+            ClearButtons();
+            if (_playCoroutine != null)
+                StopCoroutine(_playCoroutine);
+
+            foreach (Transform child in contentParent)
+                Destroy(child.gameObject);
+        }
+
+        private void RestoreMessages()
+        {
+            foreach (MessageData msgData in _log.messages)
+                SpawnMessageBubble(msgData.text, msgData.isMine);
+        }
+
+        private void ShowJudgeResult()
+        {
+            bool isSuccess = _log.judgeState == _messageData.isSpam;
+
+            if (isSuccess)
+                SpawnMessageBubble("성공! 올바르게 판별했습니다.", false);
+            else
+                SpawnMessageBubble("실패! 잘못 판별했습니다.", false);
+        }
+        #endregion
+
+        #region Dialogue Flow
         private IEnumerator PlayNode(int index)
         {
             if (_messageData == null || index < 0 || index >= _messageData.nodes.Length)
@@ -119,21 +114,10 @@ namespace Scripts.Chatting.ChatSystem
             }
 
             DialogueNode node = _messageData.nodes[index];
-            
-            // ... (메시지 중복 출력 방지 로직은 기존과 동일)
+
             foreach (string msg in node.messages)
             {
-                bool isAlreadyLogged = false;
-                foreach (MessageData loggedMsg in _log.messages)
-                {
-                    if (loggedMsg.text == msg)
-                    {
-                        isAlreadyLogged = true;
-                        break;
-                    }
-                }
-
-                if (!isAlreadyLogged)
+                if (!_log.messages.Exists(m => m.text == msg))
                 {
                     SpawnMessageBubble(msg, false);
                     _log.messages.Add(new MessageData { text = msg, isMine = false });
@@ -141,7 +125,7 @@ namespace Scripts.Chatting.ChatSystem
                     yield return new WaitForSeconds(0.4f);
                 }
             }
-            
+
             if (node.choices != null && node.choices.Length > 0)
             {
                 foreach (DialogueChoice choice in node.choices)
@@ -153,7 +137,6 @@ namespace Scripts.Chatting.ChatSystem
             }
             else
             {
-                // 선택지가 없는 노드에 도달하면 다음 노드로 넘어가거나 종료
                 if (index + 1 < _messageData.nodes.Length)
                 {
                     _log.currentNodeIndex = index + 1;
@@ -162,13 +145,12 @@ namespace Scripts.Chatting.ChatSystem
                 }
                 else
                 {
-                    // 다음 노드가 없으면 대화 종료
                     _log.currentNodeIndex = _messageData.nodes.Length;
                     _onSave?.Invoke();
                     ShowEndJudgeButtons();
                 }
             }
-            
+
             _playCoroutine = null;
         }
 
@@ -195,27 +177,20 @@ namespace Scripts.Chatting.ChatSystem
                 StopCoroutine(_playCoroutine);
 
             if (_currentNodeIndex < _messageData.nodes.Length)
-            {
                 _playCoroutine = StartCoroutine(PlayNode(_currentNodeIndex));
-            }
             else
-            {
                 ShowEndJudgeButtons();
-            }
 
             _onSave?.Invoke();
         }
+        #endregion
 
+        #region Judge
         private void OnSpamJudge(SpamJudgeState judgedSpam)
         {
             ClearButtons();
             _log.judgeState = judgedSpam;
-
-            Debug.Log(judgedSpam == _messageData.isSpam
-                ? "성공 올바르게 판별했습니다."
-                : "실패 잘못 판별했습니다.");
-            
-            SpawnMessageBubble("판별이 완료되었습니다.", false);
+            ShowJudgeResult();
             _onSave?.Invoke();
         }
 
@@ -231,7 +206,9 @@ namespace Scripts.Chatting.ChatSystem
 
             ScrollToBottom();
         }
+        #endregion
 
+        #region Helpers
         private void SpawnMessageBubble(string msg, bool isMine)
         {
             MessageBubble prefab = isMine ? myMessagePrefab : messagePrefab;
@@ -245,9 +222,7 @@ namespace Scripts.Chatting.ChatSystem
             {
                 Transform t = contentParent.GetChild(i);
                 if (t.GetComponent<ChoiceButton>() != null)
-                {
                     Destroy(t.gameObject);
-                }
             }
         }
 
@@ -267,11 +242,7 @@ namespace Scripts.Chatting.ChatSystem
             }
         }
 
-        private void CloseWindow()
-        {
-            gameObject.SetActive(false);
-        }
-        
-        
+        private void CloseWindow() => gameObject.SetActive(false);
+        #endregion
     }
 }

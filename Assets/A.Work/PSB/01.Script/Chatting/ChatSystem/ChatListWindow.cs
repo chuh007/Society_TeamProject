@@ -1,9 +1,9 @@
 ﻿using System;
 using Scripts.Chatting.ChatCore;
 using Scripts.Chatting.ChatSO;
-using Scripts.Chatting.ChatSystem;
 using Scripts.Chatting.ChatUI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Scripts.Chatting.ChatSystem
 {
@@ -24,6 +24,7 @@ namespace Scripts.Chatting.ChatSystem
         }
 
         private void OnEnable() => RefreshAll();
+        
         public Action<MessageSO> OnRefreshUI => Refresh;
         
         public void Refresh(MessageSO so)
