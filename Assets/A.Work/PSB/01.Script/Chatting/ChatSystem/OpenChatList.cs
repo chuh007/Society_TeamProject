@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +19,8 @@ namespace Scripts.Chatting.ChatSystem
             
             _button.onClick.AddListener(OpenList);
             _closeBtn.onClick.AddListener(CloseList);
+            
+            chatPrefab.transform.position = transform.position;
         }
 
         private void Start()
@@ -34,12 +36,21 @@ namespace Scripts.Chatting.ChatSystem
 
         private void OpenList()
         {
+            chatPrefab.transform.localScale = Vector3.zero;
             chatPrefab.gameObject.SetActive(true);
+            
+            chatPrefab.transform.DOMove(chatParent.position, 0.5f);
+            chatPrefab.transform.DOScale(Vector3.one, 0.5f);
         }
 
         private void CloseList()
         {
-            chatPrefab.gameObject.SetActive(false);
+            chatPrefab.transform.DOMove(transform.position, 0.5f);
+            chatPrefab.transform.DOScale(Vector3.zero, 0.5f)
+                .OnComplete(() =>
+                {
+                    chatPrefab.gameObject.SetActive(false);
+                });
         }
         
     }
