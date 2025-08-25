@@ -15,7 +15,7 @@ MonoBehaviour:
   roomId: D
   roomName: DuoLingo
   icon: {fileID: 2800000, guid: 2fe788e89ca416a478e24db61d072bcc, type: 3}
-  number: "\uB4C0\uC624\uB9C1\uACE0"
+  number: press@duolingo.com
   messagePreview:
   - "\uC624\uB298 \uB4C0\uC624\uB9C1\uACE0 \uD558\uC168\uB098\uC694?"
   nodes:

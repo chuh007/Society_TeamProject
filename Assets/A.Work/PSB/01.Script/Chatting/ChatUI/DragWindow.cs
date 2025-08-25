@@ -7,7 +7,7 @@ namespace Scripts.Chatting.ChatUI
     public class DragWindow : MonoBehaviour, IDragHandler, IPointerDownHandler, IEndDragHandler
     {
         private Canvas _canvas;
-        [SerializeField] private RectTransform _rectTransform;
+        private RectTransform _rectTransform;
         private RectTransform _canvasRect;
 
         private void Awake()
@@ -44,8 +44,8 @@ namespace Scripts.Chatting.ChatUI
 
             float minX = -canvasSize.x * 0.5f + halfWidth;
             float maxX = canvasSize.x * 0.5f - halfWidth;
-            float minY = -canvasSize.y * 0.5f + halfHeight;
-            float maxY = canvasSize.y * 0.5f - halfHeight;
+            float minY = -canvasSize.y * 0.8f + halfHeight;
+            float maxY = canvasSize.y * 0.8f - halfHeight;
             
             pos.x = Mathf.Clamp(pos.x, minX, maxX);
             pos.y = Mathf.Clamp(pos.y, minY, maxY);

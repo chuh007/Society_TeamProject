@@ -29,8 +29,6 @@ namespace Scripts.Chatting.ChatCore
 
                 // 메시지 UI 생성
                 GameObject inst = Instantiate(messagePrefab, messageParent);
-                inst.transform.DOMoveY(75, 0.5f);
-
                 PreviewMessage msg = inst.GetComponent<PreviewMessage>();
                 msg.Initialize(randomSo, chatWindowPrefab, chatParent);
             }

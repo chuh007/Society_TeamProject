@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
 using UnityEngine;
@@ -31,24 +32,39 @@ namespace Scripts.Chatting.ChatSystem
         {
             if (closeButton != null)
                 closeButton.onClick.AddListener(CloseWindow);
+            
+            transform.localScale = Vector3.zero;
+
+            transform.DOScale(Vector3.one, 0.5f);
         }
 
         public void BringToFront() => transform.SetAsLastSibling();
 
-        #region Public API
+        #region 창 열기
+        
         public void ReOpen(MessageSO messageData, ConversationLog log, Action onSave)
         {
+            transform.DOScale(Vector3.one, 0.5f)
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(true);
+                });
             SetupRoom(messageData, log, onSave, false);
         }
 
         public void OpenRoom(MessageSO messageData, ConversationLog log, Action onSave)
         {
-            gameObject.SetActive(true);
+            transform.DOScale(Vector3.one, 0.5f)
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(true);
+                });
             SetupRoom(messageData, log, onSave, true);
         }
         #endregion
 
-        #region Room Setup
+        #region 방 세팅
+        
         private void SetupRoom(MessageSO messageData, ConversationLog log, Action onSave, bool clampIndex)
         {
             _messageData = messageData;
@@ -104,7 +120,8 @@ namespace Scripts.Chatting.ChatSystem
         }
         #endregion
 
-        #region Dialogue Flow
+        #region 대화 
+        
         private IEnumerator PlayNode(int index)
         {
             if (_messageData == null || index < 0 || index >= _messageData.nodes.Length)
@@ -185,7 +202,8 @@ namespace Scripts.Chatting.ChatSystem
         }
         #endregion
 
-        #region Judge
+        #region 판단
+        
         private void OnSpamJudge(SpamJudgeState judgedSpam)
         {
             ClearButtons();
@@ -208,7 +226,8 @@ namespace Scripts.Chatting.ChatSystem
         }
         #endregion
 
-        #region Helpers
+        #region 메시지, 버튼 등
+        
         private void SpawnMessageBubble(string msg, bool isMine)
         {
             MessageBubble prefab = isMine ? myMessagePrefab : messagePrefab;
@@ -242,7 +261,15 @@ namespace Scripts.Chatting.ChatSystem
             }
         }
 
-        private void CloseWindow() => gameObject.SetActive(false);
+        private void CloseWindow()
+        {
+            transform.DOScale(Vector3.zero, 0.5f)
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                });
+        }
+
         #endregion
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Scripts.Chatting.ChatCore;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
@@ -37,7 +38,7 @@ namespace Scripts.Chatting.ChatSystem
         {
             if (ChatManager.Instance == null)
             {
-                Debug.LogError("ChatManager 인스턴스를 찾을 수 없습니다!");
+                Debug.LogError("ChatManager 인스턴스를 찾을 수 없습니다");
                 return;
             }
 
@@ -60,7 +61,7 @@ namespace Scripts.Chatting.ChatSystem
                 if (exists) continue;
 
                 // database에서 MessageSO 찾기
-                MessageSO so = FindMessageSO(roomId, log.roomName);
+                MessageSO so = FindMessageSO(roomId);
 
                 AddChatRoomItem(so, log);
             }
@@ -70,13 +71,13 @@ namespace Scripts.Chatting.ChatSystem
         {
             if (roomItemPrefab == null)
             {
-                Debug.LogError("ChatRoomItem 프리팹이 할당되지 않았습니다!");
+                Debug.LogError("ChatRoomItem 프리팹이 할당되지 않았습니다");
                 return;
             }
             
             if (ChatManager.Instance == null)
             {
-                Debug.LogError("ChatManager 인스턴스를 찾을 수 없습니다!");
+                Debug.LogError("ChatManager 인스턴스를 찾을 수 없습니다");
                 return;
             }
             
@@ -93,6 +94,7 @@ namespace Scripts.Chatting.ChatSystem
             ConversationLog log = ChatManager.Instance.GetOrCreateLog(so);
 
             ChatRoomItem item = Instantiate(roomItemPrefab, contentParent);
+            
             item.Setup(so, log, () =>
             {
                 ChatManager.Instance.OpenChatWindow(so, chatWindowPrefab, chatParent);
@@ -111,7 +113,7 @@ namespace Scripts.Chatting.ChatSystem
             });
         }
 
-        private MessageSO FindMessageSO(string roomId, string fallbackName)
+        private MessageSO FindMessageSO(string roomId)
         {
             if (database == null || database.allMessages == null) return null;
             foreach (var so in database.allMessages)
