@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 213872079}
   - component: {fileID: 213872080}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: SliderTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,6 +393,7 @@ RectTransform:
   - {fileID: 2034780164}
   - {fileID: 215431277}
   - {fileID: 213872079}
+  - {fileID: 1484537363}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -572,8 +573,8 @@ MonoBehaviour:
   messagePrefab: {fileID: 7859477524127762058, guid: 62aa8aaabc970b84285e8a0d7bb19be0, type: 3}
   messageParent: {fileID: 957725490}
   chatWindowPrefab: {fileID: 2945738624720494145, guid: 9a35d860b227ff24cba95facee5831b1, type: 3}
-  chatParent: {fileID: 896344293}
-  spawnInterval: 15
+  chatParent: {fileID: 1484537363}
+  spawnInterval: 10
   cooldownAfterClick: 1
 --- !u!1 &1085601650
 GameObject:
@@ -937,6 +938,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440349426}
   m_CullTransparentMesh: 1
+--- !u!1 &1484537362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1484537363}
+  m_Layer: 5
+  m_Name: Spawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1484537363
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484537362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 896344293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1519435454
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,7 +94,7 @@ namespace Scripts.Chatting.ChatSystem
 
             if (_log.judgeState != SpamJudgeState.UnKnown)
             {
-                ShowJudgeResult();
+                ShowJudgeResult(false);
                 return;
             }
 
@@ -123,20 +123,26 @@ namespace Scripts.Chatting.ChatSystem
                 SpawnMessageBubble(msgData.text, msgData.isMine);
         }
 
-        private void ShowJudgeResult()
+        private void ShowJudgeResult(bool triggerEvent = true)
         {
             bool isSuccess = _log.judgeState == _messageData.isSpam;
 
+            if (triggerEvent)
+            {
+                if (isSuccess)
+                {
+                    OnSuccess?.Invoke(_messageData.value);
+                }
+                else
+                {
+                    OnFail?.Invoke(_messageData.value);
+                }
+            }
+
             if (isSuccess)
-            {
-                OnSuccess?.Invoke(_messageData.value);
                 SpawnMessageBubble("성공! 올바르게 판별했습니다.", false);
-            }
             else
-            {
-                OnFail?.Invoke(_messageData.value);
                 SpawnMessageBubble("실패! 잘못 판별했습니다.", false);
-            }
         }
         #endregion
 
@@ -228,7 +234,7 @@ namespace Scripts.Chatting.ChatSystem
         {
             ClearButtons();
             _log.judgeState = judgedSpam;
-            ShowJudgeResult();
+            ShowJudgeResult(true);
             _onSave?.Invoke();
         }
 
@@ -291,5 +297,6 @@ namespace Scripts.Chatting.ChatSystem
         }
 
         #endregion
+        
     }
 }

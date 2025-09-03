@@ -19,8 +19,7 @@ namespace Scripts.Chatting.ChatCore
         [SerializeField] private float spawnInterval = 50f; 
         [SerializeField] private float cooldownAfterClick = 15f; 
         
-        private bool _isMessageActive = false;   // 메시지가 떠 있는지
-        private bool _isCooldown = false;  
+        private bool _isMessageActive = false;
         private Coroutine _spawnRoutine;
 
         private void Start()
@@ -30,16 +29,25 @@ namespace Scripts.Chatting.ChatCore
 
         private IEnumerator SpawnRoutine()
         {
+            yield return new WaitForSeconds(spawnInterval);
+            
+            TrySpawnMessage();
+            
             while (true)
             {
-                yield return new WaitForSeconds(spawnInterval);
-
-                if (!_isMessageActive && !_isCooldown)
-                {
-                    SpawnMessage();
-                }
+                yield return new WaitForSeconds(cooldownAfterClick);
+                TrySpawnMessage();
             }
         }
+        
+        private void TrySpawnMessage()
+        {
+            if (_isMessageActive || IsChatWindowOpen())
+                return;
+
+            SpawnMessage();
+        }
+
 
         private void SpawnMessage()
         {
@@ -63,14 +71,16 @@ namespace Scripts.Chatting.ChatCore
         private void OnMessageClicked()
         {
             _isMessageActive = false;
-            StartCoroutine(CooldownRoutine());
         }
 
-        private IEnumerator CooldownRoutine()
+        private bool IsChatWindowOpen()
         {
-            _isCooldown = true;
-            yield return new WaitForSeconds(cooldownAfterClick);
-            _isCooldown = false;
+            foreach (var window in chatParent.GetComponentsInChildren<ChatWindow>(true))
+            {
+                if (window.gameObject.activeInHierarchy)
+                    return true;
+            }
+            return false;
         }
         
         
