@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatCore;
 using Scripts.Chatting.ChatSO;
@@ -18,6 +19,8 @@ namespace Scripts.Chatting.ChatSystem
         private Button _button;
         private ChatWindow _chatWindowPrefab;
         private Transform _chatParent;
+        
+        public event Action OnMessageClicked;
 
         private void Awake()
         {
@@ -60,12 +63,14 @@ namespace Scripts.Chatting.ChatSystem
             ChatManager.Instance.OpenChatWindow(_messageData, _chatWindowPrefab, _chatParent);
 
             yield return null;
-            
+
             transform.DOLocalMoveY(transform.localPosition.y - 75f, 0.25f)
-                    .SetEase(Ease.InCubic)
-                    .OnComplete(() => Destroy(gameObject));
-            
+                .SetEase(Ease.InCubic)
+                .OnComplete(() => Destroy(gameObject));
+
             ChatListWindow.Instance.OnRefreshUI?.Invoke(_messageData);
+
+            OnMessageClicked?.Invoke();
         }
         
         

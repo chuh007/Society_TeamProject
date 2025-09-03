@@ -60,3 +60,4 @@ MonoBehaviour:
     - answer: "\uC608?"
       nextNodeIndex: -1
   isSpam: 2
+  value: 20

@@ -29,8 +29,7 @@ MonoBehaviour:
       nextNodeIndex: 1
   - messages:
     - "\uB124. \uB9DE\uC2B5\uB2C8\uB2E4."
-    - "\uC774\uC81C\uBD80\uD130 \uD55C \uAC00\uC9C0 \uC77C\uB9CC \uD574\uC8FC\uC2E0\uB2E4\uBA74,\n\uBB34\uB8CC\uB85C
-      \uAC00\uB2A5\uD569\uB2C8\uB2E4."
+    - "\uC774\uC81C\uBD80\uD130 \uD55C \uAC00\uC9C0 \uC77C\uB9CC \uD574\uC8FC\uC2E0\uB2E4\uBA74,"
     - "\uBB34\uB8CC\uB85C \uAC00\uB2A5\uD569\uB2C8\uB2E4."
     choices:
     - answer: "\uBB34\uC2A8 \uC77C\uC778\uAC00\uC694?"
@@ -66,3 +65,4 @@ MonoBehaviour:
     - answer: "\uB135"
       nextNodeIndex: -1
   isSpam: 2
+  value: 10

@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
+using Scripts.Test;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,9 @@ namespace Scripts.Chatting.ChatSystem
         [Header("Controls")]
         [SerializeField] private Button closeButton;
 
+        public event Action<float> OnSuccess;
+        public event Action<float> OnFail;
+
         private ConversationLog _log;
         private MessageSO _messageData;
         private int _currentNodeIndex;
@@ -36,6 +40,16 @@ namespace Scripts.Chatting.ChatSystem
             transform.localScale = Vector3.zero;
 
             transform.DOScale(Vector3.one, 0.5f);
+        }
+        
+        private void OnEnable()
+        {
+            JudgeSliderTest.Register(this);
+        }
+
+        private void OnDisable()
+        {
+            JudgeSliderTest.Unregister(this);
         }
 
         public void BringToFront() => transform.SetAsLastSibling();
@@ -114,9 +128,15 @@ namespace Scripts.Chatting.ChatSystem
             bool isSuccess = _log.judgeState == _messageData.isSpam;
 
             if (isSuccess)
+            {
+                OnSuccess?.Invoke(_messageData.value);
                 SpawnMessageBubble("성공! 올바르게 판별했습니다.", false);
+            }
             else
+            {
+                OnFail?.Invoke(_messageData.value);
                 SpawnMessageBubble("실패! 잘못 판별했습니다.", false);
+            }
         }
         #endregion
 

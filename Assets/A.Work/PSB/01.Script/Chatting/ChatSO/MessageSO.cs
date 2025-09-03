@@ -35,5 +35,10 @@ namespace Scripts.Chatting.ChatSO
         
         [Header("SpamValue")]
         public SpamJudgeState isSpam;
+
+        [Header("JudgeValue")] 
+        public float value;
+        
+        
     }
 }
