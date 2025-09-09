@@ -35,6 +35,13 @@ namespace Scripts.Chatting.ChatSystem
 
         public void Initialize(MessageSO data, ChatWindow chatPrefab, Transform chatParent)
         {
+            if (ChatManager.Instance.HasAppeared(data))
+            {
+                return;
+            }
+            
+            ChatManager.Instance.RegisterMessage(data);
+            
             _messageData = data;
             _chatWindowPrefab = chatPrefab;
             _chatParent = chatParent;

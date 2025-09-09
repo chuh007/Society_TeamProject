@@ -15,6 +15,7 @@ namespace Scripts.Chatting.ChatCore
         public IReadOnlyDictionary<string, ConversationLog> Logs => _logs;
         
         private readonly Dictionary<string, ChatWindow> _openWindows = new();
+        private HashSet<MessageSO> _appearedMessages = new();
 
         private void Awake()
         {
@@ -124,7 +125,15 @@ namespace Scripts.Chatting.ChatCore
         public void ClearAll()
         {
             _logs.Clear();
+            _appearedMessages.Clear();
             SaveSystem.Clear();
+        }
+        
+        public bool HasAppeared(MessageSO message) => _appearedMessages.Contains(message);
+
+        public void RegisterMessage(MessageSO message)
+        {
+            _appearedMessages.Add(message);
         }
         
         

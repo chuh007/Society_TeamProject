@@ -23,14 +23,14 @@ namespace Scripts.Chatting.ChatSystem
         [Header("Controls")]
         [SerializeField] private Button closeButton;
 
-        public event Action<float> OnSuccess;
-        public event Action<float> OnFail;
+        public event Action<int, int> OnSuccess;
+        public event Action<int, int> OnFail;
+        public Action OnSave;
 
         private ConversationLog _log;
         private MessageSO _messageData;
         private int _currentNodeIndex;
         private Coroutine _playCoroutine;
-        private Action _onSave;
 
         private void Awake()
         {
@@ -83,7 +83,7 @@ namespace Scripts.Chatting.ChatSystem
         {
             _messageData = messageData;
             _log = log;
-            _onSave = onSave;
+            OnSave = onSave;
 
             _currentNodeIndex = clampIndex
                 ? Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length)
@@ -131,11 +131,11 @@ namespace Scripts.Chatting.ChatSystem
             {
                 if (isSuccess)
                 {
-                    OnSuccess?.Invoke(_messageData.value);
+                    OnSuccess?.Invoke(_messageData.value, _messageData.gradeSO.successMultiplier);
                 }
                 else
                 {
-                    OnFail?.Invoke(_messageData.value);
+                    OnFail?.Invoke(_messageData.value, _messageData.gradeSO.failMultiplier);
                 }
             }
 
@@ -183,13 +183,13 @@ namespace Scripts.Chatting.ChatSystem
                 if (index + 1 < _messageData.nodes.Length)
                 {
                     _log.currentNodeIndex = index + 1;
-                    _onSave?.Invoke();
+                    OnSave?.Invoke();
                     _playCoroutine = StartCoroutine(PlayNode(index + 1));
                 }
                 else
                 {
                     _log.currentNodeIndex = _messageData.nodes.Length;
-                    _onSave?.Invoke();
+                    OnSave?.Invoke();
                     ShowEndJudgeButtons();
                 }
             }
@@ -208,7 +208,7 @@ namespace Scripts.Chatting.ChatSystem
             if (nextIndex < 0)
             {
                 _log.currentNodeIndex = _messageData.nodes.Length;
-                _onSave?.Invoke();
+                OnSave?.Invoke();
                 ShowEndJudgeButtons();
                 return;
             }
@@ -224,7 +224,7 @@ namespace Scripts.Chatting.ChatSystem
             else
                 ShowEndJudgeButtons();
 
-            _onSave?.Invoke();
+            OnSave?.Invoke();
         }
         #endregion
 
@@ -235,7 +235,7 @@ namespace Scripts.Chatting.ChatSystem
             ClearButtons();
             _log.judgeState = judgedSpam;
             ShowJudgeResult(true);
-            _onSave?.Invoke();
+            OnSave?.Invoke();
         }
 
         private void ShowEndJudgeButtons()

@@ -66,3 +66,4 @@ MonoBehaviour:
       nextNodeIndex: -1
   isSpam: 2
   value: 10
+  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}

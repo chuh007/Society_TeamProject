@@ -124,6 +124,17 @@ namespace Scripts.Chatting.ChatSystem
             return null;
         }
         
+        public bool HasRoom(string roomId)
+        {
+            foreach (Transform child in contentParent)
+            {
+                ChatRoomItem existingItem = child.GetComponent<ChatRoomItem>();
+                if (existingItem != null && existingItem.id == roomId)
+                    return true;
+            }
+            return false;
+        }
+        
         
     }
 }

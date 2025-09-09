@@ -56,16 +56,29 @@ namespace Scripts.Chatting.ChatCore
                 Debug.LogWarning("MessageDatabaseSO가 비어있습니다!");
                 return;
             }
-
-            MessageSO randomSo = messageDB.allMessages[Random.Range(0, messageDB.allMessages.Length)];
-
-            GameObject inst = Instantiate(messagePrefab, messageParent);
-            PreviewMessage msg = inst.GetComponent<PreviewMessage>();
-            msg.Initialize(randomSo, chatWindowPrefab, chatParent);
             
-            _isMessageActive = true;
+            for (int i = 0; i < 10; i++)
+            {
+                MessageSO randomSo = messageDB.allMessages[Random.Range(0, messageDB.allMessages.Length)];
+        
+                if (ChatListWindow.Instance != null && ChatListWindow.Instance.HasRoom(randomSo.roomId))
+                {
+                    Debug.Log($"이미 방 존재: {randomSo.roomName}, Preview 생성 안 함");
+                    continue;
+                }
+
+                if (!ChatManager.Instance.HasAppeared(randomSo))
+                {
+                    GameObject inst = Instantiate(messagePrefab, messageParent);
+                    PreviewMessage msg = inst.GetComponent<PreviewMessage>();
+                    msg.Initialize(randomSo, chatWindowPrefab, chatParent);  
+                    msg.OnMessageClicked += OnMessageClicked;
+
+                    _isMessageActive = true;
+                    return;
+                }
+            }
             
-            msg.OnMessageClicked += OnMessageClicked;
         }
 
         private void OnMessageClicked()

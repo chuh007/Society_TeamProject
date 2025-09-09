@@ -9,44 +9,44 @@ namespace Scripts.Test
     {
         [SerializeField] private Slider slider;
 
-        private static JudgeSliderTest _instance;
+        public static JudgeSliderTest Instance;
         private readonly List<ChatWindow> _chatWindows = new();
 
         private void Awake()
         {
-            _instance = this;
+            Instance = this;
         }
 
         public static void Register(ChatWindow window)
         {
-            if (_instance == null) return;
-            if (!_instance._chatWindows.Contains(window))
+            if (Instance == null) return;
+            if (!Instance._chatWindows.Contains(window))
             {
-                _instance._chatWindows.Add(window);
-                window.OnSuccess += _instance.HandleSuccess;
-                window.OnFail += _instance.HandleFail;
+                Instance._chatWindows.Add(window);
+                window.OnSuccess += Instance.HandleSuccess;
+                window.OnFail += Instance.HandleFail;
             }
         }
 
         public static void Unregister(ChatWindow window)
         {
-            if (_instance == null) return;
-            if (_instance._chatWindows.Contains(window))
+            if (Instance == null) return;
+            if (Instance._chatWindows.Contains(window))
             {
-                _instance._chatWindows.Remove(window);
-                window.OnSuccess -= _instance.HandleSuccess;
-                window.OnFail -= _instance.HandleFail;
+                Instance._chatWindows.Remove(window);
+                window.OnSuccess -= Instance.HandleSuccess;
+                window.OnFail -= Instance.HandleFail;
             }
         }
 
-        private void HandleSuccess(float value)
+        private void HandleSuccess(int value, int multiplier)
         {
-            slider.value += value;
+            slider.value += value * multiplier;
         }
 
-        private void HandleFail(float value)
+        private void HandleFail(int value, int multiplier)
         {
-            slider.value -= value;
+            slider.value -= value * multiplier;
         }
         
     }
