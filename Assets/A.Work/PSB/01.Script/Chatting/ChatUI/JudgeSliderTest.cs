@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Scripts.Chatting.ChatSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.Test
+namespace Scripts.Chatting.ChatUI
 {
     public class JudgeSliderTest : MonoBehaviour
     {
@@ -11,6 +12,8 @@ namespace Scripts.Test
 
         public static JudgeSliderTest Instance;
         private readonly List<ChatWindow> _chatWindows = new();
+
+        public event Action<float> OnValueChanged;
 
         private void Awake()
         {
@@ -42,11 +45,13 @@ namespace Scripts.Test
         private void HandleSuccess(int value, int multiplier)
         {
             slider.value += value * multiplier;
+            OnValueChanged?.Invoke(slider.value);
         }
 
         private void HandleFail(int value, int multiplier)
         {
             slider.value -= value * multiplier;
+            OnValueChanged?.Invoke(slider.value);
         }
         
     }

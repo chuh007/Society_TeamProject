@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
+using Scripts.Test;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Scripts.Chatting.ChatCore
 {
@@ -19,12 +23,34 @@ namespace Scripts.Chatting.ChatCore
         [SerializeField] private float spawnInterval = 50f; 
         [SerializeField] private float cooldownAfterClick = 15f; 
         
+        private int _spawnedToday;
         private bool _isMessageActive = false;
         private Coroutine _spawnRoutine;
 
         private void Start()
         {
             _spawnRoutine = StartCoroutine(SpawnRoutine());
+        }
+        
+        private void OnEnable()
+        {
+            DaySystemTest.OnNextDay += ResetSpawnCount;
+        }
+
+        private void OnDisable()
+        {
+            DaySystemTest.OnNextDay -= ResetSpawnCount;
+        }
+
+        private void ResetSpawnCount()
+        {
+            _spawnedToday = 0;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.sKey.wasPressedThisFrame)
+                SpawnMessage();
         }
 
         private IEnumerator SpawnRoutine()
@@ -42,7 +68,7 @@ namespace Scripts.Chatting.ChatCore
         
         private void TrySpawnMessage()
         {
-            if (_isMessageActive || IsChatWindowOpen())
+            if (_isMessageActive || IsChatWindowOpen() || _spawnedToday >= 30)
                 return;
 
             SpawnMessage();
@@ -78,7 +104,7 @@ namespace Scripts.Chatting.ChatCore
                     return;
                 }
             }
-            
+            _spawnedToday++;
         }
 
         private void OnMessageClicked()
