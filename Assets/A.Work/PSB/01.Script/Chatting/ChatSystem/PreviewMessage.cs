@@ -19,6 +19,8 @@ namespace Scripts.Chatting.ChatSystem
         private Button _button;
         private ChatWindow _chatWindowPrefab;
         private Transform _chatParent;
+
+        private float curTime = 0;
         
         public event Action OnMessageClicked;
 
@@ -31,6 +33,15 @@ namespace Scripts.Chatting.ChatSystem
         private void OnDestroy()
         {
             if (_button != null) _button.onClick.RemoveListener(OnClick);
+        }
+
+        private void Update()
+        {
+            curTime += Time.deltaTime;
+            if (curTime >= 10)
+            {
+                StartCoroutine(DownCoroutine());
+            }
         }
 
         public void Initialize(MessageSO data, ChatWindow chatPrefab, Transform chatParent)
@@ -79,7 +90,15 @@ namespace Scripts.Chatting.ChatSystem
 
             OnMessageClicked?.Invoke();
         }
-        
+
+        private IEnumerator DownCoroutine()
+        {
+            Debug.Log("아무 클릭 이벤트가 없습니다. 자동으로 사라집니다.");
+            yield return null;
+            transform.DOLocalMoveY(transform.localPosition.y - 75f, 0.25f)
+                .SetEase(Ease.InCubic)
+                .OnComplete(() => Destroy(gameObject));
+        }
         
     }
 }

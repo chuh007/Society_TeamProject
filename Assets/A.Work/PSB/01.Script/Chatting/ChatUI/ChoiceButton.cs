@@ -11,10 +11,24 @@ namespace Scripts.Chatting.ChatUI
         [SerializeField] private TextMeshProUGUI label;
         [SerializeField] private Image background;
 
+        [SerializeField] private float paddingTopBottom = 10f;
+        [SerializeField] private float minHeight = 40f; 
+
         public void Setup(string text, Color color, UnityAction onClick)
         {
             if (label != null) label.text = text;
             if (background != null) background.color = color;
+            
+            if (label != null && background != null)
+            {
+                float preferredHeight = label.preferredHeight + paddingTopBottom * 2;
+                float finalHeight = Mathf.Max(preferredHeight, minHeight); 
+
+                RectTransform bgRect = background.rectTransform;
+                Vector2 size = bgRect.sizeDelta;
+                size.y = finalHeight;
+                bgRect.sizeDelta = size;
+            }
 
             if (button != null)
             {
@@ -22,6 +36,7 @@ namespace Scripts.Chatting.ChatUI
                 button.onClick.AddListener(onClick);
             }
         }
+        
         
     }
 }

@@ -24,12 +24,14 @@ namespace Scripts.Test
         {
             ChatWindow.OnGlobalSuccess += HandleSuccess;
             ChatWindow.OnGlobalFail += HandleFail;
+            OnNextDay += HandleNextDay;
         }
 
         private void OnDisable()
         {
             ChatWindow.OnGlobalSuccess -= HandleSuccess;
             ChatWindow.OnGlobalFail -= HandleFail;
+            OnNextDay -= HandleNextDay;
         }
 
         private void Awake()
@@ -50,6 +52,13 @@ namespace Scripts.Test
             _failCount++;
             _processedMessages++;
             CheckDayEnd();
+        }
+
+        private void HandleNextDay()
+        {
+            _successCount = 0;
+            _failCount = 0;
+            slider.value = 0;
         }
 
         private void CheckDayEnd()
@@ -76,12 +85,22 @@ namespace Scripts.Test
         private void CheckDayClear()
         {
             if (slider.value >= 50)
-                resultText.text = $"게임 클리어!\n성공:{_successCount}, 실패:{_failCount}";
+            {
+                resultText.text =
+                    "오늘 하루도 무사히 지나갔다."
+                    + $"오늘의 메시지 수 : {_processedMessages} "
+                    + $"성공:{_successCount}, 실패:{_failCount}";
+            }
             else
-                resultText.text = $"게임 실패...\n성공:{_successCount}, 실패:{_failCount}";
+            {
+                resultText.text =
+                    "우주가 잠시 꺼졌다... "
+                    + $"오늘의 메시지 수 : {_processedMessages}"
+                    + $"성공:{_successCount}, 실패:{_failCount}";
+            }
         }
         
-        public void CheckFinalClear()
+        private void CheckFinalClear()
         {
             if (slider.value >= 50)
                 resultText.text = $"게임 클리어!\n성공:{_successCount}, 실패:{_failCount}";
