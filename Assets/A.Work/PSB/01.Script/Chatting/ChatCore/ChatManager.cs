@@ -23,7 +23,7 @@ namespace Scripts.Chatting.ChatCore
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            _logs = SaveSystem.Load();
+            LoadMessages();
         }
 
         private void Update()
@@ -51,7 +51,7 @@ namespace Scripts.Chatting.ChatCore
                     judgeState = SpamJudgeState.UnKnown
                 };
                 _logs[so.roomId] = log;
-                SaveSystem.Save(_logs);
+                SaveAll();
             }
             else
             {
@@ -78,12 +78,12 @@ namespace Scripts.Chatting.ChatCore
             {
                 existing.gameObject.SetActive(true);
                 existing.BringToFront();
-                existing.ReOpen(so, log, () => SaveSystem.Save(_logs));
+                existing.ReOpen(so, log, SaveAll);
                 return;
             }
 
             ChatWindow inst = Instantiate(windowPrefab, parent);
-            inst.OpenRoom(so, log, () => SaveSystem.Save(_logs));
+            inst.OpenRoom(so, log, SaveAll);
             
             _openWindows[so.roomId] = inst;
         }
@@ -91,7 +91,7 @@ namespace Scripts.Chatting.ChatCore
         public void ClearAllData()
         {
             _logs.Clear();
-            SaveSystem.Clear(); 
+            SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 
             
             foreach (ChatWindow window in _openWindows.Values)
             {
@@ -120,13 +120,24 @@ namespace Scripts.Chatting.ChatCore
             _openWindows.Remove(roomId);
         }
 
-        public void SaveAll() => SaveSystem.Save(_logs);
+        public void LoadMessages()
+        {
+            var collection = SaveSystem.Load<SaveDTO.ConversationCollection>(SaveDTO.SaveKeys.ChatLogs);
+            _logs = collection?.ToDictionary() ?? new Dictionary<string, ConversationLog>();
+        }
+
+        public void SaveAll()
+        {
+            var collection = new SaveDTO.ConversationCollection();
+            collection.FromDictionary(_logs);
+            SaveSystem.Save(collection, SaveDTO.SaveKeys.ChatLogs);
+        }
         
         public void ClearAll()
         {
             _logs.Clear();
             _appearedMessages.Clear();
-            SaveSystem.Clear();
+            SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs);
         }
         
         public bool HasAppeared(MessageSO message) => _appearedMessages.Contains(message);

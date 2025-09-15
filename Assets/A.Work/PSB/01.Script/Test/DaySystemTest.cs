@@ -1,5 +1,7 @@
 ﻿using System;
 using Scripts.Chatting.ChatSystem;
+using Scripts.Chatting.ChatUI;
+using Scripts.Chatting.System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +14,7 @@ namespace Scripts.Test
         [SerializeField] private TextMeshProUGUI dayText;
         [SerializeField] private TextMeshProUGUI resultText;
 
+        [SerializeField] private int maxDay = 5;
         [SerializeField] private int maxMessagesPerDay = 3;
         private int _day = 1;
         private int _successCount;
@@ -19,6 +22,17 @@ namespace Scripts.Test
         private int _processedMessages;
 
         public static event Action OnNextDay; 
+        
+        private void Awake()
+        {
+            SaveDTO.GameProgress progress = SaveSystem.Load<SaveDTO.GameProgress>(SaveDTO.SaveKeys.DayValue);
+            _day = progress.day;
+            _successCount = progress.successCount;
+            _failCount = progress.failCount;
+            
+            dayText.text = $"Day {_day}";
+            resultText.text = "";
+        }
 
         private void OnEnable()
         {
@@ -32,12 +46,6 @@ namespace Scripts.Test
             ChatWindow.OnGlobalSuccess -= HandleSuccess;
             ChatWindow.OnGlobalFail -= HandleFail;
             OnNextDay -= HandleNextDay;
-        }
-
-        private void Awake()
-        {
-            dayText.text = $"Day {_day}";
-            resultText.text = "";
         }
 
         private void HandleSuccess()
@@ -58,7 +66,14 @@ namespace Scripts.Test
         {
             _successCount = 0;
             _failCount = 0;
-            slider.value = 0;
+            JudgeSliderTest.Instance.ResetSliderValue();
+            
+            SaveSystem.Save(new SaveDTO.GameProgress
+            {
+                day = _day,
+                successCount = _successCount,
+                failCount = _failCount,
+            }, SaveDTO.SaveKeys.DayValue);
         }
 
         private void CheckDayEnd()
@@ -71,7 +86,7 @@ namespace Scripts.Test
 
                 _day++;
 
-                if (_day > 10)
+                if (_day > maxDay)
                 {
                     CheckFinalClear();
                     return;
@@ -87,15 +102,15 @@ namespace Scripts.Test
             if (slider.value >= 50)
             {
                 resultText.text =
-                    "오늘 하루도 무사히 지나갔다."
-                    + $"오늘의 메시지 수 : {_processedMessages} "
+                    "오늘 하루도 무사히 지나갔다.\n"
+                    + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
             else
             {
                 resultText.text =
-                    "우주가 잠시 꺼졌다... "
-                    + $"오늘의 메시지 수 : {_processedMessages}"
+                    "우주가 잠시 꺼졌다...\n"
+                    + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
         }
@@ -107,6 +122,46 @@ namespace Scripts.Test
             else
                 resultText.text = $"게임 실패...\n성공:{_successCount}, 실패:{_failCount}";
         }
+
+        #region Temp
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                ResetAll();
+            }
+        }
+
+        private void ResetAll()
+        {
+            // Day 초기화
+            _day = 1;
+            _successCount = 0;
+            _failCount = 0;
+            _processedMessages = 0;
+            dayText.text = $"Day {_day}";
+            resultText.text = "";
+
+            // Slider 초기화
+            JudgeSliderTest.Instance?.ResetSliderValue();
+
+            // 필요하면 저장 초기화
+            SaveSystem.Save(new SaveDTO.GameProgress
+            {
+                day = _day,
+                successCount = _successCount,
+                failCount = _failCount,
+            }, SaveDTO.SaveKeys.DayValue);
+    
+            SaveSystem.Save(new SaveDTO.SliderProgress
+            {
+                sliderValue = 0
+            }, SaveDTO.SaveKeys.SliderValue);
+        }
+
+        #endregion
+        
         
     }
 }

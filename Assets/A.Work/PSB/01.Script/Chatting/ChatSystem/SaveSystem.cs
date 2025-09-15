@@ -8,48 +8,28 @@ namespace Scripts.Chatting.System
 {
     public static class SaveSystem
     {
-        private static string SavePath => Path.Combine(Application.persistentDataPath, "chatlog.json");
+        private static string GetPath(string fileName)
+            => Path.Combine(Application.persistentDataPath, fileName + ".json");
 
-        public static void Save(Dictionary<string, ConversationLog> logs)
+        public static void Save<T>(T data, string fileName)
         {
-            string json = JsonUtility.ToJson(new Wrapper(logs), true);
-            File.WriteAllText(SavePath, json);
+            string json = JsonUtility.ToJson(data, true);
+            File.WriteAllText(GetPath(fileName), json);
         }
 
-        public static Dictionary<string, ConversationLog> Load()
+        public static T Load<T>(string fileName) where T : new()
         {
-            if (!File.Exists(SavePath)) return new();
-            string json = File.ReadAllText(SavePath);
-            return JsonUtility.FromJson<Wrapper>(json).ToDictionary();
+            string path = GetPath(fileName);
+            if (!File.Exists(path))
+                return new T(); // 파일 없으면 기본값 반환
+            string json = File.ReadAllText(path);
+            return JsonUtility.FromJson<T>(json);
         }
 
-        public static void Clear()
+        public static void Clear(string fileName)
         {
-            if (File.Exists(SavePath))
-                File.Delete(SavePath);
-        }
-
-        [Serializable]
-        private class Wrapper
-        {
-            public List<ConversationLog> conversations = new();
-
-            public Wrapper(Dictionary<string, ConversationLog> dict)
-            {
-                conversations = new List<ConversationLog>(dict.Values);
-            }
-
-            public Dictionary<string, ConversationLog> ToDictionary()
-            {
-                Dictionary<string, ConversationLog> dict = new Dictionary<string, ConversationLog>();
-                
-                foreach (ConversationLog conv in conversations)
-                {
-                    dict[conv.roomId] = conv;
-                }
-                
-                return dict;
-            }
+            string path = GetPath(fileName);
+            if (File.Exists(path)) File.Delete(path);
         }
         
         

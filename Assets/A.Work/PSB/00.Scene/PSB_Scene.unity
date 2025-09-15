@@ -860,6 +860,7 @@ MonoBehaviour:
   slider: {fileID: 215431278}
   dayText: {fileID: 1395203824}
   resultText: {fileID: 234291385}
+  maxDay: 3
   maxMessagesPerDay: 2
 --- !u!1 &1382814036
 GameObject:
