@@ -37,6 +37,7 @@ namespace Scripts.Chatting.System
         public class GameProgress
         {
             public int day = 1;
+            public int processedMessages = 0;
             public int successCount;
             public int failCount;
         }

@@ -91,6 +91,7 @@ namespace Scripts.Chatting.ChatCore
         public void ClearAllData()
         {
             _logs.Clear();
+            _appearedMessages.Clear();
             SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 
             
             foreach (ChatWindow window in _openWindows.Values)
@@ -101,6 +102,16 @@ namespace Scripts.Chatting.ChatCore
                 }
             }
             _openWindows.Clear();
+            
+            if (ChatListWindow.Instance != null)
+            {
+                foreach (Transform child in ChatListWindow.Instance.contentParent)
+                {
+                    Destroy(child.gameObject);
+                }
+            }
+            
+            SaveAll();
         }
 
         public void CloseChatWindow(string roomId)
@@ -131,13 +142,6 @@ namespace Scripts.Chatting.ChatCore
             var collection = new SaveDTO.ConversationCollection();
             collection.FromDictionary(_logs);
             SaveSystem.Save(collection, SaveDTO.SaveKeys.ChatLogs);
-        }
-        
-        public void ClearAll()
-        {
-            _logs.Clear();
-            _appearedMessages.Clear();
-            SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs);
         }
         
         public bool HasAppeared(MessageSO message) => _appearedMessages.Contains(message);

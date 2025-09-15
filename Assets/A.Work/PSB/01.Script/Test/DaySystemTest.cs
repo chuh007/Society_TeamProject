@@ -27,6 +27,7 @@ namespace Scripts.Test
         {
             SaveDTO.GameProgress progress = SaveSystem.Load<SaveDTO.GameProgress>(SaveDTO.SaveKeys.DayValue);
             _day = progress.day;
+            _processedMessages = progress.processedMessages;
             _successCount = progress.successCount;
             _failCount = progress.failCount;
             
@@ -71,6 +72,7 @@ namespace Scripts.Test
             SaveSystem.Save(new SaveDTO.GameProgress
             {
                 day = _day,
+                processedMessages = _processedMessages,
                 successCount = _successCount,
                 failCount = _failCount,
             }, SaveDTO.SaveKeys.DayValue);
@@ -80,10 +82,9 @@ namespace Scripts.Test
         {
             if (_processedMessages >= maxMessagesPerDay)
             {
+                CheckDayClear();
                 _processedMessages = 0;
                 
-                CheckDayClear();
-
                 _day++;
 
                 if (_day > maxDay)
@@ -109,7 +110,7 @@ namespace Scripts.Test
             else
             {
                 resultText.text =
-                    "우주가 잠시 꺼졌다...\n"
+                    "오늘은 무사하지 않네...\n"
                     + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
@@ -120,7 +121,7 @@ namespace Scripts.Test
             if (slider.value >= 50)
                 resultText.text = $"게임 클리어!\n성공:{_successCount}, 실패:{_failCount}";
             else
-                resultText.text = $"게임 실패...\n성공:{_successCount}, 실패:{_failCount}";
+                resultText.text = $"그렇게 세계는 멸망했다...\n성공:{_successCount}, 실패:{_failCount}";
         }
 
         #region Temp
@@ -137,6 +138,7 @@ namespace Scripts.Test
         {
             // Day 초기화
             _day = 1;
+            _processedMessages = 0;
             _successCount = 0;
             _failCount = 0;
             _processedMessages = 0;
@@ -150,6 +152,7 @@ namespace Scripts.Test
             SaveSystem.Save(new SaveDTO.GameProgress
             {
                 day = _day,
+                processedMessages = _processedMessages,
                 successCount = _successCount,
                 failCount = _failCount,
             }, SaveDTO.SaveKeys.DayValue);

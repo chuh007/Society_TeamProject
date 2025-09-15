@@ -12,7 +12,7 @@ namespace Scripts.Chatting.ChatSystem
     {
         public static ChatListWindow Instance;
         
-        [SerializeField] private Transform contentParent;
+        [field: SerializeField] public Transform contentParent;
         [SerializeField] private ChatRoomItem roomItemPrefab;
         [SerializeField] private ChatWindow chatWindowPrefab;
         [SerializeField] private Transform chatParent;
