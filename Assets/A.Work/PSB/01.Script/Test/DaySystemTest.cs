@@ -1,6 +1,7 @@
 ﻿using System;
 using Scripts.Chatting.ChatSystem;
 using Scripts.Chatting.ChatUI;
+using Scripts.Chatting.Enums;
 using Scripts.Chatting.System;
 using TMPro;
 using UnityEngine;
@@ -21,7 +22,8 @@ namespace Scripts.Test
         private int _failCount;
         private int _processedMessages;
 
-        public static event Action OnNextDay; 
+        public static event Action OnNextDay;
+        public static event Action<DayResultType> OnDayEnd;
         
         private void Awake()
         {
@@ -78,6 +80,21 @@ namespace Scripts.Test
             }, SaveDTO.SaveKeys.DayValue);
         }
 
+        private DayResultType GetDayResultType()
+        {
+            if (_processedMessages == 0) return DayResultType.Normal;
+
+            float successRate = (float)_successCount / _processedMessages;
+
+            if (successRate >= 1f) return DayResultType.Perfect;
+            if (successRate >= 0.7f) return DayResultType.Success;
+            if (successRate >= 0.5f) return DayResultType.Normal;
+            if (successRate >= 0.2f) return DayResultType.Fail;
+            return DayResultType.Worst;
+        }
+
+        #region CheckEnd
+        
         private void CheckDayEnd()
         {
             if (_processedMessages >= maxMessagesPerDay)
@@ -114,16 +131,27 @@ namespace Scripts.Test
                     + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
+
+            DayResultType type = GetDayResultType();
+            OnDayEnd?.Invoke(type);
         }
         
         private void CheckFinalClear()
         {
             if (slider.value >= 50)
-                resultText.text = $"게임 클리어!\n성공:{_successCount}, 실패:{_failCount}";
+                resultText.text = 
+                    "게임 클리어!\n" 
+                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n" 
+                    + $"성공:{_successCount}, 실패:{_failCount}";
             else
-                resultText.text = $"그렇게 세계는 멸망했다...\n성공:{_successCount}, 실패:{_failCount}";
+                resultText.text = 
+                    "인터넷 세상은 멸망했다.\n" 
+                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n" 
+                    + $"성공:{_successCount}, 실패:{_failCount}";
         }
 
+        #endregion
+        
         #region Temp
 
         private void Update()
@@ -148,7 +176,7 @@ namespace Scripts.Test
             // Slider 초기화
             JudgeSliderTest.Instance?.ResetSliderValue();
 
-            // 필요하면 저장 초기화
+            // 저장 초기화
             SaveSystem.Save(new SaveDTO.GameProgress
             {
                 day = _day,
