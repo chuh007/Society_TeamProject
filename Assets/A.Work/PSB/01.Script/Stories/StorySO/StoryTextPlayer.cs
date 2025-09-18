@@ -27,7 +27,7 @@ namespace Scripts.Chatting.Stories
         private void FixedUpdate()
         {
             //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
-            if (GameBooleanSingleton.Instance.IsStory)
+            if (GameTypeSingleton.Instance.GameType == GameType.Story)
                 textPanel.SetActive(true);
             else
                 textPanel.SetActive(false);
@@ -74,8 +74,7 @@ namespace Scripts.Chatting.Stories
                 }
             }
 
-            GameBooleanSingleton.Instance.IsGame = true;
-            GameBooleanSingleton.Instance.IsStory = false;
+            GameTypeSingleton.Instance.GameType = GameType.Game;
         }
 
         private IEnumerator TypeMessage(string message)

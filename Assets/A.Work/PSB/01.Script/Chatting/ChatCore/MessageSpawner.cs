@@ -30,7 +30,7 @@ namespace Scripts.Chatting.ChatCore
 
         private void Start()
         {
-            _spawnRoutine = StartCoroutine(SpawnRoutine());
+            _spawnRoutine = StartCoroutine(TrySpawnRoutine());
         }
         
         private void OnEnable()
@@ -54,27 +54,40 @@ namespace Scripts.Chatting.ChatCore
                 TrySpawnMessage();
         }
 
-        private IEnumerator SpawnRoutine()
+        private IEnumerator TrySpawnRoutine()
         {
-            yield return new WaitForSeconds(spawnInterval);
-            
-            TrySpawnMessage();
-            
             while (true)
             {
-                yield return new WaitForSeconds(cooldownAfterClick);
-                TrySpawnMessage();
+                while (IsCanOpen())
+                {
+                    yield return null;
+                }
+                
+                yield return new WaitForSeconds(spawnInterval);
+
+                if (GameTypeSingleton.Instance.GameType != GameType.Story 
+                    && GameTypeSingleton.Instance.GameType != GameType.Result
+                    && !IsChatWindowOpen())
+                {
+                    TrySpawnMessage();
+                }
+                
+                float timer = 0f;
+                while (timer < cooldownAfterClick)
+                {
+                    if (IsCanOpen())
+                        break;
+
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
             }
         }
+
         
         private void TrySpawnMessage()
         {
-            if (IsChatWindowOpen())
-            {
-                Debug.LogError("Spawn false, bacause IsChatWindow is false");
-                return;
-            }
-            else if (_spawnedToday >= 30)
+            if (_spawnedToday >= 30)
             {
                 Debug.LogError("Spawn false, because spawnedToday is upper 30");
                 return;
@@ -82,16 +95,6 @@ namespace Scripts.Chatting.ChatCore
             else if (_isMessageActive)
             {
                 Debug.LogError("Spawn false, because isMessageActive is true");
-                return;
-            }
-            else if (GameBooleanSingleton.Instance.IsStory)
-            {
-                Debug.LogError("Spawn false, because IsStory is true");
-                return;
-            }
-            else if (GameBooleanSingleton.Instance.IsResult)
-            {
-                Debug.LogError("Spawn false, because IsResult is true");
                 return;
             }
 
@@ -144,6 +147,13 @@ namespace Scripts.Chatting.ChatCore
                     return true;
             }
             return false;
+        }
+
+        private bool IsCanOpen()
+        {
+            return GameTypeSingleton.Instance.GameType == GameType.Story
+                   || GameTypeSingleton.Instance.GameType == GameType.Result
+                   || IsChatWindowOpen();
         }
         
         

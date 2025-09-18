@@ -15,7 +15,6 @@ MonoBehaviour:
   nodes:
   - messages:
     - Success
-    - T1 Win
-    - "\uCD5C\uAC15 T1 \uC2B9\uB9AC\uD558\uB9AC\uB77C \uC6B0\uC6CC\uC6CC~"
+    - T1
   whatIsType: 1
-  nextTextDelay: 2
+  nextTextDelay: 1

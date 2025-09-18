@@ -30,7 +30,7 @@ namespace Scripts.Test
         private Button _closeResultPanelBtn;
 
         public static event Action OnNextDay;
-        public static event Action<DayResultType> OnDayEnd;
+        public static event Action<DayResultType> OnResultClose;
         
         private void Awake()
         {
@@ -49,14 +49,16 @@ namespace Scripts.Test
         private void FixedUpdate()
         {
             //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
-            if (GameBooleanSingleton.Instance.IsResult) 
+            if (GameTypeSingleton.Instance.GameType == GameType.Result
+                || GameTypeSingleton.Instance.GameType == GameType.Clear
+                || GameTypeSingleton.Instance.GameType == GameType.Fail) 
                 resultPanel.gameObject.SetActive(true);
             else  
                 resultPanel.gameObject.SetActive(false);
 
-            //이것도 더 효율적인 방법을 찾기
-            if (GameBooleanSingleton.Instance.IsGameClear
-                || GameBooleanSingleton.Instance.IsGameFail)
+            //이것도 더 효율적인 방법을 찾기 / 그냥 씬을 옮기기로 처리하던지
+            if (GameTypeSingleton.Instance.GameType == GameType.Clear
+                || GameTypeSingleton.Instance.GameType == GameType.Fail)
             {
                 _closeResultPanelBtn.gameObject.SetActive(false);
             }
@@ -101,6 +103,7 @@ namespace Scripts.Test
             _successCount = 0;
             _failCount = 0;
             JudgeSliderTest.Instance.ResetSliderValue();
+            dayText.text = $"Day {_day}";
             
             SaveSystem.Save(new SaveDTO.GameProgress
             {
@@ -113,22 +116,23 @@ namespace Scripts.Test
 
         private DayResultType GetDayResultType()
         {
-            if (_processedMessages == 0) return DayResultType.Normal;
+            float gauge = slider.value;
 
-            float successRate = (float)_successCount / _processedMessages;
-
-            if (successRate >= 1f) return DayResultType.Perfect;
-            if (successRate >= 0.7f) return DayResultType.Success;
-            if (successRate >= 0.5f) return DayResultType.Normal;
-            if (successRate >= 0.2f) return DayResultType.Fail;
-            return DayResultType.Worst;
+            if (gauge >= 100f) return DayResultType.Perfect;
+            else if (gauge >= 70f) return DayResultType.Success;
+            else if (gauge >= 50f) return DayResultType.Normal;
+            else if (gauge >= 20f) return DayResultType.Fail;
+            else return DayResultType.Worst;
         }
 
         private void CloseResultPanel()
         {
             resultPanel.gameObject.SetActive(false);
-            GameBooleanSingleton.Instance.IsStory = true;
-            GameBooleanSingleton.Instance.IsResult = false;
+            GameTypeSingleton.Instance.GameType = GameType.Story;
+            
+            DayResultType type = GetDayResultType();
+            OnResultClose?.Invoke(type);
+            OnNextDay?.Invoke();
         }
 
         #region CheckEnd
@@ -138,25 +142,21 @@ namespace Scripts.Test
             if (_processedMessages >= maxMessagesPerDay)
             {
                 CheckDayClear();
-                _processedMessages = 0;
                 
+                _processedMessages = 0;
                 _day++;
-
+                
                 if (_day > maxDay)
                 {
                     CheckFinalClear();
                     return;
                 }
-
-                dayText.text = $"Day {_day}";
-                OnNextDay?.Invoke();
             }
         }
 
         private void CheckDayClear()
         {
-            GameBooleanSingleton.Instance.IsResult = true;
-            GameBooleanSingleton.Instance.IsGame = false;
+            GameTypeSingleton.Instance.GameType = GameType.Result;
             resultPanel.SetAsLastSibling();
             
             if (slider.value >= 50)
@@ -173,30 +173,24 @@ namespace Scripts.Test
                     + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
-
-            DayResultType type = GetDayResultType();
-            OnDayEnd?.Invoke(type);
+            
         }
         
         private void CheckFinalClear()
         {
-            GameBooleanSingleton.Instance.IsGame = false;
-            
             if (slider.value >= 50)
             {
                 resultText.text =
                     "게임 클리어!\n"
                     + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
-                GameBooleanSingleton.Instance.IsStory = false;
-                GameBooleanSingleton.Instance.IsGameClear = true;
+                GameTypeSingleton.Instance.GameType = GameType.Clear;
             }
             else
             {
                 resultText.text =
                     "인터넷 세상은 멸망했다.\n"
                     + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
-                GameBooleanSingleton.Instance.IsStory = false;
-                GameBooleanSingleton.Instance.IsGameFail = true;
+                GameTypeSingleton.Instance.GameType = GameType.Fail;
             }
         }
 

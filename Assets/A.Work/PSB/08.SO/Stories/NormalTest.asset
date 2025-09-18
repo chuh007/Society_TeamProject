@@ -17,7 +17,6 @@ MonoBehaviour:
     - 'Normal
 
 '
-    - Hanwha Life Esports
-    - "\uCD5C\uAC15 HLE \uC2B9\uB9AC\uD558\uB9AC\uB77C \uC6B0\uC6CC\uC6CC~"
+    - HLE
   whatIsType: 2
-  nextTextDelay: 2
+  nextTextDelay: 1

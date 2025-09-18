@@ -47,8 +47,10 @@ namespace Scripts.Chatting.ChatSystem
 
         private void FixedUpdate()
         {
-            if (GameBooleanSingleton.Instance.IsResult
-                || GameBooleanSingleton.Instance.IsStory)
+            if (GameTypeSingleton.Instance.GameType == GameType.Result 
+                || GameTypeSingleton.Instance.GameType == GameType.Story
+                || GameTypeSingleton.Instance.GameType == GameType.Clear
+                || GameTypeSingleton.Instance.GameType == GameType.Fail)
             {
                 CloseWindow();
             }

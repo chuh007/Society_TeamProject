@@ -10,15 +10,15 @@ namespace Scripts.Chatting.Stories
 
         private void OnEnable()
         {
-            DaySystemTest.OnDayEnd += HandleDayEnd;
+            DaySystemTest.OnResultClose += HandleResultClose;
         }
 
         private void OnDisable()
         {
-            DaySystemTest.OnDayEnd -= HandleDayEnd;
+            DaySystemTest.OnResultClose -= HandleResultClose;
         }
 
-        private void HandleDayEnd(DayResultType resultType)
+        private void HandleResultClose(DayResultType resultType)
         {
             if (storyPlayer != null)
             {

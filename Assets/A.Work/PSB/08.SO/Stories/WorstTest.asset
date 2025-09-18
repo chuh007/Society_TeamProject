@@ -17,7 +17,6 @@ MonoBehaviour:
     - 'Worst
 
 '
-    - Dplus Kia
-    - "\uCD5C\uAC15 DK \uC2B9\uB9AC\uD558\uB9AC\uB77C \uC6B0\uC6CC\uC6CC~"
+    - DK
   whatIsType: 4
-  nextTextDelay: 2
+  nextTextDelay: 1
