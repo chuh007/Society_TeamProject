@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
+using Scripts.Cores;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -42,6 +43,15 @@ namespace Scripts.Chatting.ChatSystem
             transform.localScale = Vector3.zero;
 
             transform.DOScale(Vector3.one, 0.5f);
+        }
+
+        private void FixedUpdate()
+        {
+            if (GameBooleanSingleton.Instance.IsResult
+                || GameBooleanSingleton.Instance.IsStory)
+            {
+                CloseWindow();
+            }
         }
 
         private void OnEnable()

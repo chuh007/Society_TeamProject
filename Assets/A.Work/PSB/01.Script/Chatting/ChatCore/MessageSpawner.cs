@@ -3,6 +3,7 @@ using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
+using Scripts.Cores;
 using Scripts.Test;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -50,7 +51,7 @@ namespace Scripts.Chatting.ChatCore
         private void Update()
         {
             if (Keyboard.current.sKey.wasPressedThisFrame)
-                SpawnMessage();
+                TrySpawnMessage();
         }
 
         private IEnumerator SpawnRoutine()
@@ -68,8 +69,31 @@ namespace Scripts.Chatting.ChatCore
         
         private void TrySpawnMessage()
         {
-            if (_isMessageActive || IsChatWindowOpen() || _spawnedToday >= 30)
+            if (IsChatWindowOpen())
+            {
+                Debug.LogError("Spawn false, bacause IsChatWindow is false");
                 return;
+            }
+            else if (_spawnedToday >= 30)
+            {
+                Debug.LogError("Spawn false, because spawnedToday is upper 30");
+                return;
+            }
+            else if (_isMessageActive)
+            {
+                Debug.LogError("Spawn false, because isMessageActive is true");
+                return;
+            }
+            else if (GameBooleanSingleton.Instance.IsStory)
+            {
+                Debug.LogError("Spawn false, because IsStory is true");
+                return;
+            }
+            else if (GameBooleanSingleton.Instance.IsResult)
+            {
+                Debug.LogError("Spawn false, because IsResult is true");
+                return;
+            }
 
             SpawnMessage();
         }

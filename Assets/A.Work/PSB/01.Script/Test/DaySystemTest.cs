@@ -3,6 +3,7 @@ using Scripts.Chatting.ChatSystem;
 using Scripts.Chatting.ChatUI;
 using Scripts.Chatting.Enums;
 using Scripts.Chatting.System;
+using Scripts.Cores;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,16 +12,22 @@ namespace Scripts.Test
 {
     public class DaySystemTest : MonoBehaviour
     {
+        [Header("Day")]
         [SerializeField] private Slider slider;
         [SerializeField] private TextMeshProUGUI dayText;
-        [SerializeField] private TextMeshProUGUI resultText;
-
         [SerializeField] private int maxDay = 5;
         [SerializeField] private int maxMessagesPerDay = 3;
+        
+        [Header("Result")]
+        [SerializeField] private RectTransform resultPanel;
+        [SerializeField] private TextMeshProUGUI resultText;
+        
         private int _day = 1;
         private int _successCount;
         private int _failCount;
         private int _processedMessages;
+
+        private Button _closeResultPanelBtn;
 
         public static event Action OnNextDay;
         public static event Action<DayResultType> OnDayEnd;
@@ -32,9 +39,31 @@ namespace Scripts.Test
             _processedMessages = progress.processedMessages;
             _successCount = progress.successCount;
             _failCount = progress.failCount;
+            _closeResultPanelBtn = resultPanel.GetComponentInChildren<Button>();
             
             dayText.text = $"Day {_day}";
             resultText.text = "";
+            resultPanel.gameObject.SetActive(false);
+        }
+
+        private void FixedUpdate()
+        {
+            //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
+            if (GameBooleanSingleton.Instance.IsResult) 
+                resultPanel.gameObject.SetActive(true);
+            else  
+                resultPanel.gameObject.SetActive(false);
+
+            //이것도 더 효율적인 방법을 찾기
+            if (GameBooleanSingleton.Instance.IsGameClear
+                || GameBooleanSingleton.Instance.IsGameFail)
+            {
+                _closeResultPanelBtn.gameObject.SetActive(false);
+            }
+            else
+            {
+                _closeResultPanelBtn.gameObject.SetActive(true);
+            }
         }
 
         private void OnEnable()
@@ -42,13 +71,15 @@ namespace Scripts.Test
             ChatWindow.OnGlobalSuccess += HandleSuccess;
             ChatWindow.OnGlobalFail += HandleFail;
             OnNextDay += HandleNextDay;
+            _closeResultPanelBtn.onClick.AddListener(CloseResultPanel);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             ChatWindow.OnGlobalSuccess -= HandleSuccess;
             ChatWindow.OnGlobalFail -= HandleFail;
             OnNextDay -= HandleNextDay;
+            _closeResultPanelBtn.onClick.RemoveListener(CloseResultPanel);
         }
 
         private void HandleSuccess()
@@ -93,6 +124,13 @@ namespace Scripts.Test
             return DayResultType.Worst;
         }
 
+        private void CloseResultPanel()
+        {
+            resultPanel.gameObject.SetActive(false);
+            GameBooleanSingleton.Instance.IsStory = true;
+            GameBooleanSingleton.Instance.IsResult = false;
+        }
+
         #region CheckEnd
         
         private void CheckDayEnd()
@@ -117,6 +155,10 @@ namespace Scripts.Test
 
         private void CheckDayClear()
         {
+            GameBooleanSingleton.Instance.IsResult = true;
+            GameBooleanSingleton.Instance.IsGame = false;
+            resultPanel.SetAsLastSibling();
+            
             if (slider.value >= 50)
             {
                 resultText.text =
@@ -138,16 +180,24 @@ namespace Scripts.Test
         
         private void CheckFinalClear()
         {
+            GameBooleanSingleton.Instance.IsGame = false;
+            
             if (slider.value >= 50)
-                resultText.text = 
-                    "게임 클리어!\n" 
-                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n" 
-                    + $"성공:{_successCount}, 실패:{_failCount}";
+            {
+                resultText.text =
+                    "게임 클리어!\n"
+                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
+                GameBooleanSingleton.Instance.IsStory = false;
+                GameBooleanSingleton.Instance.IsGameClear = true;
+            }
             else
-                resultText.text = 
-                    "인터넷 세상은 멸망했다.\n" 
-                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n" 
-                    + $"성공:{_successCount}, 실패:{_failCount}";
+            {
+                resultText.text =
+                    "인터넷 세상은 멸망했다.\n"
+                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
+                GameBooleanSingleton.Instance.IsStory = false;
+                GameBooleanSingleton.Instance.IsGameFail = true;
+            }
         }
 
         #endregion

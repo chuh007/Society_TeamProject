@@ -2,15 +2,17 @@
 using System.Collections;
 using System.Linq;
 using Scripts.Chatting.Enums;
+using Scripts.Cores;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Scripts.Stories
+namespace Scripts.Chatting.Stories
 {
     public class StoryTextPlayer : MonoBehaviour
     {
         [SerializeField] private StoryDatabase storyDatabase;
+        [SerializeField] private GameObject textPanel;
         [SerializeField] private TextMeshProUGUI textUI;
         [SerializeField] private float charDelay = 0.1f;
 
@@ -18,7 +20,17 @@ namespace Scripts.Stories
 
         private void Awake()
         {
+            //textPanel.SetActive(false);
             textUI.text = "";
+        }
+
+        private void FixedUpdate()
+        {
+            //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
+            if (GameBooleanSingleton.Instance.IsStory)
+                textPanel.SetActive(true);
+            else
+                textPanel.SetActive(false);
         }
 
         public void PlayStory(DayResultType type)
@@ -26,6 +38,7 @@ namespace Scripts.Stories
             PickRandomStory(type);
             if (_currentStory == null) return;
 
+            //StartCoroutine(TextPanelShow());
             StopAllCoroutines();
             StartCoroutine(ShowMessagesCoroutine());
         }
@@ -34,7 +47,7 @@ namespace Scripts.Stories
         {
             if (storyDatabase == null || storyDatabase.stories.Length == 0) return;
 
-            var candidates = storyDatabase.stories
+            StoryTextSO[] candidates = storyDatabase.stories
                 .Where(s => s.whatIsType == type)
                 .ToArray();
 
@@ -44,16 +57,25 @@ namespace Scripts.Stories
             _currentStory = candidates[index];
         }
 
+        private IEnumerator TextPanelShow()
+        {
+            textPanel.SetActive(true);
+            yield return null;
+        }
+
         private IEnumerator ShowMessagesCoroutine()
         {
-            foreach (var node in _currentStory.nodes)
+            foreach (StoryNodes node in _currentStory.nodes)
             {
-                foreach (var message in node.messages)
+                foreach (string message in node.messages)
                 {
                     yield return StartCoroutine(TypeMessage(message));
                     yield return new WaitForSeconds(_currentStory.nextTextDelay);
                 }
             }
+
+            GameBooleanSingleton.Instance.IsGame = true;
+            GameBooleanSingleton.Instance.IsStory = false;
         }
 
         private IEnumerator TypeMessage(string message)

@@ -2,7 +2,7 @@
 using Scripts.Test;
 using UnityEngine;
 
-namespace Scripts.Stories
+namespace Scripts.Chatting.Stories
 {
     public class StoryManager : MonoBehaviour
     {

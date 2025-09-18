@@ -20,7 +20,7 @@ namespace Scripts.Chatting.ChatSystem
         private ChatWindow _chatWindowPrefab;
         private Transform _chatParent;
 
-        private float curTime = 0;
+        private float _curTime = 0;
         
         public event Action OnMessageClicked;
 
@@ -37,8 +37,8 @@ namespace Scripts.Chatting.ChatSystem
 
         private void Update()
         {
-            curTime += Time.deltaTime;
-            if (curTime >= 10)
+            _curTime += Time.deltaTime;
+            if (_curTime >= 10)
             {
                 StartCoroutine(DownCoroutine());
             }

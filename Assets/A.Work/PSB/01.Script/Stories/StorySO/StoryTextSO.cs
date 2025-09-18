@@ -2,7 +2,7 @@
 using Scripts.Chatting.Enums;
 using UnityEngine;
 
-namespace Scripts.Stories
+namespace Scripts.Chatting.Stories
 {
     [Serializable]
     public class StoryNodes

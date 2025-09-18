@@ -54,6 +54,6 @@ MonoBehaviour:
       nextNodeIndex: -1
     - answer: "\uAE84\uC545 "
       nextNodeIndex: -1
-  isSpam: 1
+  isSpam: 2
   value: 10
   gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
