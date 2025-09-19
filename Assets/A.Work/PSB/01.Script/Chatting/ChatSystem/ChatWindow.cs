@@ -3,8 +3,9 @@ using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
-using Scripts.Test;
+using Scripts.Cores;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Scripts.Chatting.ChatSystem
@@ -25,6 +26,8 @@ namespace Scripts.Chatting.ChatSystem
 
         public event Action<int, int> OnSuccess;
         public event Action<int, int> OnFail;
+        public static event Action OnGlobalSuccess;
+        public static event Action OnGlobalFail;
         public Action OnSave;
 
         private ConversationLog _log;
@@ -41,7 +44,18 @@ namespace Scripts.Chatting.ChatSystem
 
             transform.DOScale(Vector3.one, 0.5f);
         }
-        
+
+        private void FixedUpdate()
+        {
+            if (GameTypeSingleton.Instance.GameType == GameType.Result 
+                || GameTypeSingleton.Instance.GameType == GameType.Story
+                || GameTypeSingleton.Instance.GameType == GameType.Clear
+                || GameTypeSingleton.Instance.GameType == GameType.Fail)
+            {
+                CloseWindow();
+            }
+        }
+
         private void OnEnable()
         {
             JudgeSliderTest.Register(this);
@@ -132,10 +146,12 @@ namespace Scripts.Chatting.ChatSystem
                 if (isSuccess)
                 {
                     OnSuccess?.Invoke(_messageData.value, _messageData.gradeSO.successMultiplier);
+                    OnGlobalSuccess?.Invoke();
                 }
                 else
                 {
                     OnFail?.Invoke(_messageData.value, _messageData.gradeSO.failMultiplier);
+                    OnGlobalFail?.Invoke();
                 }
             }
 

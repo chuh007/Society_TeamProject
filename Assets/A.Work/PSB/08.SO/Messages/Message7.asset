@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: Message7
+  m_EditorClassIdentifier: 
+  roomId: S2
+  roomName: Spotify
+  icon: {fileID: 2800000, guid: c0a387bd296a9f749943b2bd7bcdd46a, type: 3}
+  number: 1234
+  messagePreview:
+  - Spotify
+  nodes:
+  - messages:
+    - Spotify
+    choices:
+    - answer: "\uC548\uD558\uB294\uB370\uC694?"
+      nextNodeIndex: 1
+    - answer: "\uD569\uB2C8\uB2E4."
+      nextNodeIndex: 2
+  - messages:
+    - "\u3145\u3131"
+    choices:
+    - answer: "\u3147\u3147"
+      nextNodeIndex: -1
+  - messages:
+    - "\u3131"
+    choices:
+    - answer: "\u3147\u3147"
+      nextNodeIndex: -1
+  isSpam: 2
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}

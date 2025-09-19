@@ -10,15 +10,14 @@ namespace Scripts.Chatting.ChatSystem
         [SerializeField] private RectTransform chatParent;
         
         private Button _button;
-        private Button _closeBtn;
+        [SerializeField] private Button closeBtn;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _closeBtn = chatPrefab.GetComponentInChildren<Button>();
             
             _button.onClick.AddListener(OpenList);
-            _closeBtn.onClick.AddListener(CloseList);
+            closeBtn.onClick.AddListener(CloseList);
             
             chatPrefab.transform.position = transform.position;
         }
@@ -31,7 +30,7 @@ namespace Scripts.Chatting.ChatSystem
         private void OnDestroy()
         {
             _button.onClick.RemoveListener(OpenList);
-            _closeBtn.onClick.RemoveListener(CloseList);
+            closeBtn.onClick.RemoveListener(CloseList);
         }
 
         private void OpenList()

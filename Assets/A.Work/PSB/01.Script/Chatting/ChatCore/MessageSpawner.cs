@@ -1,8 +1,13 @@
+using System;
 using System.Collections;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
+using Scripts.Cores;
+using Scripts.Test;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Scripts.Chatting.ChatCore
 {
@@ -19,31 +24,79 @@ namespace Scripts.Chatting.ChatCore
         [SerializeField] private float spawnInterval = 50f; 
         [SerializeField] private float cooldownAfterClick = 15f; 
         
+        private int _spawnedToday;
         private bool _isMessageActive = false;
         private Coroutine _spawnRoutine;
 
         private void Start()
         {
-            _spawnRoutine = StartCoroutine(SpawnRoutine());
+            _spawnRoutine = StartCoroutine(TrySpawnRoutine());
+        }
+        
+        private void OnEnable()
+        {
+            DaySystemTest.OnNextDay += ResetSpawnCount;
         }
 
-        private IEnumerator SpawnRoutine()
+        private void OnDisable()
         {
-            yield return new WaitForSeconds(spawnInterval);
-            
-            TrySpawnMessage();
-            
+            DaySystemTest.OnNextDay -= ResetSpawnCount;
+        }
+
+        private void ResetSpawnCount()
+        {
+            _spawnedToday = 0;
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.sKey.wasPressedThisFrame)
+                TrySpawnMessage();
+        }
+
+        private IEnumerator TrySpawnRoutine()
+        {
             while (true)
             {
-                yield return new WaitForSeconds(cooldownAfterClick);
-                TrySpawnMessage();
+                while (IsCanOpen())
+                {
+                    yield return null;
+                }
+                
+                yield return new WaitForSeconds(spawnInterval);
+
+                if (GameTypeSingleton.Instance.GameType != GameType.Story 
+                    && GameTypeSingleton.Instance.GameType != GameType.Result
+                    && !IsChatWindowOpen())
+                {
+                    TrySpawnMessage();
+                }
+                
+                float timer = 0f;
+                while (timer < cooldownAfterClick)
+                {
+                    if (IsCanOpen())
+                        break;
+
+                    timer += Time.deltaTime;
+                    yield return null;
+                }
             }
         }
+
         
         private void TrySpawnMessage()
         {
-            if (_isMessageActive || IsChatWindowOpen())
+            if (_spawnedToday >= 30)
+            {
+                Debug.LogError("Spawn false, because spawnedToday is upper 30");
                 return;
+            }
+            else if (_isMessageActive)
+            {
+                Debug.LogError("Spawn false, because isMessageActive is true");
+                return;
+            }
 
             SpawnMessage();
         }
@@ -78,7 +131,7 @@ namespace Scripts.Chatting.ChatCore
                     return;
                 }
             }
-            
+            _spawnedToday++;
         }
 
         private void OnMessageClicked()
@@ -94,6 +147,13 @@ namespace Scripts.Chatting.ChatCore
                     return true;
             }
             return false;
+        }
+
+        private bool IsCanOpen()
+        {
+            return GameTypeSingleton.Instance.GameType == GameType.Story
+                   || GameTypeSingleton.Instance.GameType == GameType.Result
+                   || IsChatWindowOpen();
         }
         
         

@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Scripts.Chatting.ChatSystem;
+using Scripts.Chatting.System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Scripts.Test
+namespace Scripts.Chatting.ChatUI
 {
     public class JudgeSliderTest : MonoBehaviour
     {
@@ -12,9 +14,14 @@ namespace Scripts.Test
         public static JudgeSliderTest Instance;
         private readonly List<ChatWindow> _chatWindows = new();
 
+        public event Action<float> OnValueChanged;
+
         private void Awake()
         {
             Instance = this;
+            
+            SaveDTO.SliderProgress progress = SaveSystem.Load<SaveDTO.SliderProgress>(SaveDTO.SaveKeys.SliderValue);
+            slider.value = progress.sliderValue;
         }
 
         public static void Register(ChatWindow window)
@@ -39,14 +46,34 @@ namespace Scripts.Test
             }
         }
 
+        private void OnDestroy()
+        {
+            SaveCurrentValue();
+        }
+        
+        private void SaveCurrentValue()
+        {
+            SaveSystem.Save(new SaveDTO.SliderProgress { sliderValue = slider.value }, SaveDTO.SaveKeys.SliderValue);
+        }
+
         private void HandleSuccess(int value, int multiplier)
         {
             slider.value += value * multiplier;
+            OnValueChanged?.Invoke(slider.value);
+            SaveCurrentValue();
         }
 
         private void HandleFail(int value, int multiplier)
         {
             slider.value -= value * multiplier;
+            OnValueChanged?.Invoke(slider.value);
+            SaveCurrentValue();
+        }
+
+        public void ResetSliderValue()
+        {
+            slider.value = 0;
+            SaveCurrentValue();
         }
         
     }
