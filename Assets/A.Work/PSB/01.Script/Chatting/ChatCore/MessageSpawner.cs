@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
-using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
 using Scripts.Cores;
-using Scripts.Test;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -35,12 +32,12 @@ namespace Scripts.Chatting.ChatCore
         
         private void OnEnable()
         {
-            DaySystemTest.OnNextDay += ResetSpawnCount;
+            DaySystem.OnNextDay += ResetSpawnCount;
         }
 
         private void OnDisable()
         {
-            DaySystemTest.OnNextDay -= ResetSpawnCount;
+            DaySystem.OnNextDay -= ResetSpawnCount;
         }
 
         private void ResetSpawnCount()
