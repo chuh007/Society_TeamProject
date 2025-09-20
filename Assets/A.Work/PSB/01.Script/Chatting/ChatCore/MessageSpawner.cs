@@ -85,6 +85,13 @@ namespace Scripts.Chatting.ChatCore
         
         private void TrySpawnMessage()
         {
+            if (GameTypeSingleton.Instance.GameType == GameType.Story
+                || GameTypeSingleton.Instance.GameType == GameType.Result)
+            {
+                Debug.LogError("Spawn blocked: GameType is Story or Result");
+                return;
+            }
+            
             if (_spawnedToday >= 30)
             {
                 Debug.LogError("Spawn false, because spawnedToday is upper 30");

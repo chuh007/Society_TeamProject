@@ -47,32 +47,9 @@ namespace Scripts.Cores
             endingBtn.gameObject.SetActive(false);
         }
 
-        private void FixedUpdate()
-        {
-            //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
-            if (GameTypeSingleton.Instance.GameType == GameType.Result
-                || GameTypeSingleton.Instance.GameType == GameType.Clear
-                || GameTypeSingleton.Instance.GameType == GameType.Fail) 
-                resultPanel.gameObject.SetActive(true);
-            else  
-                resultPanel.gameObject.SetActive(false);
-
-            //이것도 더 효율적인 방법을 찾기
-            if (GameTypeSingleton.Instance.GameType == GameType.Clear
-                || GameTypeSingleton.Instance.GameType == GameType.Fail)
-            {
-                _closeResultPanelBtn.gameObject.SetActive(false);
-                endingBtn.gameObject.SetActive(true);
-            }
-            else
-            {
-                _closeResultPanelBtn.gameObject.SetActive(true);
-                endingBtn.gameObject.SetActive(false);
-            }
-        }
-
         private void OnEnable()
         {
+            GameTypeSingleton.Instance.OnGameTypeChanged += HandleGameTypeChanged;
             ChatWindow.OnGlobalSuccess += HandleSuccess;
             ChatWindow.OnGlobalFail += HandleFail;
             OnNextDay += HandleNextDay;
@@ -81,6 +58,7 @@ namespace Scripts.Cores
 
         private void OnDestroy()
         {
+            GameTypeSingleton.Instance.OnGameTypeChanged -= HandleGameTypeChanged;
             ChatWindow.OnGlobalSuccess -= HandleSuccess;
             ChatWindow.OnGlobalFail -= HandleFail;
             OnNextDay -= HandleNextDay;
@@ -136,6 +114,15 @@ namespace Scripts.Cores
             DayResultType type = GetDayResultType();
             OnResultClose?.Invoke(type);
             OnNextDay?.Invoke();
+        }
+        
+        private void HandleGameTypeChanged(GameType type)
+        {
+            resultPanel.gameObject.SetActive(type == GameType.Result || type == GameType.Clear || type == GameType.Fail);
+
+            bool isFinal = type == GameType.Clear || type == GameType.Fail;
+            _closeResultPanelBtn.gameObject.SetActive(!isFinal);
+            endingBtn.gameObject.SetActive(isFinal);
         }
 
         #region CheckEnd

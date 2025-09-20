@@ -59,5 +59,29 @@ namespace Scripts.Chatting.Stories.BeginStory
             }
         }
         
+        public void SkipStory()
+        {
+            if (_currentStory == null) return;
+
+            StopAllCoroutines();
+
+            textUI.text = "";
+            foreach (StoryNodes node in _currentStory.nodes)
+            {
+                foreach (string message in node.messages)
+                {
+                    textUI.text += message + "\n";
+                }
+            }
+
+            EndStory();
+        }
+
+        private void EndStory()
+        {
+            textPanel.SetActive(false);
+            OnStoryEnd?.Invoke();
+        }
+        
     }
 }
