@@ -27,6 +27,7 @@ namespace Scripts.Cores
         private int _processedMessages;
 
         private Button _closeResultPanelBtn;
+        [SerializeField] private Button endingBtn;
 
         public static event Action OnNextDay;
         public static event Action<DayResultType> OnResultClose;
@@ -43,6 +44,7 @@ namespace Scripts.Cores
             dayText.text = $"Day {_day}";
             resultText.text = "";
             resultPanel.gameObject.SetActive(false);
+            endingBtn.gameObject.SetActive(false);
         }
 
         private void FixedUpdate()
@@ -55,15 +57,17 @@ namespace Scripts.Cores
             else  
                 resultPanel.gameObject.SetActive(false);
 
-            //이것도 더 효율적인 방법을 찾기 / 그냥 씬을 옮기기로 처리하던지
+            //이것도 더 효율적인 방법을 찾기
             if (GameTypeSingleton.Instance.GameType == GameType.Clear
                 || GameTypeSingleton.Instance.GameType == GameType.Fail)
             {
                 _closeResultPanelBtn.gameObject.SetActive(false);
+                endingBtn.gameObject.SetActive(true);
             }
             else
             {
                 _closeResultPanelBtn.gameObject.SetActive(true);
+                endingBtn.gameObject.SetActive(false);
             }
         }
 
