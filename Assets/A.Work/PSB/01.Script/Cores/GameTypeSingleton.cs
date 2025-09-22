@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Scripts.Cores
 {
@@ -15,18 +16,37 @@ namespace Scripts.Cores
     {
         public static GameTypeSingleton Instance;
 
-        private void Awake()
+        [SerializeField] private GameType _gameType;
+
+        public GameType GameType
         {
-            if (Instance != null && Instance != this) { Destroy(gameObject); return; }
-            Instance = this;
+            get => _gameType;
+            set
+            {
+                if (_gameType != value)
+                {
+                    _gameType = value;
+                    OnGameTypeChanged?.Invoke(_gameType);
+                }
+            }
         }
 
-        public GameType GameType;
+        public event Action<GameType> OnGameTypeChanged;
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+        }
 
         private void Start()
         {
             GameType = GameType.Game;
         }
-        
     }
+    
 }

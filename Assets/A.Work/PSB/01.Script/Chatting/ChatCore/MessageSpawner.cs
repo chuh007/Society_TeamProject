@@ -1,10 +1,7 @@
-using System;
 using System.Collections;
-using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatSystem;
 using Scripts.Cores;
-using Scripts.Test;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -35,12 +32,12 @@ namespace Scripts.Chatting.ChatCore
         
         private void OnEnable()
         {
-            DaySystemTest.OnNextDay += ResetSpawnCount;
+            DaySystem.OnNextDay += ResetSpawnCount;
         }
 
         private void OnDisable()
         {
-            DaySystemTest.OnNextDay -= ResetSpawnCount;
+            DaySystem.OnNextDay -= ResetSpawnCount;
         }
 
         private void ResetSpawnCount()
@@ -58,7 +55,8 @@ namespace Scripts.Chatting.ChatCore
         {
             while (true)
             {
-                while (IsCanOpen())
+                while (GameTypeSingleton.Instance.GameType == GameType.Story
+                       || GameTypeSingleton.Instance.GameType == GameType.Result)
                 {
                     yield return null;
                 }
@@ -66,8 +64,7 @@ namespace Scripts.Chatting.ChatCore
                 yield return new WaitForSeconds(spawnInterval);
 
                 if (GameTypeSingleton.Instance.GameType != GameType.Story 
-                    && GameTypeSingleton.Instance.GameType != GameType.Result
-                    && !IsChatWindowOpen())
+                    || GameTypeSingleton.Instance.GameType != GameType.Result)
                 {
                     TrySpawnMessage();
                 }
@@ -75,7 +72,8 @@ namespace Scripts.Chatting.ChatCore
                 float timer = 0f;
                 while (timer < cooldownAfterClick)
                 {
-                    if (IsCanOpen())
+                    if (GameTypeSingleton.Instance.GameType == GameType.Story
+                        || GameTypeSingleton.Instance.GameType == GameType.Result)
                         break;
 
                     timer += Time.deltaTime;
@@ -87,6 +85,13 @@ namespace Scripts.Chatting.ChatCore
         
         private void TrySpawnMessage()
         {
+            if (GameTypeSingleton.Instance.GameType == GameType.Story
+                || GameTypeSingleton.Instance.GameType == GameType.Result)
+            {
+                Debug.LogError("Spawn blocked: GameType is Story or Result");
+                return;
+            }
+            
             if (_spawnedToday >= 30)
             {
                 Debug.LogError("Spawn false, because spawnedToday is upper 30");
@@ -95,6 +100,11 @@ namespace Scripts.Chatting.ChatCore
             else if (_isMessageActive)
             {
                 Debug.LogError("Spawn false, because isMessageActive is true");
+                return;
+            }
+            else if (IsChatWindowOpen())
+            {
+                Debug.LogError("Spawn false, because IsChatWindowOpen is true");
                 return;
             }
 
@@ -147,13 +157,6 @@ namespace Scripts.Chatting.ChatCore
                     return true;
             }
             return false;
-        }
-
-        private bool IsCanOpen()
-        {
-            return GameTypeSingleton.Instance.GameType == GameType.Story
-                   || GameTypeSingleton.Instance.GameType == GameType.Result
-                   || IsChatWindowOpen();
         }
         
         
