@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BasicGrade
   m_EditorClassIdentifier: 
   gradeEnum: 0
-  successMultiplier: 1000
+  successMultiplier: 1
   failMultiplier: 1
