@@ -298,6 +298,7 @@ MonoBehaviour:
   nameTxt: {fileID: 9201864483943752192}
   lastMsgTxt: {fileID: 6591590059711114570}
   openButton: {fileID: 3582316656234389777}
+  lineImage: {fileID: 9068896231471023771}
   id: 
 --- !u!1 &3179323424841381961
 GameObject:
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9137255, g: 0.09019608, b: 0.21568628, a: 1}
+  m_Color: {r: 0.9647059, g: 0.7921569, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

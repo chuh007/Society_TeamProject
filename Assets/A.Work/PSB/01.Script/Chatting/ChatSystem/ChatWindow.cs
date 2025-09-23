@@ -6,7 +6,6 @@ using Scripts.Chatting.ChatUI;
 using Scripts.Cores;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Scripts.Chatting.ChatSystem
@@ -60,12 +59,12 @@ namespace Scripts.Chatting.ChatSystem
 
         private void OnEnable()
         {
-            JudgeSliderTest.Register(this);
+            JudgeSlider.Register(this);
         }
 
         private void OnDisable()
         {
-            JudgeSliderTest.Unregister(this);
+            JudgeSlider.Unregister(this);
         }
 
         public void BringToFront() => transform.SetAsLastSibling();

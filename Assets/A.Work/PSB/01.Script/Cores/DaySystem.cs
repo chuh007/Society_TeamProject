@@ -83,7 +83,7 @@ namespace Scripts.Cores
         {
             _successCount = 0;
             _failCount = 0;
-            JudgeSliderTest.Instance.ResetSliderValue();
+            JudgeSlider.Instance.ResetSliderValue();
             dayText.text = $"Day {_day}";
             
             SaveSystem.Save(new SaveDTO.GameProgress
@@ -208,7 +208,7 @@ namespace Scripts.Cores
             resultText.text = "";
 
             // Slider 초기화
-            JudgeSliderTest.Instance?.ResetSliderValue();
+            JudgeSlider.Instance?.ResetSliderValue();
 
             // 저장 초기화
             SaveSystem.Save(new SaveDTO.GameProgress

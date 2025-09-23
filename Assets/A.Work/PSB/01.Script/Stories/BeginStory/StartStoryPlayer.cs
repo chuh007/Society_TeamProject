@@ -43,10 +43,13 @@ namespace Scripts.Chatting.Stories.BeginStory
                     yield return new WaitForSeconds(_currentStory.nextTextDelay);
                 }
             }
-
-            textPanel.SetActive(false);
             
             OnStoryEnd?.Invoke();
+        }
+
+        public void ActiveFalsePanel()
+        {
+            textPanel.SetActive(false);
         }
 
         private IEnumerator TypeMessage(string message)
@@ -79,7 +82,6 @@ namespace Scripts.Chatting.Stories.BeginStory
 
         private void EndStory()
         {
-            textPanel.SetActive(false);
             OnStoryEnd?.Invoke();
         }
         

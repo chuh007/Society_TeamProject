@@ -97,7 +97,12 @@ namespace Scripts.Chatting.ChatSystem
             yield return null;
             transform.DOLocalMoveY(transform.localPosition.y - 75f, 0.25f)
                 .SetEase(Ease.InCubic)
-                .OnComplete(() => Destroy(gameObject));
+                .OnComplete(() =>
+                {
+                    OnMessageClicked?.Invoke();
+                    Destroy(gameObject);
+                });
+            
         }
         
     }
