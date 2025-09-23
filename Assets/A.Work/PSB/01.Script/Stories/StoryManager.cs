@@ -1,5 +1,5 @@
 ﻿using Scripts.Chatting.Enums;
-using Scripts.Test;
+using Scripts.Cores;
 using UnityEngine;
 
 namespace Scripts.Chatting.Stories
@@ -10,12 +10,12 @@ namespace Scripts.Chatting.Stories
 
         private void OnEnable()
         {
-            DaySystemTest.OnResultClose += HandleResultClose;
+            DaySystem.OnResultClose += HandleResultClose;
         }
 
         private void OnDisable()
         {
-            DaySystemTest.OnResultClose -= HandleResultClose;
+            DaySystem.OnResultClose -= HandleResultClose;
         }
 
         private void HandleResultClose(DayResultType resultType)
