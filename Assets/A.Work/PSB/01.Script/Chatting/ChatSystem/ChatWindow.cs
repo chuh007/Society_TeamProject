@@ -4,6 +4,7 @@ using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
 using Scripts.Cores;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -22,6 +23,7 @@ namespace Scripts.Chatting.ChatSystem
         [SerializeField] private ChoiceButton choiceButtonPrefab;
 
         [Header("Controls")]
+        [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private Button closeButton;
 
         public event Action<int, int> OnSuccess;
@@ -98,6 +100,7 @@ namespace Scripts.Chatting.ChatSystem
             _messageData = messageData;
             _log = log;
             OnSave = onSave;
+            nameText.text = _messageData.roomName;
 
             _currentNodeIndex = clampIndex
                 ? Mathf.Clamp(_log.currentNodeIndex, 0, _messageData.nodes.Length)
