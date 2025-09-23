@@ -1,4 +1,5 @@
 ﻿using A.Work.CHUH._01.Script.Call;
+using Scripts.Chatting.ChatSO;
 using UnityEngine;
 
 namespace A.Work.CHUH._01.Script.VoicePhishing
@@ -10,6 +11,9 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         public bool isFraud;
         public CallSO sender;
         public CallSO recipient;
+        [Header("JudgeValue")] 
+        public int value;
+        public MessageGradeSO gradeSO;
         [TextArea] public string description;
     }
 }

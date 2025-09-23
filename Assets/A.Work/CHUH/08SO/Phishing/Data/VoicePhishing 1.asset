@@ -16,5 +16,7 @@ MonoBehaviour:
   isFraud: 0
   sender: {fileID: 11400000, guid: b90fa3d76892ab9418d0d271e05dff4e, type: 2}
   recipient: {fileID: 11400000, guid: 426e8157ce16f054b8994d518544815b, type: 2}
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
   description: "\uB4C0\uC624\uB9C1\uACE0\uAC00 \uC815\uC6B0\uD615\uC744 \uC8FD\uC774\uB824\uACE0
     \uD558\uB294 \uC804\uD654"

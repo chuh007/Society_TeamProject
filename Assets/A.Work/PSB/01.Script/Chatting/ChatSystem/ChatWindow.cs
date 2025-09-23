@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using A.Work.CHUH._01.Script.UI.Fraud;
 using DG.Tweening;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 namespace Scripts.Chatting.ChatSystem
 {
-    public class ChatWindow : MonoBehaviour
+    public class ChatWindow : MonoBehaviour, IDivisible
     {
         [Header("Layout")]
         [SerializeField] private ScrollRect scrollRect;

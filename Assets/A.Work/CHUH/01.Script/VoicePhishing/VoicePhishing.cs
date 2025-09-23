@@ -1,18 +1,23 @@
 ﻿using System;
-using A.Work.CHUH._01.Script.PopUp;
+using A.Work.CHUH._01.Script.UI.Fraud;
+using A.Work.CHUH._01.Script.UI.PopUp;
+using Scripts.Chatting.ChatUI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace A.Work.CHUH._01.Script.VoicePhishing
 {
-    public class VoicePhishing : MonoBehaviour, IPopupable
+    public class VoicePhishing : MonoBehaviour, IPopupable, IDivisible
     {
         [SerializeField] private WaitListen waitListen;
         [SerializeField] private Wiretapping wiretapping;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private AudioSource soundSource;
         [SerializeField] private AudioClip soundClip;
+        
+        public event Action<int, int> OnSuccess;
+        public event Action<int, int> OnFail;
         
         private VoicePhishingSO _phishingData;
         private float _timer = 0f;
@@ -34,14 +39,17 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         
         public void PopUp()
         {
+            JudgeSliderTest.Register(this);
             waitListen.gameObject.SetActive(true);
             waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundSource, soundClip);
             waitListen.PlaySound();
             wiretapping.gameObject.SetActive(false);
         }
-        
+
+
         public void Hide()
         {
+            JudgeSliderTest.Unregister(this);
             waitListen.StopSound();
             wiretapping.StopSound();
             Destroy(gameObject);
@@ -58,7 +66,15 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
 
         public void ExplanationPhishing()
         {
-            
+            if (_phishingData.isFraud)
+            {
+                OnSuccess?.Invoke(_phishingData.value, _phishingData.gradeSO.successMultiplier);
+            }
+            else
+            {
+                OnFail?.Invoke(_phishingData.value, _phishingData.gradeSO.failMultiplier);
+            }
+            Hide();
         }
     }
 }
