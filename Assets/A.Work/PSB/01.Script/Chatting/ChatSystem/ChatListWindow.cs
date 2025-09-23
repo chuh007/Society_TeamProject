@@ -3,6 +3,7 @@ using DG.Tweening;
 using Scripts.Chatting.ChatCore;
 using Scripts.Chatting.ChatSO;
 using Scripts.Chatting.ChatUI;
+using Scripts.Cores;
 using UnityEngine;
 using UnityEngine.UI;
 

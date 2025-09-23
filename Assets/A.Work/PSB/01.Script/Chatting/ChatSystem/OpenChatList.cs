@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Scripts.Cores;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,17 @@ namespace Scripts.Chatting.ChatSystem
             _button.onClick.RemoveListener(OpenList);
             closeBtn.onClick.RemoveListener(CloseList);
         }
+        
+        private void FixedUpdate()
+        {
+            if (GameTypeSingleton.Instance.GameType == GameType.Result 
+                || GameTypeSingleton.Instance.GameType == GameType.Story
+                || GameTypeSingleton.Instance.GameType == GameType.Clear
+                || GameTypeSingleton.Instance.GameType == GameType.Fail)
+            {
+                CloseList();
+            }
+        }
 
         private void OpenList()
         {
@@ -51,6 +63,7 @@ namespace Scripts.Chatting.ChatSystem
                     chatPrefab.gameObject.SetActive(false);
                 });
         }
+
         
     }
 }

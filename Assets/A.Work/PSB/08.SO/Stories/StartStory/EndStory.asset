@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7676454b87b245999a99ce7749f7b8b8, type: 3}
+  m_Name: EndStory
+  m_EditorClassIdentifier: 
+  nodes:
+  - messages:
+    - "\uADF8\uB807\uAC8C"
+    - "\uC138\uC0C1\uC740"
+    - "\uBA78\uB9DD\uD588\uB2E4.\n"
+    - "\uADF8\uB9AC\uACE0 \uB09C \uB2E4\uB978 \uC138\uACC4\uB85C \uB118\uC5B4\uAC04\uB2E4."
+    - "\uC5B4\uB77C"
+    - "\uC6B0\uC8FC\uAC00 \uC7A0\uC2DC \uAEBC\uC84C\uB2E4"
+    - "\uB108\uBB34 \uAE5C\uAE5C\uD558\uB2E4"
+    - "\uB0B4 \uC55E\uAE38\uB3C4"
+  whatIsType: 0
+  nextTextDelay: 1
