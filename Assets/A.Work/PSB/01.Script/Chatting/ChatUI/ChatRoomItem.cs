@@ -13,6 +13,8 @@ namespace Scripts.Chatting.ChatUI
         [SerializeField] private TextMeshProUGUI nameTxt;
         [SerializeField] private TextMeshProUGUI lastMsgTxt;
         [SerializeField] private Button openButton;
+        
+        [SerializeField] private Image lineImage;
 
         private MessageSO _so;
         private ConversationLog _log;
@@ -37,6 +39,20 @@ namespace Scripts.Chatting.ChatUI
                 openButton.onClick.RemoveAllListeners();
                 openButton.onClick.AddListener(() => onOpen?.Invoke());
             }
+        }
+
+        private void Update()
+        {
+            UpdateLineColor();
+        }
+
+        private void UpdateLineColor()
+        {
+            if (lineImage == null) return;
+
+            bool isCompleted = _log.judgeState != SpamJudgeState.UnKnown;
+
+            lineImage.color = isCompleted ? Color.green : Color.red;
         }
         
     }

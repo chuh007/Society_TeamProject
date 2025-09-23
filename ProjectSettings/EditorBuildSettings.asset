@@ -13,10 +13,10 @@ EditorBuildSettings:
     guid: 7f047f95782978e4493ab94f654c111e
   - enabled: 1
     path: Assets/A.Work/PSB/00.Scene/PSB_Scene.unity
-    guid: 053e9ab3f4bab04478401b0cce2414de
+    guid: 2910a22aa12a14b4fb69283fd35b0402
   - enabled: 1
     path: Assets/A.Work/PSB/00.Scene/EndStoryScene.unity
-    guid: 52a517a624c6fa645b90d6790a67ee8b
+    guid: adc9ffa800b86b4409ea1581724fce1d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: TongTongSa
+  m_EditorClassIdentifier: 
+  roomId: T
+  roomName: Teacher
+  icon: {fileID: 2800000, guid: 32e4c7ad1f64e5540a28ff1a43802764, type: 3}
+  number: 20250919
+  messagePreview:
+  - "\uB098 \uD1B5\uD569 \uC0AC\uD68C \uC120\uC0DD\uB2D8\uC778\uB370"
+  nodes:
+  - messages:
+    - "\uC598\uB4E4\uC544 \uD504\uB85C\uC81D\uD2B8\uB294 \uB2E4 \uB9CC\uB4E4\uC5C8\uB2C8?"
+    choices:
+    - answer: "\uB124"
+      nextNodeIndex: 1
+    - answer: "\uC544\uB2C8\uC694"
+      nextNodeIndex: 2
+  - messages:
+    - "\uC88B\uC544. \uADF8\uB7FC \uC810\uC218\uB97C \uC8FC\uB3C4\uB85D \uD558\uACA0\uC5B4"
+    choices:
+    - answer: "\uAC10\uC0AC\uD569\uB2C8\uB2E4"
+      nextNodeIndex: 3
+    - answer: "\uAC70\uC808\uD569\uB2C8\uB2E4"
+      nextNodeIndex: 3
+  - messages:
+    - "\uB108 \uCDE8\uC5C5 \uBA74\uC81C"
+    choices:
+    - answer: "\uC6B0\uC640!! \uAC10\uC0AC\uD799\uB2C8\uB2E4!!!!"
+      nextNodeIndex: 3
+    - answer: "\uC57C\uD638~ \uBC31\uC218\uB2E4"
+      nextNodeIndex: 3
+  - messages:
+    - "\uB2E4\uB4E4 \uD558\uB290\uB77C \uACE0\uC0DD\uD588\uACE0, \uC774\uC820 \uC878\uC791\uD558\uB7EC
+      \uAC00\uAC70\uB77C"
+    choices:
+    - answer: "\uB124"
+      nextNodeIndex: -1
+    - answer: "\uB124"
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 1557888484
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}
