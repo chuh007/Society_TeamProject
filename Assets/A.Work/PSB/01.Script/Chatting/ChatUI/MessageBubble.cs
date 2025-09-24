@@ -14,10 +14,12 @@ namespace Scripts.Chatting.ChatUI
         public void SetText(string text)
         {
             messageText.text = text;
-            
-            float preferredHeight = messageText.preferredHeight + paddingTopBottom * 2;
-            
-            float finalHeight = Mathf.Max(preferredHeight, minHeight);
+
+            // 가용 너비를 넣어서 줄바꿈 포함 높이 계산
+            float availableWidth = bubbleRect.rect.width;
+            Vector2 preferredSize = messageText.GetPreferredValues(text, availableWidth, 0);
+
+            float finalHeight = Mathf.Max(preferredSize.y + paddingTopBottom * 2, minHeight);
 
             Vector2 size = bubbleRect.sizeDelta;
             size.y = finalHeight;
