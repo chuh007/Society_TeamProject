@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using A.Work.CHUH._01.Script.UI.Fraud;
 using Scripts.Chatting.ChatSystem;
 using Scripts.Chatting.System;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Scripts.Chatting.ChatUI
         [SerializeField] private Slider slider;
 
         public static JudgeSlider Instance;
-        private readonly List<ChatWindow> _chatWindows = new();
+        private readonly List<IDivisible> _chatWindows = new();
 
         public event Action<float> OnValueChanged;
 
@@ -24,7 +25,7 @@ namespace Scripts.Chatting.ChatUI
             slider.value = progress.sliderValue;
         }
 
-        public static void Register(ChatWindow window)
+        public static void Register(IDivisible window)
         {
             if (Instance == null) return;
             if (!Instance._chatWindows.Contains(window))
@@ -35,7 +36,7 @@ namespace Scripts.Chatting.ChatUI
             }
         }
 
-        public static void Unregister(ChatWindow window)
+        public static void Unregister(IDivisible window)
         {
             if (Instance == null) return;
             if (Instance._chatWindows.Contains(window))
