@@ -39,7 +39,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         
         public void PopUp()
         {
-            JudgeSliderTest.Register(this);
+            JudgeSlider.Register(this);
             waitListen.gameObject.SetActive(true);
             waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundSource, soundClip);
             waitListen.PlaySound();
@@ -49,7 +49,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
 
         public void Hide()
         {
-            JudgeSliderTest.Unregister(this);
+            JudgeSlider.Unregister(this);
             waitListen.StopSound();
             wiretapping.StopSound();
             Destroy(gameObject);
