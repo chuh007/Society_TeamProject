@@ -641,7 +641,7 @@ MonoBehaviour:
       - m_Target: {fileID: 96348250293583795}
         m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.VoicePhishing.VoicePhishing,
           Assembly-CSharp
-        m_MethodName: Hide
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1271,7 +1271,7 @@ MonoBehaviour:
       - m_Target: {fileID: 96348250293583795}
         m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.VoicePhishing.VoicePhishing,
           Assembly-CSharp
-        m_MethodName: Hide
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
