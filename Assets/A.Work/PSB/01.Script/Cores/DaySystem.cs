@@ -5,12 +5,15 @@ using Scripts.Chatting.Enums;
 using Scripts.Chatting.System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Scripts.Cores
 {
     public class DaySystem : MonoBehaviour
     {
+        public Action<bool> OnSpamClear;
+        
         [Header("Day")]
         [SerializeField] private Slider slider;
         [SerializeField] private TextMeshProUGUI dayText;
@@ -34,6 +37,8 @@ namespace Scripts.Cores
         
         private void Awake()
         {
+            OnSpamClear += HandleSpamClear;
+            
             SaveDTO.GameProgress progress = SaveSystem.Load<SaveDTO.GameProgress>(SaveDTO.SaveKeys.DayValue);
             _day = progress.day;
             _processedMessages = progress.processedMessages;
@@ -47,9 +52,22 @@ namespace Scripts.Cores
             endingBtn.gameObject.SetActive(false);
         }
 
-        private void OnEnable()
+        private void HandleSpamClear(bool value)
+        {
+            if (value) _successCount++;
+            else _failCount++;
+            _processedMessages++;
+            CheckDayEnd();
+        }
+
+        private void Start()
         {
             GameTypeSingleton.Instance.OnGameTypeChanged += HandleGameTypeChanged;
+
+        }
+
+        private void OnEnable()
+        {
             ChatWindow.OnGlobalSuccess += HandleSuccess;
             ChatWindow.OnGlobalFail += HandleFail;
             OnNextDay += HandleNextDay;
