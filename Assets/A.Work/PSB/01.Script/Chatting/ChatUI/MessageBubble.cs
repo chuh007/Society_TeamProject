@@ -14,8 +14,7 @@ namespace Scripts.Chatting.ChatUI
         public void SetText(string text)
         {
             messageText.text = text;
-
-            // 가용 너비를 넣어서 줄바꿈 포함 높이 계산
+            
             float availableWidth = bubbleRect.rect.width;
             Vector2 preferredSize = messageText.GetPreferredValues(text, availableWidth, 0);
 
