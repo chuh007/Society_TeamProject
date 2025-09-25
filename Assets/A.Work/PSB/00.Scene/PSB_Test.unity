@@ -370,9 +370,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3871328980972977330, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
+      propertyPath: daySystem
+      value: 
+      objectReference: {fileID: 1341883017}
+    - target: {fileID: 3871328980972977330, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
       propertyPath: spawnCanvas
       value: 
       objectReference: {fileID: 896344292}
+    - target: {fileID: 3871328980972977330, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
+      propertyPath: spawnCooldown
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
