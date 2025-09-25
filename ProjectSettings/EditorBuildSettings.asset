@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/A.Work/PSB/00.Scene/StartStoryScene.unity
     guid: 7f047f95782978e4493ab94f654c111e
   - enabled: 1
-    path: Assets/A.Work/PSB/00.Scene/PSB_Scene.unity
-    guid: 2910a22aa12a14b4fb69283fd35b0402
+    path: Assets/A.Work/PSB/00.Scene/GameScene.unity
+    guid: 75fc7c0ccd3e16f49bdde0a111578d56
   - enabled: 1
     path: Assets/A.Work/PSB/00.Scene/EndStoryScene.unity
     guid: adc9ffa800b86b4409ea1581724fce1d

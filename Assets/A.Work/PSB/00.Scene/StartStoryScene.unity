@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5655b83c8d4146c08c53a8cfde916a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: PSB_Scene
+  nextScene: GameScene
 --- !u!1 &1633892609
 GameObject:
   m_ObjectHideFlags: 0

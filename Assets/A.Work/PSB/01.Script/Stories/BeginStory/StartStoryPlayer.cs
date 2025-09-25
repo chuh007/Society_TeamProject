@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Scripts.Chatting.System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -82,6 +83,9 @@ namespace Scripts.Chatting.Stories.BeginStory
 
         private void EndStory()
         {
+            SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 
+            SaveSystem.Clear(SaveDTO.SaveKeys.DayValue); 
+            SaveSystem.Clear(SaveDTO.SaveKeys.SliderValue); 
             OnStoryEnd?.Invoke();
         }
         

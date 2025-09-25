@@ -183,21 +183,25 @@ namespace Scripts.Cores
             }
             
         }
-        
+
         private void CheckFinalClear()
         {
-            if (slider.value >= 50)
+            int totalMessages = maxDay * maxMessagesPerDay;
+            
+            if (_successCount >= _failCount)
             {
                 resultText.text =
                     "게임 클리어!\n"
-                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
+                    + $"전체 처리한 메시지 수 : {totalMessages}\n"
+                    + $"성공:{_successCount}, 실패:{_failCount}";
                 GameTypeSingleton.Instance.GameType = GameType.Clear;
             }
             else
             {
                 resultText.text =
                     "인터넷 세상은 멸망했다.\n"
-                    + $"전체 처리한 메시지 수 : {maxDay * maxMessagesPerDay}\n";
+                    + $"전체 처리한 메시지 수 : {totalMessages}\n"
+                    + $"성공:{_successCount}, 실패:{_failCount}";
                 GameTypeSingleton.Instance.GameType = GameType.Fail;
             }
         }
