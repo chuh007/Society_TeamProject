@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: Notflex
   m_EditorClassIdentifier: 
-  roomId: N
+  roomId: Notflex
   roomName: Notflex
   icon: {fileID: 2800000, guid: f90a0e0b1ad1b53489743065bbbc404c, type: 3}
   number: 00-308-321-0161

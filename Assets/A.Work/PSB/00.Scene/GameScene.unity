@@ -1403,7 +1403,7 @@ MonoBehaviour:
   slider: {fileID: 215431278}
   dayText: {fileID: 1395203824}
   maxDay: 3
-  maxMessagesPerDay: 1
+  maxMessagesPerDay: 3
   resultPanel: {fileID: 1799620232}
   resultText: {fileID: 234291385}
   endingBtn: {fileID: 1750950508}

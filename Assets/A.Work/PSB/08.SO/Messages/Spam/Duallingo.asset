@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: Duallingo
   m_EditorClassIdentifier: 
-  roomId: D
+  roomId: Duallingo
   roomName: Duallingo
   icon: {fileID: 2800000, guid: 2fe788e89ca416a478e24db61d072bcc, type: 3}
   number: press@duallingo.com

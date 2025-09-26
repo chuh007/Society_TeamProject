@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: FriendMessage
   m_EditorClassIdentifier: 
-  roomId: F
-  roomName: Friend
+  roomId: Ggachi16
+  roomName: ggachi16
   icon: {fileID: 2800000, guid: b2a143a268c069f47ace9c7f27f22282, type: 3}
   number: 010-2262-4337
   messagePreview:
