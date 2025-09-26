@@ -26,6 +26,6 @@ MonoBehaviour:
     choices:
     - answer: 
       nextNodeIndex: -1
-  isSpam: 0
+  isSpam: 1
   value: 0
-  gradeSO: {fileID: 0}
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
