@@ -67,13 +67,13 @@ MonoBehaviour:
   - messages:
     - "\uADF8\uB7FC \uAC70\uC808\uD558\uC2E0 \uAC78\uB85C \uC54C\uACA0\uC2B5\uB2C8\uB2E4."
     choices:
-    - answer: "\uB135"
+    - answer: 
       nextNodeIndex: -1
   - messages:
     - "\uACB0\uC81C \uB418\uC168\uC2B5\uB2C8\uB2E4.\n\uC7A0\uC2DC \uD6C4 \uB2E4\uB978
       \uC5F0\uB77D\uCC98\uB85C \uC804\uD654\uAC00 \uC62C\uAC81\uB2C8\uB2E4."
     choices:
-    - answer: "\uC9C4\uC9DC\uC8E0? \uB3C8\uB9CC \uB098\uAC04 \uAC70 \uC544\uB2C8\uC8E0?"
+    - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: FriendMessage
+  m_EditorClassIdentifier: 
+  roomId: F
+  roomName: Friend
+  icon: {fileID: 2800000, guid: b2a143a268c069f47ace9c7f27f22282, type: 3}
+  number: 010-2262-4337
+  messagePreview:
+  - "\uC9C0\uAE08 \uC8FC\uBA74 \uB428"
+  nodes:
+  - messages:
+    - "\uC9C0\uAE08 \uC8FC\uBA74 \uB428"
+    - "2\uB9CC\uC6D0\uB9CC \uBCF4\uB0B4\uB77C"
+    choices:
+    - answer: "\uBB54\uB370 \uAC11\uC790\uAE30"
+      nextNodeIndex: 1
+  - messages:
+    - "\uBB50\uB77C\uB294\uAC70\uC57C"
+    - "\uC544\uAE4C \uCE74\uB4DC \uC5C6\uB2E4\uACE0 \uB0B4 \uB3C8 \uC368\uB193\uACE0"
+    - "\uBCF4\uB0B8\uB2E4\uBA70"
+    - "\uC2EC\uC9C0\uC5B4 \uB0B4\uAC00 \uB354 \uAE4E\uC544 \uC92C\uC796\uC544\uC694"
+    - "3\uB9CC\uC6D0\uC744 2\uB9CC\uC6D0\uC73C\uB85C \uC904\uC600\uB354\uB2C8"
+    - "\uBB50?"
+    - "\uBB50\uB77C\uB294\uAC70\uC57C?"
+    - "\uC774\uAC74 \uC880 \uC544\uB2C8\uC9C0;;"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}

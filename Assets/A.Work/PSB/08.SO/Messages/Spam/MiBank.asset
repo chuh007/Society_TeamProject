@@ -63,7 +63,7 @@ MonoBehaviour:
     - "\uD61C\uD0DD\uC744 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
     - "\uC9C4\uC9DC \uD544\uC694 \uC5C6\uC73C\uC2E0\uAC00\uC694?"
     choices:
-    - answer: "\uB124"
+    - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10

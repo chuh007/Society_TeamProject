@@ -55,7 +55,7 @@ MonoBehaviour:
     - "\uB124. \uADF8\uB7FC \uC774\uBCA4\uD2B8\uB294 \uC885\uB8CC\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
     - "\uB354 \uC774\uC0C1\uC758 \uAE30\uD68C\uB294 \uC5C6\uC2B5\uB2C8\uB2E4."
     choices:
-    - answer: "\uB135"
+    - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10
