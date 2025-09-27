@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: THospital
+  m_EditorClassIdentifier: 
+  roomId: THospital
+  roomName: "T\uBCD1\uC6D0"
+  icon: {fileID: 2800000, guid: 590a6aad7881b954f9221831ea53326b, type: 3}
+  number: 052-295-1621
+  messagePreview:
+  - "T\uBCD1\uC6D0 \uC554\uBCF4\uD5D8"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\n(\uAD11\uACE0) T\uBCD1\uC6D0\n3\uBA85\uC911 1\uBA85\uC774
+      \uC554\uD658\uC790 \uC2DC\uB300\n"
+    - "\uC554\uBCF4\uD5D8 \uB05D\uD310\uC655 \uCD9C\uC2DC \r\n*\uCE58\uB8CC\uBE44\uC548\uC2EC\uD5742
+      \uAC74\uAC15\uBCF4\uD5D8*"
+    - "\uC0DD\uB178\uBCD1\uC0AC\uC758 \uC2DC\uD06C\uB9BF\uC5D0 \uB098\uC628 \uAFC8\uC758
+      \uC554 \uCE58\uB8CC \"\uC911\uC785\uC790 \uCE58\uB8CC\"\r\n\uD1B5\uC99D\uC5C6\uC774
+      2\uBD84 \uCE58\uB8CC\uB85C \uC554\uC138\uD3EC \uC18C\uBA78 !!!"
+    - "\uBB34\uB8CC\uC218\uC2E0\uAC70\uBD80 142216"
+    choices:
+    - answer: "(\uBB34\uC2DC\uD558\uC790)"
+      nextNodeIndex: -1
+    - answer: '142216
+
+'
+      nextNodeIndex: 1
+  - messages:
+    - "\uB2F9\uC2E0\uC758 \uAC1C\uC778\uC815\uBCF4 \uC798 \n\uBC1B\uC544\uAC00\uACA0\uC2B5\uB2C8\uB2E4"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 2
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
