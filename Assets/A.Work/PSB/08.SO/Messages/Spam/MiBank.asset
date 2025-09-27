@@ -56,7 +56,7 @@ MonoBehaviour:
     choices:
     - answer: "\uB135 \uC54C\uACA0\uC2B5\uB2C8\uB2E4."
       nextNodeIndex: -1
-    - answer: "\uBD88\uC548\uD55C\uB370, \uC548\uD560\uAC8C\uC694"
+    - answer: "\uBD88\uC548\uD55C\uB370, \uADF8\uB0E5 \uC548\uD560\uAC8C\uC694"
       nextNodeIndex: 4
   - messages:
     - "\uC2E0\uC6A9 \uB4F1\uAE09\uC774 \uB0AE\uC73C\uC2E0 \uBD84\uB4E4\uAED8\uB9CC"

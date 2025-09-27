@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: SHotelAd
+  m_EditorClassIdentifier: 
+  roomId: SHotel
+  roomName: "S\uD638\uD154"
+  icon: {fileID: 2800000, guid: 3b48b479422436346a68c33951dd265b, type: 3}
+  number: 031-8907-6050
+  messagePreview:
+  - "[Web\uBC1C\uC2E0]"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\r\n(\uAD11\uACE0)\nS\uD638\uD154\uC5D0\uC120 \uAC00\uB4E0\uD480\uACFC
+      \uCE74\uBC14\uB098,\r\n\uBC14\uB78C \uB530\uB77C \uC870\uC2DD\uACFC \uCE58\uB9E5\uC138\uD2B8!"
+    - "3\uC778 20\uB9CC\uC6D0,\n5\uC778 40\uB9CC\uC6D0\uC73C\uB85C \uC990\uAE30\uC790!"
+    - "\u260E\uBB38\uC758\uC804\uD654\r\nS\uD638\uD154 \uBB38\uC758\uC804\uD654 031-8907-6050"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
