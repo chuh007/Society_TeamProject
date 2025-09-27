@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 516649819}
   - component: {fileID: 516649820}
   m_Layer: 0
-  m_Name: GameTypeTest
+  m_Name: GameTypeSingleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

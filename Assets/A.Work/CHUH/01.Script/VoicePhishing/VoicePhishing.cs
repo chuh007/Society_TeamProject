@@ -34,7 +34,13 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
             _timer += Time.deltaTime;
             timeText.text = _timer.ToString("0.00");
             if (_timer >= _voiceTime)
-                Hide();
+            {
+                if (GameTypeSingleton.Instance.GameType != GameType.Game)
+                {
+                    Hide();
+                }
+            }
+            
         }
 
         public void SetData(VoicePhishingSO phishingData, DaySystem daySystem)
