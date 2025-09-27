@@ -1,6 +1,7 @@
 ﻿using System;
 using A.Work.CHUH._01.Script.UI.Fraud;
 using A.Work.CHUH._01.Script.UI.PopUp;
+using Ami.BroAudio;
 using Scripts.Chatting.ChatUI;
 using Scripts.Cores;
 using TMPro;
@@ -16,7 +17,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         [SerializeField] private WaitListen waitListen;
         [SerializeField] private Wiretapping wiretapping;
         [SerializeField] private TextMeshProUGUI timeText;
-        [SerializeField] private AudioSource soundSource;
+        [SerializeField] private SoundID soundId;
         [SerializeField] private AudioClip soundClip;
         
         public event Action<int, int> OnSuccess;
@@ -47,7 +48,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         {
             JudgeSlider.Register(this);
             waitListen.gameObject.SetActive(true);
-            waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundSource, soundClip);
+            waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundId, soundClip);
             waitListen.PlaySound();
             wiretapping.gameObject.SetActive(false);
         }
@@ -66,7 +67,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         {
             waitListen.StopSound();
             waitListen.gameObject.SetActive(false);
-            wiretapping.Setup(_phishingData.sender, _phishingData.recipient, soundSource, _phishingData.voiceClip);
+            wiretapping.Setup(_phishingData.sender, _phishingData.recipient, soundId, _phishingData.voiceClip);
             wiretapping.gameObject.SetActive(true);
             wiretapping.Play(_timer);
         }

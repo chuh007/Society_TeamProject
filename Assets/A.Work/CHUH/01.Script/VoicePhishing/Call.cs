@@ -1,4 +1,5 @@
 ﻿using A.Work.CHUH._01.Script.Call;
+using Ami.BroAudio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -18,21 +19,20 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         [SerializeField] protected Button listenButton;
         [SerializeField] protected Button exitButton;
 
-        protected AudioSource _audioSource;
+        protected SoundID _audioId;
         
-        public void Setup(CallSO senderData, CallSO recipientData, AudioSource source, AudioClip sound)
+        public void Setup(CallSO senderData, CallSO recipientData, SoundID source, AudioClip sound)
         {
             senderPhoneText.text = senderData.phoneNumber;
             senderIcon.sprite = senderData.icon;
             recipientPhoneText.text = recipientData.phoneNumber;
             recipientIcon.sprite = recipientData.icon;
-            _audioSource = source;
-            _audioSource.clip = sound;
+            _audioId = source;
         }
         
         public void StopSound()
         {
-            _audioSource?.Stop();
+            BroAudio.Stop(_audioId);
         }
     }
 }
