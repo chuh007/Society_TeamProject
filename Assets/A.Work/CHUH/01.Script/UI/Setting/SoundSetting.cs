@@ -1,15 +1,20 @@
-﻿using Ami.BroAudio;
+﻿using System;
+using Ami.BroAudio;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace A.Work.CHUH._01.Script.UI.Setting
 {
     public class SoundSetting : MonoBehaviour
     {
+        [SerializeField] private GameObject soundUI;
         [Header("Sliders")]
         [SerializeField] private Slider masterVolumeSlider;
         [SerializeField] private Slider BGMVolumeSlider;
         [SerializeField] private Slider SFXVolumeSlider;
+
+        private bool _isActive;
         
         private void Awake()
         {
@@ -23,8 +28,19 @@ namespace A.Work.CHUH._01.Script.UI.Setting
             masterVolumeSlider.value = PlayerPrefs.GetFloat($"AllVolume");
             BGMVolumeSlider.value = PlayerPrefs.GetFloat($"MusicVolume");
             SFXVolumeSlider.value = PlayerPrefs.GetFloat($"SFXVolume");
+            _isActive = false;
+            soundUI.SetActive(_isActive);
         }
-        
+
+        private void Update()
+        {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                _isActive = !_isActive;
+                soundUI.SetActive(_isActive);
+            }
+        }
+
         public void SetVolume(BroAudioType type, float volume)
         {
             BroAudio.SetVolume(type, volume);

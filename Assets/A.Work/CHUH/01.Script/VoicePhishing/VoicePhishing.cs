@@ -18,7 +18,6 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         [SerializeField] private Wiretapping wiretapping;
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private SoundID soundId;
-        [SerializeField] private AudioClip soundClip;
         
         public event Action<int, int> OnSuccess;
         public event Action<int, int> OnFail;
@@ -46,7 +45,6 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         public void SetData(VoicePhishingSO phishingData, DaySystem daySystem)
         {
             _phishingData = phishingData;
-            _voiceTime = _phishingData.voiceClip.length;
             _daySystem = daySystem;
         }
 
@@ -54,7 +52,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         {
             JudgeSlider.Register(this);
             waitListen.gameObject.SetActive(true);
-            waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundId, soundClip);
+            waitListen.Setup(_phishingData.sender, _phishingData.recipient, soundId);
             waitListen.PlaySound();
             wiretapping.gameObject.SetActive(false);
         }
@@ -73,7 +71,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         {
             waitListen.StopSound();
             waitListen.gameObject.SetActive(false);
-            wiretapping.Setup(_phishingData.sender, _phishingData.recipient, soundId, _phishingData.voiceClip);
+            wiretapping.Setup(_phishingData.sender, _phishingData.recipient, _phishingData.voiceId);
             wiretapping.gameObject.SetActive(true);
             wiretapping.Play(_timer);
         }

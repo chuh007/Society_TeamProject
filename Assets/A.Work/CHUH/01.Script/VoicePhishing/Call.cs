@@ -21,7 +21,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
 
         protected SoundID _audioId;
         
-        public void Setup(CallSO senderData, CallSO recipientData, SoundID source, AudioClip sound)
+        public void Setup(CallSO senderData, CallSO recipientData, SoundID source)
         {
             senderPhoneText.text = senderData.phoneNumber;
             senderIcon.sprite = senderData.icon;
