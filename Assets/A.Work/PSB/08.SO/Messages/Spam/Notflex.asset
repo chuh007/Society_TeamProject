@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: Notflex
   m_EditorClassIdentifier: 
-  roomId: N
+  roomId: Notflex
   roomName: Notflex
   icon: {fileID: 2800000, guid: f90a0e0b1ad1b53489743065bbbc404c, type: 3}
   number: 00-308-321-0161
@@ -47,34 +47,34 @@ MonoBehaviour:
       nextNodeIndex: 5
   - messages:
     - "\uC218\uB77D\uD558\uC168\uC2B5\uB2C8\uB2E4."
-    - "\uB0AB\uD50C\uB809\uC2A4 30\uB144 \uC774\uC6A9 \uAC00\uACA9\uC774 \uBA3C\uC800
-      \uBD80\uACFC\uB41C \uB4A4,"
-    - "\uB2E4\uC2DC \uC800\uD76C\uAC00 \uC785\uAE08\uC744 \uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
-    - "\uD1B5\uC7A5 \uBC88\uD638\uB97C \uC54C\uB824\uC8FC\uC2E4 \uC218 \uC788\uC73C\uC2E0\uAC00\uC694?"
+    - "\uB0AB\uD50C\uB809\uC2A4 \uC544\uC774\uB514\uB97C \uC8FC\uC2DC\uBA74,"
+    - "\uC800\uD76C\uAC00 \uC774\uC6A9\uAD8C\uC744 \uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
+    - "\uC544\uC774\uB514\uB97C \uC54C\uB824\uC8FC\uC2E4 \uC218 \uC788\uC73C\uC2E0\uAC00\uC694?"
     choices:
     - answer: "\uB124?"
       nextNodeIndex: 4
-    - answer: "\uADF8\uB0E5 \uBC14\uB85C \uC8FC\uC2DC\uB294 \uAC8C \uC544\uB2C8\uC600\uB098\uC694?"
+    - answer: "\uADF8\uB0E5 \uBC14\uB85C \uC8FC\uC2E4 \uC218 \uC788\uB294 \uAC8C
+        \uC544\uB2C8\uC600\uB098\uC694?"
       nextNodeIndex: 4
   - messages:
     - "\uADF8\uB807\uAC8C \uAC04\uB2E8\uD558\uC9C0\uAC00 \uC54A\uC2B5\uB2C8\uB2E4."
     - "\uC9C0\uAE08\uC774\uB77C\uB3C4 \uAC70\uC808 \uD558\uC2E4\uAC74\uAC00\uC694??"
     choices:
-    - answer: "\uB124. \uC804 \uAC70\uC808\uD560\uAC8C\uC694."
+    - answer: "\uB124. \uAC70\uC808\uD560\uAC8C\uC694."
       nextNodeIndex: 5
     - answer: "\uADF8\uB798\uB3C4 \uD558\uACA0\uC2B5\uB2C8\uB2E4."
       nextNodeIndex: 6
   - messages:
     - "\uADF8\uB7FC \uAC70\uC808\uD558\uC2E0 \uAC78\uB85C \uC54C\uACA0\uC2B5\uB2C8\uB2E4."
     choices:
-    - answer: "\uB135"
+    - answer: 
       nextNodeIndex: -1
   - messages:
     - "\uACB0\uC81C \uB418\uC168\uC2B5\uB2C8\uB2E4.\n\uC7A0\uC2DC \uD6C4 \uB2E4\uB978
       \uC5F0\uB77D\uCC98\uB85C \uC804\uD654\uAC00 \uC62C\uAC81\uB2C8\uB2E4."
     choices:
-    - answer: "\uC9C4\uC9DC\uC8E0? \uB3C8\uB9CC \uB098\uAC04 \uAC70 \uC544\uB2C8\uC8E0?"
+    - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10
-  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}

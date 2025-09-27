@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: MiBank
   m_EditorClassIdentifier: 
-  roomId: M
-  roomName: MiBank
+  roomId: Mibank
+  roomName: "\uB9C8\uC774\uBC45\uD06C"
   icon: {fileID: 2800000, guid: 0978beb6942955d47b49e8b6c4595142, type: 3}
   number: 031 - 383 - 0384
   messagePreview:
@@ -56,15 +56,15 @@ MonoBehaviour:
     choices:
     - answer: "\uB135 \uC54C\uACA0\uC2B5\uB2C8\uB2E4."
       nextNodeIndex: -1
-    - answer: "\uBD88\uC548\uD55C\uB370, \uC548\uD560\uAC8C\uC694"
+    - answer: "\uBD88\uC548\uD55C\uB370, \uADF8\uB0E5 \uC548\uD560\uAC8C\uC694"
       nextNodeIndex: 4
   - messages:
     - "\uC2E0\uC6A9 \uB4F1\uAE09\uC774 \uB0AE\uC73C\uC2E0 \uBD84\uB4E4\uAED8\uB9CC"
     - "\uD61C\uD0DD\uC744 \uB4DC\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
     - "\uC9C4\uC9DC \uD544\uC694 \uC5C6\uC73C\uC2E0\uAC00\uC694?"
     choices:
-    - answer: "\uB124"
+    - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10
-  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}

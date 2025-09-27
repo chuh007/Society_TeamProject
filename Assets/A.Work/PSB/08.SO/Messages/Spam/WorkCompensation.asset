@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: WorkCompensation
+  m_EditorClassIdentifier: 
+  roomId: WorkCompensation
+  roomName: "\uADFC\uB85C\uBCF5\uC9C0\uACF5\uB2E8"
+  icon: {fileID: 2800000, guid: 170d6315627359f4bb754c36f265b0ce, type: 3}
+  number: 1566-0057
+  messagePreview:
+  - "\uADFC\uB85C\uBCF5\uC9C0\uACF5\uB2E8"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\r\n\uACE0\uAC1D\uB2D8 \uC548\uB155\uD558\uC138\uC694?"
+    - "\uADFC\uB85C\uBCF5\uC9C0\uACF5\uB2E8\uC785\uB2C8\uB2E4.\r\n\uACE0\uAC1D\uB2D8\uAED8
+      \uACE0\uC6A9\uBCF4\uD5D8 \uD53C\uBCF4\uD5D8\uC790\uACA9 \uC2E0\uACE0\uC0AC\uC2E4
+      \uD1B5\uC9C0\uC11C\uB97C \uBB38\uC790\uBA54\uC2DC\uC9C0\uB85C \uBCF4\uB0B4\uB4DC\uB9BD\uB2C8\uB2E4.\r"
+    - "\uACE0\uC6A9\uBCF4\uD5D8 \uD53C\uBCF4\uD5D8\uC790\uACA9 \uC2E0\uACE0\uC0AC\uC2E4
+      \uC0C1\uC138\uB0B4\uC6A9\uC744 \uBCF4\uC2DC\uB824\uBA74"
+    - "\uC544\uB798\uC758 \uB9C1\uD06C\uB97C \uD1B5\uD574 \uBCF8\uC778\uD655\uC778
+      \uBC0F \uB3D9\uC758\uACFC\uC815\uC744 \uAC70\uCCD0 \uC138\uBD80 \uB0B4\uC6A9\uC744
+      \uD655\uC778\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+    - "\u25CB \uD1B5\uC9C0\uC11C \uD655\uC778\uD558\uAE30\r\nhttps://xsker.uminus.co.kr/read?c=2025093012753"
+    choices:
+    - answer: "\uBCF8\uC778\uD655\uC778 \uC544\uAE4C \uD588\uB294\uB370, \uB610 \uD574\uC57C
+        \uD55C\uB2E4\uACE0\uC694?"
+      nextNodeIndex: 1
+  - messages:
+    - "\uC544\uAE4C \uD558\uC2E0 \uAC83\uACFC \uB2E4\uB985\uB2C8\uB2E4"
+    - "\uADF8\uB0E5 \uC804\uD654\uBC88\uD638\uB9CC \uC785\uB825\uD558\uC2DC\uBA74
+      \uB429\uB2C8\uB2E4."
+    choices:
+    - answer: "\uC804\uD654\uBC88\uD638 \uAC00\uC9C0\uACE0\uB294 \uBCF8\uC778 \uD655\uC778\uC774
+        \uC548\uB420\uD150\uB370\uC694?"
+      nextNodeIndex: 2
+  - messages:
+    - "\uADF8\uB0E5 \uD558\uB77C\uACE0 \uD558\uB294\uB300\uB85C\uB9CC \uD558\uC2DC\uBA74
+      \uB429\uB2C8\uB2E4."
+    choices:
+    - answer: "(\uBB50\uC9C0...)"
+      nextNodeIndex: -1
+  isSpam: 2
+  value: 10
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: CardRemainMoney
+  m_EditorClassIdentifier: 
+  roomId: RemainMoney
+  roomName: 1800-3300
+  icon: {fileID: 2800000, guid: 34af3d0ef65e24fb89c8cbfcfc1370a1, type: 3}
+  number: 1800-3300
+  messagePreview:
+  - "[Web\uBC1C\uC2E0]"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\n[OX\uCE74\uB4DC]OOO\uB2D8\nOX\uCE74\uB4DC\uC790\uB3D9\uC774\uCCB4\uD1B5\uC7A5\uC5D0\uC794\uC561\uC788\uC744\uACBD\uC6B0\uC774\uC911\uCD9C\uAE08\uB420\uC218\uC788\uC2B5\uB2C8\uB2E4"
+    choices: []
+  - messages:
+    - "[Web\uBC1C\uC2E0]\n[OX\uCE74\uB4DC]OOO\uB2D8\n294,148\uC6D0\n141-954812-59323(09/30)\uAE30\uC900"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 10
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}
