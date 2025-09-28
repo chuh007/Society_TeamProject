@@ -31,7 +31,17 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
             {
                 voicePhishingData.Add(data);
             }
+
+            GameTypeSingleton.Instance.OnGameTypeChanged += HandleGameTypeChange;
             StartCoroutine(TrySpawn());
+        }
+
+        private void HandleGameTypeChange(GameType type)
+        {
+            if (type == GameType.Game)
+            {
+                StartCoroutine(TrySpawn());
+            }
         }
 
         private IEnumerator TrySpawn()
