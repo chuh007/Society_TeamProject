@@ -53,6 +53,11 @@ namespace Scripts.Chatting.Stories.BeginStory
             textPanel.SetActive(false);
         }
 
+        public void ActiveFalseText()
+        {
+            textUI.gameObject.SetActive(false);
+        }
+
         private IEnumerator TypeMessage(string message)
         {
             textUI.text = "";
