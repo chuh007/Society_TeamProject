@@ -42,7 +42,7 @@ namespace Scripts.Chatting.Stories
         
         private void Close()
         {
-            textPanel.transform.DOScale(Vector3.zero, 0.1f)
+            textPanel.transform.DOScale(Vector3.zero, 0.5f)
                 .OnComplete(() =>
                 {
                     textPanel.gameObject.SetActive(false);
