@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Scripts.Test;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,7 +11,7 @@ namespace Scripts.SceneSettings
 
         public void NextSceneMethod()
         {
-            SceneManager.LoadScene(nextScene);
+            SceneLoader.LoadSceneSkipIfVisited(nextScene);
         }
 
         public void ReloadScene()

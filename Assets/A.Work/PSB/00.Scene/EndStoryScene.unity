@@ -356,15 +356,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 740.3094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 435.19427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0144234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1076,6 +1076,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 577403674}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

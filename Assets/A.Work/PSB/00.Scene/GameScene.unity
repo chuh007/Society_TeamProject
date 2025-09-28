@@ -551,6 +551,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &91743633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,6 +1347,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &477925047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1931,6 +1957,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 903733570}
         m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.UI.Setting.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
           Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 0
@@ -2868,6 +2907,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1050555936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3322,6 +3374,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1347925200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3514,10 +3579,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 903733570}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 903733570}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
@@ -3525,12 +3594,24 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayButtonSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: PlayButtonSound
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: A.Work.CHUH._01.Script.UI.Setting.ButtonSoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: A.Work.CHUH._01.Script.Sound.ButtonSoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3044682398661694282, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4804,6 +4885,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1750950509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5317,6 +5411,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1809686948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5737,6 +5844,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1847390072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5900,6 +6020,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 903733570}
         m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.UI.Setting.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
           Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 0
@@ -6460,6 +6593,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 903733570}
         m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.UI.Setting.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 903733570}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
           Assembly-CSharp
         m_MethodName: PlayButtonSound
         m_Mode: 0

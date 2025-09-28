@@ -133,10 +133,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1910300800}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1910300800}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 1910300800}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
@@ -144,11 +152,35 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PlayButtonSound
       objectReference: {fileID: 0}
     - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayButtonSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PlayButtonSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: A.Work.CHUH._01.Script.Sound.ButtonSoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: A.Work.CHUH._01.Script.Sound.ButtonSoundManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2198950512554570870, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: A.Work.CHUH._01.Script.Sound.ButtonSoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2334526049329499698, guid: 5c16c5608690c02458cf4b2ed0daf914, type: 3}
@@ -631,6 +663,32 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1166,7 +1224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uC2A4\uD15C \uC885\uB8CC\n"
+  m_text: "\uD1F4\uADFC\uD558\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28905ddfa2901754286553790fbbc515, type: 2}
   m_sharedMaterial: {fileID: 4865067560792392490, guid: 28905ddfa2901754286553790fbbc515, type: 2}
@@ -1353,6 +1411,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &532900417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1448,7 +1532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC77C\uACFC \uC2DC\uC791\uD558\uAE30"
+  m_text: "\uCD9C\uADFC\uD558\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 28905ddfa2901754286553790fbbc515, type: 2}
   m_sharedMaterial: {fileID: 4865067560792392490, guid: 28905ddfa2901754286553790fbbc515, type: 2}
@@ -1708,15 +1792,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 740.3094
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 435.19427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0144234
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 823999895692590437, guid: bbc832edb7ffa0a409f19723390d08fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1766,6 +1850,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70043a4235d64688bd672f2ce1740165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2038809476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038809477}
+  - component: {fileID: 2038809478}
+  m_Layer: 0
+  m_Name: SceneVisitSingleton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2038809477
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038809476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038809478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038809476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4292cace26bf4a8ab3788bb15013dbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usePersistent: 1
 --- !u!1 &2070613694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +2048,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1910300800}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.ButtonSoundManager,
+          Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2085016308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,3 +2123,4 @@ SceneRoots:
   - {fileID: 170972659}
   - {fileID: 387132825}
   - {fileID: 1910300799}
+  - {fileID: 2038809477}
