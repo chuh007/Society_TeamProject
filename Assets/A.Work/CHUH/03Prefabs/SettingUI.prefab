@@ -196,9 +196,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7164686097440776366}
-        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.UI.Setting.SoundSetting,
-          Assembly-CSharp
+      - m_Target: {fileID: 5487533916374863297}
+        m_TargetAssemblyTypeName: Code.Scripts.UI.SoundUIManager, Assembly-CSharp
         m_MethodName: OpenPanel
         m_Mode: 1
         m_Arguments:
@@ -244,7 +243,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 50}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7097715085892877033
 CanvasRenderer:
@@ -359,7 +358,7 @@ GameObject:
   - component: {fileID: 1240380659831431986}
   - component: {fileID: 8833673398808767355}
   - component: {fileID: 7061441689304839475}
-  - component: {fileID: 7164686097440776366}
+  - component: {fileID: 5487533916374863297}
   m_Layer: 5
   m_Name: SettingUI
   m_TagString: Untagged
@@ -450,7 +449,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7164686097440776366
+--- !u!114 &5487533916374863297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -459,13 +458,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 666804968452340389}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68134f0b349b45f1a7ec2c3b70122f90, type: 3}
+  m_Script: {fileID: 11500000, guid: c9034a127f424ede8373c2281be8d40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundUI: {fileID: 4537898790239268777}
-  masterVolumeSlider: {fileID: 4243176600748514365}
-  BGMVolumeSlider: {fileID: 4002715322611264897}
-  SFXVolumeSlider: {fileID: 5126387429771982309}
+  panelUI: {fileID: 4537898790239268777}
+  masterSlider: {fileID: 4243176600748514365}
+  musicSlider: {fileID: 4002715322611264897}
+  sfxSlider: {fileID: 5126387429771982309}
+  masterText: {fileID: 7138994101531468940}
+  musicText: {fileID: 3630460895580456958}
+  sfxText: {fileID: 7447831520198496729}
 --- !u!1 &1089019776633213491
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +768,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5487533916374863297}
+        m_TargetAssemblyTypeName: Code.Scripts.UI.SoundUIManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2068019371658851168
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,7 +1099,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1149819798604587568
 CanvasRenderer:
@@ -1108,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1235,7 +1249,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 50}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1271112780951470994
 CanvasRenderer:
@@ -1449,7 +1463,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 50}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8678976001849840690
 CanvasRenderer:
@@ -1786,7 +1800,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5487533916374863297}
+        m_TargetAssemblyTypeName: Code.Scripts.UI.SoundUIManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5945759344887280741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,7 +2041,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5487533916374863297}
+        m_TargetAssemblyTypeName: Code.Scripts.UI.SoundUIManager, Assembly-CSharp
+        m_MethodName: SetSfxVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8129368258031148388
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,7 +2089,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3032841774364297949
 CanvasRenderer:
@@ -2074,7 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2126,7 +2164,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1559917353183925233
 CanvasRenderer:
@@ -2149,7 +2187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

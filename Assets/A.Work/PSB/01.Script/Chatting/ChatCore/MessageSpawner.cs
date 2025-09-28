@@ -45,11 +45,13 @@ namespace Scripts.Chatting.ChatCore
             _spawnedToday = 0;
         }
 
+        #if UNITY_EDITOR
         private void Update()
         {
             if (Keyboard.current.sKey.wasPressedThisFrame)
                 TrySpawnMessage();
         }
+        #endif
 
         private IEnumerator TrySpawnRoutine()
         {
@@ -69,8 +71,10 @@ namespace Scripts.Chatting.ChatCore
                     TrySpawnMessage();
                 }
                 
+                float cooldown = Random.Range(cooldownAfterClick - 5f, cooldownAfterClick + 5f);
+
                 float timer = 0f;
-                while (timer < cooldownAfterClick)
+                while (timer < cooldown)
                 {
                     if (GameTypeSingleton.Instance.GameType == GameType.Story
                         || GameTypeSingleton.Instance.GameType == GameType.Result)
@@ -99,11 +103,6 @@ namespace Scripts.Chatting.ChatCore
             else if (_isMessageActive)
             {
                 Debug.LogError("Spawn false, because isMessageActive is true");
-                return;
-            }
-            else if (IsChatWindowOpen())
-            {
-                Debug.LogError("Spawn false, because IsChatWindowOpen is true");
                 return;
             }
 

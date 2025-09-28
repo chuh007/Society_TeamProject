@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: Taekbae
+  m_EditorClassIdentifier: 
+  roomId: 
+  roomName: 
+  icon: {fileID: 0}
+  number: 
+  messagePreview:
+  - "[AS\uAE4C\uCE58\uD1B5\uC6B4]"
+  nodes:
+  - messages:
+    - "[AS\uAE4C\uCE58\uD1B5\uC6B4] \uACE0\uAC1D\uB2D8 \uD0DD\uBC30\uAC00 \uC624\uB298
+      \uC624\uD6C4 6\uC2DC \uB3C4\uCC29 \uC608\uC815\uC785\uB2C8\uB2E4.\n\uAE30\uC0AC\uB2D8
+      \uC5F0\uB77D\uCC98: 010-3209-3248"
+    - "\uBC30\uC1A1\uC870\uD68C\uB294 \uACF5\uC2DD \uC571 \uB610\uB294 \uD648\uD398\uC774\uC9C0\uC5D0\uC11C
+      \uAC00\uB2A5\uD569\uB2C8\uB2E4."
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}

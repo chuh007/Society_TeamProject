@@ -38,10 +38,7 @@ namespace Scripts.Chatting.ChatSystem
         
         private void FixedUpdate()
         {
-            if (GameTypeSingleton.Instance.GameType == GameType.Result 
-                || GameTypeSingleton.Instance.GameType == GameType.Story
-                || GameTypeSingleton.Instance.GameType == GameType.Clear
-                || GameTypeSingleton.Instance.GameType == GameType.Fail)
+            if (GameTypeSingleton.Instance.GameType != GameType.Game)
             {
                 CloseList();
             }
@@ -51,7 +48,7 @@ namespace Scripts.Chatting.ChatSystem
         {
             if (_isOpen) return;
             _isOpen = true;
-
+            
             chatPrefab.transform.localScale = Vector3.zero;
             chatPrefab.gameObject.SetActive(true);
             

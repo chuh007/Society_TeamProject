@@ -26,6 +26,7 @@ namespace Scripts.Chatting.ChatCore
             LoadMessages();
         }
 
+        #if UNITY_EDITOR
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.K))
@@ -33,6 +34,7 @@ namespace Scripts.Chatting.ChatCore
                 ClearAllData();
             }
         }
+        #endif
 
         public ConversationLog GetOrCreateLog(MessageSO so)
         {
