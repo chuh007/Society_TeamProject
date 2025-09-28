@@ -8,10 +8,15 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
 {
     public class Wiretapping : Call
     {
-        public void Play(float time)
+        public void Play()
         {
-            BroAudio.Play(_audioId);
+            PlayLoop();
         }
-        
+
+        private void PlayLoop()
+        {
+            var src = BroAudio.Play(_audioId);
+            src.OnEnd(_ => PlayLoop());
+        }
     }
 }

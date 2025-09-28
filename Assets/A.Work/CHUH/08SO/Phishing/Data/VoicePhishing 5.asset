@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9e0a7a719740abaeafc542205baaa3, type: 3}
+  m_Name: VoicePhishing 5
+  m_EditorClassIdentifier: 
+  voiceId:
+    ID: 1073741843
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 0}
+  isFraud: 1
+  sender: {fileID: 11400000, guid: 8ad5ea94aae474742bbe6a88f94bbf12, type: 2}
+  recipient: {fileID: 11400000, guid: 1891f2a59cb60354bac7703c4734aa5e, type: 2}
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
+  description: "\uC740\uD589\uC0AC\uAE30"

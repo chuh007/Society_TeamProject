@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f64dedf9ca54a3ab06ae9cac6a614c9, type: 3}
   m_Name: Call 1
   m_EditorClassIdentifier: 
-  phoneNumber: 010-1245-5678
-  icon: {fileID: -3144020813466289495, guid: 2fe788e89ca416a478e24db61d072bcc, type: 3}
+  phoneNumber: 02-035-3763
+  icon: {fileID: 21300000, guid: 34af3d0ef65e24fb89c8cbfcfc1370a1, type: 3}
