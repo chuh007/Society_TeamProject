@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: Bank
   m_EditorClassIdentifier: 
-  roomId: 
-  roomName: 
+  roomId: 2348-3465
+  roomName: "GC\uC740\uD589"
   icon: {fileID: 2800000, guid: 70ae0af0cca034ec8920a459291978ee, type: 3}
-  number: 
+  number: 2348-3465
   messagePreview:
   - "[GC \uC740\uD589]..."
   nodes:

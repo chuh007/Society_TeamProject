@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
   m_Name: Taekbae
   m_EditorClassIdentifier: 
-  roomId: 
-  roomName: 
-  icon: {fileID: 0}
-  number: 
+  roomId: 4358-925
+  roomName: "AS\uAE4C\uCE58\uD1B5\uC6B4"
+  icon: {fileID: 2800000, guid: a00a23a6cc02618498fb997b4f3dfcef, type: 3}
+  number: 4358-925
   messagePreview:
   - "[AS\uAE4C\uCE58\uD1B5\uC6B4]"
   nodes:
