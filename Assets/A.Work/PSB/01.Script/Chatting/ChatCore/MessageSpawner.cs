@@ -103,11 +103,6 @@ namespace Scripts.Chatting.ChatCore
                 Debug.LogError("Spawn false, because isMessageActive is true");
                 return;
             }
-            else if (IsChatWindowOpen())
-            {
-                Debug.LogError("Spawn false, because IsChatWindowOpen is true");
-                return;
-            }
 
             SpawnMessage();
         }

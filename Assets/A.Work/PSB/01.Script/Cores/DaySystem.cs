@@ -177,7 +177,7 @@ namespace Scripts.Cores
             else
             {
                 resultText.text =
-                    "오늘은 무사하지 않네...\n"
+                    "오늘 하루는 무사하지 않았다.\n"
                     + $"오늘의 메시지 수 : {_processedMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
             }
@@ -199,7 +199,7 @@ namespace Scripts.Cores
             else
             {
                 resultText.text =
-                    "인터넷 세상은 멸망했다.\n"
+                    "클리어 실패...\n"
                     + $"전체 처리한 메시지 수 : {totalMessages}\n"
                     + $"성공:{_successCount}, 실패:{_failCount}";
                 GameTypeSingleton.Instance.GameType = GameType.Fail;
