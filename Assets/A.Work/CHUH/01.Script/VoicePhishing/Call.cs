@@ -20,6 +20,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         [SerializeField] protected Button exitButton;
 
         protected SoundID _audioId;
+        protected bool _isEnd = false;
         
         public void Setup(CallSO senderData, CallSO recipientData, SoundID source)
         {
@@ -32,6 +33,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         
         public void StopSound()
         {
+            _isEnd = true;
             BroAudio.Stop(_audioId);
         }
     }

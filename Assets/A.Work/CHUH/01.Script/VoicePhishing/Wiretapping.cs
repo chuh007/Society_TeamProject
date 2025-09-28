@@ -16,7 +16,11 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         private void PlayLoop()
         {
             var src = BroAudio.Play(_audioId);
-            src.OnEnd(_ => PlayLoop());
+            src.OnEnd(_ =>
+            {
+                if (!_isEnd)
+                    PlayLoop();
+            });
         }
     }
 }
