@@ -23,9 +23,10 @@ MonoBehaviour:
     - "[Web\uBC1C\uC2E0]\n[LJ U-]\nAI \uAD6C\uB3C5\uD329 \uCD9C\uC2DC \uAE30\uB150!"
     - "\uB9C1\uD06C\uB97C \uD0C0\uACE0 \uC571\uC744 \uB2E4\uC6B4\uB85C\uB4DC \uD558\uBA74\n3\uAC1C\uC6D4
       \uB3D9\uC548 \uAD6C\uB3C5\uB8CC\uAC00 0\uC6D0"
+    - liuminus.com/downloadlink
     choices:
     - answer: 
       nextNodeIndex: -1
   isSpam: 2
   value: 10
-  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}

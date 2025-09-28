@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: ConsumptionCoupon
+  m_EditorClassIdentifier: 
+  roomId: ConsumptionCoupon
+  roomName: EMeatShop
+  icon: {fileID: 2800000, guid: 6bd4e086965179648b6f5a2758576668, type: 3}
+  number: 02-3129-1557
+  messagePreview:
+  - "[Web\uBC1C\uC2E0]OOO\uACE0\uAC1D\uB2D8"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]OOO\uACE0\uAC1D\uB2D8\nE\uACE0\uAE30\uC0F5\uC5D0\uC11C \uC18C\uBE44\uCFE0\uD3F0
+      \uC2E0\uCCAD \uAC00\uB2A5\uD569\uB2C8\uB2E4!\n\uC2E0\uCCAD \uBC29\uBC95 \uC548\uB0B4\uD574\uB4DC\uB9BD\uB2C8\uB2E4."
+    - "\uC2E0\uCCAD\uB300\uC0C1 : \uC804 \uAD6D\uBBFC\n\uC9C0\uC6D0 \uAE08\uC561
+      : \uC778\uB2F9 15\uB9CC\uC6D0\n\uC218\uB2E8 : \uC2E0\uC6A9\uCE74\uB4DC\n\uBC29\uBC95
+      : E\uACE0\uAE30\uC0F5 \uC804\uD654\uBC88\uD638\uB85C \uC804\uD654\uD558\uC5EC
+      \uC2E0\uCCAD"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 2
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}

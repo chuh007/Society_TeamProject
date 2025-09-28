@@ -24,7 +24,7 @@ MonoBehaviour:
     - "\uACE0\uAC1D\uB2D8\uC774 \uC608\uC57D\uD558\uC2E0 USIM\uC774\n\uB300\uB9AC\uC810\uC5D0
       \uC785\uACE0\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\n\uC544\uB798 URL\uC744 \uB20C\uB7EC
       \uBCF8\uC778\uD655\uC778\uD558\uC138\uC694"
-    - https://bit.fkgr.rlkesc
+    - https://sjk.fkgr.rlkesc
     choices:
     - answer: 
       nextNodeIndex: -1

@@ -13,6 +13,8 @@ namespace Scripts.Chatting.ChatSystem
         private Button _button;
         [SerializeField] private Button closeBtn;
 
+        private bool _isOpen = false;
+
         private void Awake()
         {
             _button = GetComponent<Button>();
@@ -47,6 +49,9 @@ namespace Scripts.Chatting.ChatSystem
 
         private void OpenList()
         {
+            if (_isOpen) return;
+            _isOpen = true;
+
             chatPrefab.transform.localScale = Vector3.zero;
             chatPrefab.gameObject.SetActive(true);
             
@@ -56,6 +61,9 @@ namespace Scripts.Chatting.ChatSystem
 
         private void CloseList()
         {
+            if (!_isOpen) return;
+            _isOpen = false;
+
             chatPrefab.transform.DOMove(transform.position, 0.5f);
             chatPrefab.transform.DOScale(Vector3.zero, 0.5f)
                 .OnComplete(() =>
@@ -63,7 +71,6 @@ namespace Scripts.Chatting.ChatSystem
                     chatPrefab.gameObject.SetActive(false);
                 });
         }
-
         
     }
 }
