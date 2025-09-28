@@ -45,11 +45,13 @@ namespace Scripts.Chatting.ChatCore
             _spawnedToday = 0;
         }
 
+        #if UNITY_EDITOR
         private void Update()
         {
             if (Keyboard.current.sKey.wasPressedThisFrame)
                 TrySpawnMessage();
         }
+        #endif
 
         private IEnumerator TrySpawnRoutine()
         {
