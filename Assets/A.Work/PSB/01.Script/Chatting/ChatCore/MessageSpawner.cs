@@ -69,8 +69,10 @@ namespace Scripts.Chatting.ChatCore
                     TrySpawnMessage();
                 }
                 
+                float cooldown = Random.Range(cooldownAfterClick - 5f, cooldownAfterClick + 5f);
+
                 float timer = 0f;
-                while (timer < cooldownAfterClick)
+                while (timer < cooldown)
                 {
                     if (GameTypeSingleton.Instance.GameType == GameType.Story
                         || GameTypeSingleton.Instance.GameType == GameType.Result)

@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 91743634}
   - component: {fileID: 91743633}
   - component: {fileID: 91743632}
+  - component: {fileID: 91743635}
   m_Layer: 5
   m_Name: YoutubeBtn
   m_TagString: Untagged
@@ -437,6 +438,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91743629}
   m_CullTransparentMesh: 1
+--- !u!114 &91743635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91743629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4115fce9b4e489aa985ea69e19be04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: 
 --- !u!1001 &149073468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1053,6 +1067,7 @@ GameObject:
   - component: {fileID: 477925048}
   - component: {fileID: 477925047}
   - component: {fileID: 477925046}
+  - component: {fileID: 477925049}
   m_Layer: 5
   m_Name: ChromeBtn
   m_TagString: Untagged
@@ -1077,7 +1092,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 80, y: 76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477925046
 MonoBehaviour:
@@ -1143,7 +1158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2299976754832880638, guid: 65f9f646c740cdd4ebc3421d42ba45c3, type: 3}
+  m_Sprite: {fileID: -7739740921799772310, guid: 4d438c075a1916e4a9f613787f38cd3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1161,6 +1176,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477925044}
   m_CullTransparentMesh: 1
+--- !u!114 &477925049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477925044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4115fce9b4e489aa985ea69e19be04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  link: https://drive.google.com/drive/folders/1rqHFQIUzd3uMB_kzNnZouyBjRvJqcCsW?usp=sharing
 --- !u!1 &516649818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,8 +1869,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 215431278}
   dayText: {fileID: 1395203824}
-  maxDay: 3
-  maxMessagesPerDay: 3
+  maxDay: 5
+  maxMessagesPerDay: 7
   resultPanel: {fileID: 1799620232}
   resultText: {fileID: 234291385}
   endingBtn: {fileID: 1750950508}
