@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using Scripts.Chatting.ChatSystem;
 using Scripts.Chatting.ChatUI;
 using Scripts.Chatting.Enums;
@@ -63,7 +64,6 @@ namespace Scripts.Cores
         private void Start()
         {
             GameTypeSingleton.Instance.OnGameTypeChanged += HandleGameTypeChanged;
-
         }
 
         private void OnEnable()
@@ -126,7 +126,11 @@ namespace Scripts.Cores
 
         private void CloseResultPanel()
         {
-            resultPanel.gameObject.SetActive(false);
+            resultPanel.transform.DOScale(Vector3.zero, 0.1f)
+                .OnComplete(() =>
+                {
+                    resultPanel.gameObject.SetActive(false);
+                });
             GameTypeSingleton.Instance.GameType = GameType.Story;
             
             DayResultType type = GetDayResultType();
@@ -136,6 +140,7 @@ namespace Scripts.Cores
         
         private void HandleGameTypeChanged(GameType type)
         {
+            resultPanel.transform.localScale = Vector3.one;
             resultPanel.gameObject.SetActive(type == GameType.Result || type == GameType.Clear || type == GameType.Fail);
 
             bool isFinal = type == GameType.Clear || type == GameType.Fail;

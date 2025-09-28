@@ -82,16 +82,15 @@ namespace Scripts.Chatting.Stories.BeginStory
                     textUI.text += message + "\n";
                 }
             }
-
-            EndStory();
+            
+            OnStoryEnd?.Invoke();
         }
 
-        private void EndStory()
+        public void EndStory()
         {
             SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 
             SaveSystem.Clear(SaveDTO.SaveKeys.DayValue); 
             SaveSystem.Clear(SaveDTO.SaveKeys.SliderValue); 
-            OnStoryEnd?.Invoke();
         }
         
     }

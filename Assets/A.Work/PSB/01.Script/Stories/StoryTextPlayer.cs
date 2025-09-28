@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using DG.Tweening;
 using Scripts.Chatting.Enums;
 using Scripts.Cores;
 using TMPro;
@@ -21,15 +22,31 @@ namespace Scripts.Chatting.Stories
         private void Awake()
         {
             textUI.text = "";
+            textPanel.gameObject.SetActive(false);
         }
 
         private void FixedUpdate()
         {
             //나중에 DoTween, 대기 추가하기, 좀 더 효율적인 방법 찾기
             if (GameTypeSingleton.Instance.GameType == GameType.Story)
-                textPanel.SetActive(true);
+                Open();
             else
-                textPanel.SetActive(false);
+                Close();
+        }
+
+        private void Open()
+        {
+            textPanel.transform.localScale = Vector3.one;
+            textPanel.gameObject.SetActive(true);
+        }
+        
+        private void Close()
+        {
+            textPanel.transform.DOScale(Vector3.zero, 0.1f)
+                .OnComplete(() =>
+                {
+                    textPanel.gameObject.SetActive(false);
+                });
         }
 
         public void PlayStory(DayResultType type)

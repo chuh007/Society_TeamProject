@@ -616,7 +616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1751484053799321926, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2546337415240411726, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4014,7 +4014,7 @@ GameObject:
   - component: {fileID: 1799620233}
   - component: {fileID: 1799620234}
   m_Layer: 5
-  m_Name: GameResultTest
+  m_Name: GameResultPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
