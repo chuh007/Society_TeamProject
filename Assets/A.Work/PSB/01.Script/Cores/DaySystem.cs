@@ -210,6 +210,7 @@ namespace Scripts.Cores
         
         #region Temp
 
+        #if UNITY_EDITOR
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.K))
@@ -217,6 +218,7 @@ namespace Scripts.Cores
                 ResetAll();
             }
         }
+        #endif
 
         private void ResetAll()
         {
