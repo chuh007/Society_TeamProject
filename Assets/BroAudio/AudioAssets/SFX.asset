@@ -113,8 +113,8 @@ MonoBehaviour:
     - AudioClip: {fileID: 8300000, guid: 5946891add3064740a0de57f28b44d41, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0
-      EndPosition: 0
+      StartPosition: 0.39
+      EndPosition: 0.49
       FadeIn: 0
       FadeOut: 0
       Weight: 0
@@ -497,72 +497,72 @@ MonoBehaviour:
     - AudioClip: {fileID: 8300000, guid: df39f1ab64550c8479b9040bc740a278, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.33
-      EndPosition: 0.36
+      StartPosition: 0.59
+      EndPosition: 0.38
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 0ffd726720abe6142a513e2491ac819a, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.27
-      EndPosition: 0.82
+      StartPosition: 0.11
+      EndPosition: 1.01
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 93785edb316c3df4cb30274ea9761fb8, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.3
-      EndPosition: 0.33
+      StartPosition: 0.09
+      EndPosition: 0.15
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 6e7d9251a6481a24ea60012dca222f34, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 1.62
-      EndPosition: 0.09
+      StartPosition: 1.39
+      EndPosition: 0
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 9baf4628b263f6c4ca9fb28730e53425, type: 3}
       Volume: 1
-      Delay: 10
-      StartPosition: 0.62
-      EndPosition: 0.39
+      Delay: 0
+      StartPosition: 0
+      EndPosition: 0.46
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 3ae2337d34056b64d9ad79880713418a, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.16
-      EndPosition: 0.48
+      StartPosition: 0.31
+      EndPosition: 0.32
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 8df6810c3fd6b6949b8eeeba030822bd, type: 3}
       Volume: 1
-      Delay: 5
-      StartPosition: 0.31
-      EndPosition: 0.26
+      Delay: 0
+      StartPosition: 0
+      EndPosition: 0
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 8600f5215b0324b43a5f224c4ef96704, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.35
-      EndPosition: 0.72
+      StartPosition: 1.34
+      EndPosition: 0.34
       FadeIn: 0
       FadeOut: 0
       Weight: 0
     - AudioClip: {fileID: 8300000, guid: 91c0d84a90a8fd84d879c03ebbd31c27, type: 3}
       Volume: 1
       Delay: 0
-      StartPosition: 0.58
-      EndPosition: 0.42
+      StartPosition: 0.74
+      EndPosition: 0
       FadeIn: 0
       FadeOut: 0
       Weight: 0

@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: PhishingDataList
   m_EditorClassIdentifier: 
   voicePhishingData:
-  - {fileID: 11400000, guid: e486fc66d1182bb4788f34d8c0cac25f, type: 2}
+  - {fileID: 11400000, guid: 782aab48d42b00a4698a23599efee835, type: 2}
+  - {fileID: 11400000, guid: 605857a5c538e64468fdc45041920875, type: 2}
+  - {fileID: 11400000, guid: a32677dafa29a79488ad33dda8285f21, type: 2}
+  - {fileID: 11400000, guid: eb9a4380750b65a4d9b2983760b98727, type: 2}
+  - {fileID: 11400000, guid: 26c56066e5490564f81420ba92d6772c, type: 2}
+  - {fileID: 11400000, guid: 2e92dc8bf4e513e44b9baad2499fc36f, type: 2}
+  - {fileID: 11400000, guid: 98916d14d3985fd40a90e4a8eefcb776, type: 2}
+  - {fileID: 11400000, guid: e19ad31dc94c48141b1db6f3da52b558, type: 2}
+  - {fileID: 11400000, guid: 06d4b224711387b4ab15cd0800930d00, type: 2}
+  - {fileID: 11400000, guid: d5b9675ef0185a34ba0a89672906e707, type: 2}
+  - {fileID: 11400000, guid: 77805ad107e79f04085541c4d70e4b81, type: 2}

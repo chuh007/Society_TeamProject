@@ -16,7 +16,6 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         
         [SerializeField] private WaitListen waitListen;
         [SerializeField] private Wiretapping wiretapping;
-        [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private SoundID soundId;
         
         public event Action<int, int> OnSuccess;
@@ -25,21 +24,14 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         private DaySystem _daySystem;
         
         private VoicePhishingSO _phishingData;
-        private float _timer = 0f;
         private float _voiceTime;
         
         private void Update()
         {
-            _timer += Time.deltaTime;
-            timeText.text = _timer.ToString("0.00");
-            if (_timer >= _voiceTime)
+            if (GameTypeSingleton.Instance.GameType != GameType.Game)
             {
-                if (GameTypeSingleton.Instance.GameType != GameType.Game)
-                {
-                    Hide();
-                }
+                Hide();
             }
-            
         }
 
         public void SetData(VoicePhishingSO phishingData, DaySystem daySystem)
@@ -73,7 +65,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
             waitListen.gameObject.SetActive(false);
             wiretapping.Setup(_phishingData.sender, _phishingData.recipient, _phishingData.voiceId);
             wiretapping.gameObject.SetActive(true);
-            wiretapping.Play(_timer);
+            wiretapping.Play();
         }
 
         public void ExplanationPhishing()

@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a9e0a7a719740abaeafc542205baaa3, type: 3}
-  m_Name: VoicePhishing 1
+  m_Name: VoicePhishing 3
   m_EditorClassIdentifier: 
   voiceId:
-    ID: 1073741839
+    ID: 1073741841
     _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
     <DebugObject>k__BackingField: {fileID: 0}
   isFraud: 1
-  sender: {fileID: 11400000, guid: 8ad5ea94aae474742bbe6a88f94bbf12, type: 2}
-  recipient: {fileID: 11400000, guid: 1891f2a59cb60354bac7703c4734aa5e, type: 2}
+  sender: {fileID: 11400000, guid: 426e8157ce16f054b8994d518544815b, type: 2}
+  recipient: {fileID: 11400000, guid: 9e94629bc3b1e854d97e754b0d85bd37, type: 2}
   value: 10
   gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
-  description: "\uC6B0\uCCB4\uAD6D \uC0AC\uAE30\n"
+  description: "\uBCD1\uC6D0\uC0AC\uAE30"
