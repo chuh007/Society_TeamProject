@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5688305907482400728}
   - component: {fileID: 412396239134835155}
   - component: {fileID: 4608695615631131427}
+  - component: {fileID: 520572955435375396}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -333,7 +334,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6379948427306807413}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 520572955435375396}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.BroSoundPrinter, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &412396239134835155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,3 +387,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &520572955435375396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8905897803545116637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4dab09dd94e78b25a7a0c0965a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    ID: 1073741850
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8905897803545116637}

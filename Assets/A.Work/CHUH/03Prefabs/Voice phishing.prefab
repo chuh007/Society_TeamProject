@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 1957494947240082770}
   - component: {fileID: 2751937623803167705}
   - component: {fileID: 8568766107395099522}
+  - component: {fileID: 5111070352719691024}
   m_Layer: 5
   m_Name: WiretappingBtn
   m_TagString: Untagged
@@ -209,6 +210,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5111070352719691024}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.BroSoundPrinter, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5111070352719691024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952440330865332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4dab09dd94e78b25a7a0c0965a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    ID: 1073741850
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 952440330865332869}
 --- !u!1 &1014295458243697981
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +288,7 @@ GameObject:
   - component: {fileID: 1982093351473498746}
   - component: {fileID: 2945722767297387733}
   - component: {fileID: 8855630191098855297}
+  - component: {fileID: 6782141049020327555}
   m_Layer: 5
   m_Name: WiretappingBtn
   m_TagString: Untagged
@@ -381,6 +411,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6782141049020327555}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.BroSoundPrinter, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6782141049020327555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514678997837244307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4dab09dd94e78b25a7a0c0965a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    ID: 1073741850
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1514678997837244307}
 --- !u!1 &1615308134076251482
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,6 +587,7 @@ GameObject:
   - component: {fileID: 3065967474158074990}
   - component: {fileID: 3339119166467615201}
   - component: {fileID: 777809559416618007}
+  - component: {fileID: 2370395813387882173}
   m_Layer: 5
   m_Name: VerdictBtn
   m_TagString: Untagged
@@ -651,6 +710,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2370395813387882173}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.BroSoundPrinter, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2370395813387882173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791409785181177780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4dab09dd94e78b25a7a0c0965a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    ID: 1073741850
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1791409785181177780}
 --- !u!1 &1913441836286125986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1110,7 @@ GameObject:
   - component: {fileID: 3191476411780417716}
   - component: {fileID: 5376526866545032384}
   - component: {fileID: 738768346185971825}
+  - component: {fileID: 3972395726433995305}
   m_Layer: 5
   m_Name: VerdictBtn
   m_TagString: Untagged
@@ -1145,6 +1233,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3972395726433995305}
+        m_TargetAssemblyTypeName: A.Work.CHUH._01.Script.Sound.BroSoundPrinter, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3972395726433995305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105244624110926239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e4dab09dd94e78b25a7a0c0965a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound:
+    ID: 1073741850
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4105244624110926239}
 --- !u!1 &4152078375046219615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1347,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitListen: {fileID: 6033202805995726703}
   wiretapping: {fileID: 4588858184822513297}
-  timeText: {fileID: 0}
   soundId:
     ID: 1073741837
     _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
