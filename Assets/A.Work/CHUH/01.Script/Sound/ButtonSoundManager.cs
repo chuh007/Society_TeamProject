@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace A.Work.CHUH._01.Script.UI.Setting
+namespace A.Work.CHUH._01.Script.Sound
 {
     public class ButtonSoundManager : MonoBehaviour
     {
