@@ -126,7 +126,7 @@ namespace Scripts.Cores
 
         private void CloseResultPanel()
         {
-            resultPanel.transform.DOScale(Vector3.zero, 0.1f)
+            resultPanel.transform.DOScale(Vector3.zero, 0.5f)
                 .OnComplete(() =>
                 {
                     resultPanel.gameObject.SetActive(false);
