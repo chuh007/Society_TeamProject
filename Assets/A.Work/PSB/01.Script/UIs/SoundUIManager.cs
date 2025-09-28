@@ -1,12 +1,16 @@
-﻿using Ami.BroAudio;
+﻿using System;
+using Ami.BroAudio;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 namespace Code.Scripts.UI
 {
     public class SoundUIManager : MonoBehaviour
     {
+        [SerializeField] private GameObject panelUI;
+        
         [Header("Slider")]
         [SerializeField] private Slider masterSlider;
         [SerializeField] private Slider musicSlider;
@@ -20,11 +24,28 @@ namespace Code.Scripts.UI
         private bool _isMasterMuted = false;
         private bool _isMusicMuted = false;
         private bool _isSfxMuted = false;
+        private bool _isActive;
 
         private void Start()
         {
             LoadVolume();
             LoadMuteStates();
+            _isActive = false;
+            panelUI.SetActive(_isActive);
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                OpenPanel();
+            }
+        }
+
+        public void OpenPanel()
+        {
+            _isActive = !_isActive;
+            panelUI.SetActive(_isActive);
         }
         
         public void SetMasterVolume()
