@@ -28,8 +28,6 @@ MonoBehaviour:
     - "\uCFE0\uD3F0\uD568\uC5D0\uC11C \uD655\uC778\uD558\uAE30\nhttps://baeminKR.onelink.me/real"
     - "* \uC54C\uB9BC \uC218\uC2E0 \uAC70\uBD80\uB294\n080-1693-6912"
     choices:
-    - answer: 080-1693-6912
-      nextNodeIndex: -1
     - answer: 
       nextNodeIndex: -1
   isSpam: 1
