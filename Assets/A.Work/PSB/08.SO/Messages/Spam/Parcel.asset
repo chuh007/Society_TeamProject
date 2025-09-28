@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: Parcel
+  m_EditorClassIdentifier: 
+  roomId: PA
+  roomName: "\uC544\uB9C8\uD0DD\uBC30"
+  icon: {fileID: 2800000, guid: da08c87ad996236409776aa4443c6c1c, type: 3}
+  number: 031-157-2300
+  messagePreview:
+  - "\uBBF8\uC218\uCDE8 \uBB3C\uD488 \uD655\uC778\uBC14\uB78D\uB2C8\uB2E4"
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\r\n\uC6B4\uC7A5\uBC88\uD638 [5415***9210] \uBD80\uC7AC\uC911
+      \uBBF8\uC218\uCDE8 \uBB3C\uD488\uD655\uC778\uBC14\uB78D\uB2C8\uB2E4\r\n(bit.taekbae.real)
+      \r"
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 2
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 49ed082e65430604ebb7a746bd5a7acb, type: 2}

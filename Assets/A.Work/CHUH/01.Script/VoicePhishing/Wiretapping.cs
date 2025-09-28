@@ -1,4 +1,5 @@
 ﻿using A.Work.CHUH._01.Script.Call;
+using Ami.BroAudio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +10,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
     {
         public void Play(float time)
         {
-            _audioSource.time = time;
-            _audioSource.Play();
+            BroAudio.Play(_audioId);
         }
         
     }

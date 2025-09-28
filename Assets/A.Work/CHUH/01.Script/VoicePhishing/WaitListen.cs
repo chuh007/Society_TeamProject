@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ami.BroAudio;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace A.Work.CHUH._01.Script.VoicePhishing
@@ -7,10 +8,7 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
     {
         public void PlaySound()
         {
-            _audioSource.loop = true;
-            _audioSource.Play();
+            BroAudio.Play(_audioId);
         }
-
-
     }
 }

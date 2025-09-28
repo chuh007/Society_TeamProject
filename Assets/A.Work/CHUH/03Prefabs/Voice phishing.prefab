@@ -1369,8 +1369,10 @@ MonoBehaviour:
   waitListen: {fileID: 6033202805995726703}
   wiretapping: {fileID: 4588858184822513297}
   timeText: {fileID: 7225300484199018675}
-  soundSource: {fileID: 8623289953623475291}
-  soundClip: {fileID: 8300000, guid: cb348df5918f13f4fbe1553a9de5ef88, type: 3}
+  soundId:
+    ID: 1073741837
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4152078375046219615}
 --- !u!114 &622849160059242914
 MonoBehaviour:
   m_ObjectHideFlags: 0

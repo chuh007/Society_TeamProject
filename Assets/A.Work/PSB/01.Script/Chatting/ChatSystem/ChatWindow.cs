@@ -190,11 +190,24 @@ namespace Scripts.Chatting.ChatSystem
 
             if (node.choices != null && node.choices.Length > 0)
             {
-                foreach (DialogueChoice choice in node.choices)
+                bool autoJudge = node.choices.Length == 1 &&
+                                 string.IsNullOrEmpty(node.choices[0].answer) &&
+                                 node.choices[0].nextNodeIndex == -1;
+
+                if (autoJudge)
                 {
-                    ChoiceButton btn = Instantiate(choiceButtonPrefab, contentParent);
-                    btn.Setup(choice.answer, Color.white, () => OnChoice(choice.answer, choice.nextNodeIndex));
-                    ScrollToBottom();
+                    _log.currentNodeIndex = _messageData.nodes.Length;
+                    OnSave?.Invoke();
+                    ShowEndJudgeButtons();
+                }
+                else
+                {
+                    foreach (DialogueChoice choice in node.choices)
+                    {
+                        ChoiceButton btn = Instantiate(choiceButtonPrefab, contentParent);
+                        btn.Setup(choice.answer, Color.white, () => OnChoice(choice.answer, choice.nextNodeIndex));
+                        ScrollToBottom();
+                    }
                 }
             }
             else

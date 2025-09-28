@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e0a7a719740abaeafc542205baaa3, type: 3}
   m_Name: VoicePhishing 1
   m_EditorClassIdentifier: 
-  voiceClip: {fileID: 8300000, guid: d7732a3502ae62243b673c90652729a9, type: 3}
+  voiceId:
+    ID: 1073741838
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 0}
   isFraud: 0
   sender: {fileID: 11400000, guid: b90fa3d76892ab9418d0d271e05dff4e, type: 2}
   recipient: {fileID: 11400000, guid: 426e8157ce16f054b8994d518544815b, type: 2}

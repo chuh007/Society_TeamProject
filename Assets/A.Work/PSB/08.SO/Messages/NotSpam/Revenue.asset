@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8195467aeb742d48850515513b50f7a, type: 3}
+  m_Name: Revenue
+  m_EditorClassIdentifier: 
+  roomId: Revenue
+  roomName: "\uAD6D\uC138\uCCAD"
+  icon: {fileID: 2800000, guid: 41df2509a2593dd42b57b5b57aa5e54f, type: 3}
+  number: 126
+  messagePreview:
+  - "\uAD6D\uC138\uCCAD\uC785\uB2C8\uB2E4."
+  nodes:
+  - messages:
+    - "[Web\uBC1C\uC2E0]\n[\uAD6D\uC138\uCCAD]\uD604\uAE08\uC601\uC218\uC99D\n\uBC1C\uAE09\uC218\uB2E8(\uD734\uB300\uC804\uD654\uBC88\uD638)\uC744
+      \uD648\uD0DD\uC2A4\n\uB85C \uB4F1\uB85D\uBC14\uB78D\uB2C8\uB2E4."
+    choices:
+    - answer: 
+      nextNodeIndex: -1
+  isSpam: 1
+  value: 10
+  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
