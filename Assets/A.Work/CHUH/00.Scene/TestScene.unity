@@ -735,10 +735,6 @@ PrefabInstance:
       propertyPath: spawnCooldown
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 3871328980972977330, guid: 44e84ddf258b3d442ba5a97afb359753, type: 3}
-      propertyPath: phishingDataList
-      value: 
-      objectReference: {fileID: 11400000, guid: d1212754581dd57469dd420691aebefa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -776,7 +772,7 @@ MonoBehaviour:
   slider: {fileID: 1214577894}
   dayText: {fileID: 1415913030}
   maxDay: 3
-  maxMessagesPerDay: 1
+  maxMessagesPerDay: 2
   resultPanel: {fileID: 1769640527}
   resultText: {fileID: 1383963524}
   endingBtn: {fileID: 1210844601}
