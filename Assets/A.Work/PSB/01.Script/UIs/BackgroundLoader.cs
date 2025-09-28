@@ -16,7 +16,6 @@ namespace Code.Scripts.UI
         private void Start()
         {
             string path = GetWallpaperPath();
-            Debug.Log(path);
 
             if (!string.IsNullOrEmpty(path) && File.Exists(path))
             {

@@ -36,9 +36,14 @@ namespace A.Work.CHUH._01.Script.UI.Setting
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                _isActive = !_isActive;
-                soundUI.SetActive(_isActive);
+                OpenPanel();
             }
+        }
+
+        public void OpenPanel()
+        {
+            _isActive = !_isActive;
+            soundUI.SetActive(_isActive);
         }
 
         public void SetVolume(BroAudioType type, float volume)
