@@ -17,6 +17,8 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
         [SerializeField] private WaitListen waitListen;
         [SerializeField] private Wiretapping wiretapping;
         [SerializeField] private SoundID soundId;
+        [SerializeField] private SoundID successSound;
+        [SerializeField] private SoundID failSound;
         
         public event Action<int, int> OnSuccess;
         public event Action<int, int> OnFail;
@@ -74,11 +76,13 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
             {
                 _daySystem.OnSpamClear?.Invoke(true);
                 OnSuccess?.Invoke(_phishingData.value, _phishingData.gradeSO.successMultiplier);
+                BroAudio.Play(successSound);
             }
             else
             {
                 _daySystem.OnSpamClear?.Invoke(false);
                 OnFail?.Invoke(_phishingData.value, _phishingData.gradeSO.failMultiplier);
+                BroAudio.Play(failSound);
             }
             Hide();
         }
@@ -89,11 +93,13 @@ namespace A.Work.CHUH._01.Script.VoicePhishing
             {
                 _daySystem.OnSpamClear?.Invoke(true);
                 OnSuccess?.Invoke(_phishingData.value, _phishingData.gradeSO.successMultiplier);
+                BroAudio.Play(successSound);
             }
             else
             {
                 _daySystem.OnSpamClear?.Invoke(false);
                 OnFail?.Invoke(_phishingData.value, _phishingData.gradeSO.failMultiplier);
+                BroAudio.Play(failSound);
             }
             Hide();
         }
