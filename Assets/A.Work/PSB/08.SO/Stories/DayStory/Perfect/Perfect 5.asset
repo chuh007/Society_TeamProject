@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7676454b87b245999a99ce7749f7b8b8, type: 3}
+  m_Name: Perfect 5
+  m_EditorClassIdentifier: 
+  nodes:
+  - messages:
+    - "\uD53C\uACE4\uD55C\uB370 \uBCF4\uB78C\uCC2C \uD558\uB8E8\uB124"
+    - "\uC624\uB298 \uD560 \uC77C\uC744 \uB2E4 \uD574\uB0C8\uB2E4"
+    - "\uC9C4\uC9DC \uD798\uB4E4\uC5C8\uC9C0\uB9CC \uADF8\uB798\uB3C4 \uC644\uBCBD\uD558\uAC8C
+      \uB05D\uB0C8\uB124"
+    - "\uC774\uC81C \uC9D1\uC5D0\uAC00\uC11C \uD479 \uC26C\uACE0 \uB0B4\uC77C \uCD9C\uADFC\uD560
+      \uC900\uBE44\uB098 \uD574\uC57C\uC9C0"
+  whatIsType: 0
+  nextTextDelay: 1
