@@ -20,5 +20,5 @@ MonoBehaviour:
   sender: {fileID: 11400000, guid: 8ad5ea94aae474742bbe6a88f94bbf12, type: 2}
   recipient: {fileID: 11400000, guid: 6781ed1acbf772a4d9e476833fd1c30f, type: 2}
   value: 10
-  gradeSO: {fileID: 11400000, guid: 471a03964133e1045be51f271227c6a0, type: 2}
+  gradeSO: {fileID: 11400000, guid: e9fa81545fcf5f64fa5380190721c491, type: 2}
   description: "\uAE40\uC218\uC9C4 \uC11C\uC6B8\uC911\uC559\uC9C0\uAC80 \uC0AC\uCE6D"
