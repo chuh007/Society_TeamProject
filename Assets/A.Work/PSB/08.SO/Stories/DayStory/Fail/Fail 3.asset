@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7676454b87b245999a99ce7749f7b8b8, type: 3}
+  m_Name: Fail 3
+  m_EditorClassIdentifier: 
+  nodes:
+  - messages:
+    - "\uC774\uC57C \uC815\uB9D0\uC774\uC9C0"
+    - "\uD070\uC77C\uB0AC\uB294\uB370"
+    - "\uC774\uAC70 \uB0B4 \uC790\uB9AC\uAC00 \uC704\uD5D8\uD574\uC9C8 \uAC83 \uAC19\uC740\uB370"
+    - "\uC0B4\uC544\uB0A8\uC544\uBCF4\uC790"
+  whatIsType: 3
+  nextTextDelay: 1
