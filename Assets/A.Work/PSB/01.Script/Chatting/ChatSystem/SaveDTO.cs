@@ -40,6 +40,8 @@ namespace Scripts.Chatting.System
             public int processedMessages = 0;
             public int successCount;
             public int failCount;
+            public int totalSuccessCount;
+            public int totalFailCount;
         }
 
         [Serializable]

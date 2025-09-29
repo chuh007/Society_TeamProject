@@ -775,7 +775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 932264304}
-  - component: {fileID: 932264305}
+  - component: {fileID: 932264307}
   - component: {fileID: 932264306}
   m_Layer: 0
   m_Name: StoryManager
@@ -799,7 +799,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &932264305
+--- !u!114 &932264306
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -808,19 +808,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 932264301}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6a8cb8670641068b72a664aafb3beb, type: 3}
+  m_Script: {fileID: 11500000, guid: 5655b83c8d4146c08c53a8cfde916a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyDatabase: {fileID: 11400000, guid: 79e192a499411494690357f707b2ceb4, type: 2}
+  nextScene: EndScene
+--- !u!114 &932264307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932264301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9defede25a044ab0862445a0ab627e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearStoryDatabase: {fileID: 11400000, guid: 79e192a499411494690357f707b2ceb4, type: 2}
+  failStoryDatabase: {fileID: 11400000, guid: 2571305035147784c8a8ee3093f1c72b, type: 2}
   textPanel: {fileID: 204037010}
   textUI: {fileID: 647461926}
-  charDelay: 0.1
+  charDelay: 0.05
   OnStoryEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 932264305}
-        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.BeginStory.StartStoryPlayer,
-          Assembly-CSharp
+      - m_Target: {fileID: 932264307}
+        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.EndStoryPlayer, Assembly-CSharp
         m_MethodName: ActiveFalseText
         m_Mode: 1
         m_Arguments:
@@ -843,9 +856,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 932264305}
-        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.BeginStory.StartStoryPlayer,
-          Assembly-CSharp
+      - m_Target: {fileID: 932264307}
+        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.EndStoryPlayer, Assembly-CSharp
         m_MethodName: EndStory
         m_Mode: 1
         m_Arguments:
@@ -856,19 +868,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &932264306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 932264301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5655b83c8d4146c08c53a8cfde916a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: EndScene
 --- !u!1 &947792257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1067,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 932264305}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Scripts.Chatting.Stories.BeginStory.StartStoryPlayer,
           Assembly-CSharp
         m_MethodName: SkipStory

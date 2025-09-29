@@ -28,6 +28,8 @@ namespace Scripts.Cores
         private int _day = 1;
         private int _successCount;
         private int _failCount;
+        private int _totalSuccess;     // 전체 성공
+        private int _totalFail;        // 전체 실패
         private int _processedMessages;
 
         private Button _closeResultPanelBtn;
@@ -35,6 +37,8 @@ namespace Scripts.Cores
 
         public static event Action OnNextDay;
         public static event Action<DayResultType> OnResultClose;
+        public static event Action<bool> OnFinalResult;
+        public static bool? LastFinalResult = null;
         
         private void Awake()
         {
@@ -45,6 +49,8 @@ namespace Scripts.Cores
             _processedMessages = progress.processedMessages;
             _successCount = progress.successCount;
             _failCount = progress.failCount;
+            _totalSuccess = progress.successCount;
+            _totalFail = progress.failCount;
             _closeResultPanelBtn = resultPanel.GetComponentInChildren<Button>();
             
             dayText.text = $"Day {_day}";
@@ -55,11 +61,21 @@ namespace Scripts.Cores
 
         private void HandleSpamClear(bool value)
         {
-            if (value) _successCount++;
-            else _failCount++;
+            if (value)
+            {
+                _successCount++;
+                _totalSuccess++;
+            }
+            else
+            {
+                _failCount++;
+                _totalFail++;
+            }
+
             _processedMessages++;
             CheckDayEnd();
         }
+
 
         private void Start()
         {
@@ -86,6 +102,7 @@ namespace Scripts.Cores
         private void HandleSuccess()
         {
             _successCount++;
+            _totalSuccess++;
             _processedMessages++;
             CheckDayEnd();
         }
@@ -93,6 +110,7 @@ namespace Scripts.Cores
         private void HandleFail()
         {
             _failCount++;
+            _totalFail++;
             _processedMessages++;
             CheckDayEnd();
         }
@@ -110,6 +128,8 @@ namespace Scripts.Cores
                 processedMessages = _processedMessages,
                 successCount = _successCount,
                 failCount = _failCount,
+                totalSuccessCount = _successCount,
+                totalFailCount = _failCount,
             }, SaveDTO.SaveKeys.DayValue);
         }
 
@@ -192,13 +212,17 @@ namespace Scripts.Cores
         private void CheckFinalClear()
         {
             int totalMessages = maxDay * maxMessagesPerDay;
-            
-            if (_successCount >= _failCount)
+            bool isClear = _totalSuccess >= _totalFail;
+
+            LastFinalResult = isClear;
+            Debug.Log($"CheckFinalClear: isClear={isClear} totalS={_totalSuccess} totalF={_totalFail}");
+
+            if (isClear)
             {
                 resultText.text =
                     "게임 클리어!\n"
                     + $"전체 처리한 메시지 수 : {totalMessages}\n"
-                    + $"성공:{_successCount}, 실패:{_failCount}";
+                    + $"성공:{_totalSuccess}, 실패:{_totalFail}";
                 GameTypeSingleton.Instance.GameType = GameType.Clear;
             }
             else
@@ -206,9 +230,11 @@ namespace Scripts.Cores
                 resultText.text =
                     "클리어 실패...\n"
                     + $"전체 처리한 메시지 수 : {totalMessages}\n"
-                    + $"성공:{_successCount}, 실패:{_failCount}";
+                    + $"성공:{_totalSuccess}, 실패:{_totalFail}";
                 GameTypeSingleton.Instance.GameType = GameType.Fail;
             }
+
+            OnFinalResult?.Invoke(isClear);
         }
 
         #endregion
@@ -232,6 +258,8 @@ namespace Scripts.Cores
             _processedMessages = 0;
             _successCount = 0;
             _failCount = 0;
+            _totalSuccess = 0;
+            _totalFail = 0;
             _processedMessages = 0;
             dayText.text = $"Day {_day}";
             resultText.text = "";
@@ -246,6 +274,8 @@ namespace Scripts.Cores
                 processedMessages = _processedMessages,
                 successCount = _successCount,
                 failCount = _failCount,
+                totalSuccessCount = _successCount,
+                totalFailCount = _failCount,
             }, SaveDTO.SaveKeys.DayValue);
     
             SaveSystem.Save(new SaveDTO.SliderProgress
