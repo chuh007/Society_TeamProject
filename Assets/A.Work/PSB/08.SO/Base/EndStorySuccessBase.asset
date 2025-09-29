@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stories:
   - {fileID: 11400000, guid: c95507acd2693844d877c69e0a5dbf7e, type: 2}
+  - {fileID: 11400000, guid: f772947f503a40c488a8beea7b7af5b6, type: 2}
