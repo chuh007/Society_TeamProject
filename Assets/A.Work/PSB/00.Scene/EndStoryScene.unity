@@ -1067,9 +1067,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.BeginStory.StartStoryPlayer,
-          Assembly-CSharp
+      - m_Target: {fileID: 932264307}
+        m_TargetAssemblyTypeName: Scripts.Chatting.Stories.EndStoryPlayer, Assembly-CSharp
         m_MethodName: SkipStory
         m_Mode: 1
         m_Arguments:

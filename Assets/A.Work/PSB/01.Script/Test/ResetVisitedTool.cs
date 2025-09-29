@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Code.Scripts.Test
 {
@@ -10,6 +11,7 @@ namespace Code.Scripts.Test
             ResetAllVisited();
         }
 
+        [ContextMenu("Reset All Visited")]
         public void ResetAllVisited()
         {
             if (SceneVisitManager.Instance != null)
