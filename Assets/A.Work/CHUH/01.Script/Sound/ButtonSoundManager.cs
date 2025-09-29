@@ -1,7 +1,9 @@
 ﻿using Ami.BroAudio;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.Events;
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
