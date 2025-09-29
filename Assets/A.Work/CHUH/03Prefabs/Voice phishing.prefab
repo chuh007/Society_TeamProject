@@ -1351,6 +1351,14 @@ MonoBehaviour:
     ID: 1073741837
     _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
     <DebugObject>k__BackingField: {fileID: 4152078375046219615}
+  successSound:
+    ID: 1073741851
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4152078375046219615}
+  failSound:
+    ID: 1073741852
+    _sourceAsset: {fileID: 11400000, guid: 1d445b10752e10543934324a370b7edc, type: 2}
+    <DebugObject>k__BackingField: {fileID: 4152078375046219615}
 --- !u!114 &622849160059242914
 MonoBehaviour:
   m_ObjectHideFlags: 0

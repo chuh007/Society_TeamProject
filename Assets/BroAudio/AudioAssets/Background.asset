@@ -74,7 +74,7 @@ MonoBehaviour:
     MulticlipsPlayMode: 0
     _group: {fileID: 0}
     Clips:
-    - AudioClip: {fileID: 8300000, guid: d407bc9465fe4294186ea9b71e3314a6, type: 3}
+    - AudioClip: {fileID: 8300000, guid: f30da7f73a0a5d24fab1ac628abd970e, type: 3}
       Volume: 1
       Delay: 0
       StartPosition: 0
