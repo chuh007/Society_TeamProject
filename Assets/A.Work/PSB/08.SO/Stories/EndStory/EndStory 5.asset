@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7676454b87b245999a99ce7749f7b8b8, type: 3}
-  m_Name: EndStory 1
+  m_Name: EndStory 5
   m_EditorClassIdentifier: 
   nodes:
   - messages:
+    - 123
     - "\uD68C\uC0AC\uC5D0\uC11C \uBA54\uC77C\uC774 \uC654\uB124?"
     - "(XX\uB2D8)"
     - "(\uC624\uB298 \uD558\uB8E8\uB3C4 \uC798 \uBCF4\uB0B4\uC168\uB294\uC9C0\uC694?)"
