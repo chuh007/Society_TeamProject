@@ -174,6 +174,15 @@ namespace Scripts.Cores
         {
             if (_processedMessages >= maxMessagesPerDay)
             {
+                DayResultType type = GetDayResultType();
+
+                if (type == DayResultType.Worst)
+                {
+                    _day = maxDay + 1;
+                    ForceFail();
+                    return;
+                }
+                
                 CheckDayClear();
                 
                 _processedMessages = 0;
@@ -215,12 +224,12 @@ namespace Scripts.Cores
             bool isClear = _totalSuccess >= _totalFail;
 
             LastFinalResult = isClear;
-            Debug.Log($"CheckFinalClear: isClear={isClear} totalS={_totalSuccess} totalF={_totalFail}");
 
             if (isClear)
             {
                 resultText.text =
-                    "게임 클리어!\n"
+                    "평판이 높아 승진하였습니다!\n"
+                    + "부서에 새로운 신입이 들어와 일이 줄었습니다 \n"
                     + $"전체 처리한 메시지 수 : {totalMessages}\n"
                     + $"성공:{_totalSuccess}, 실패:{_totalFail}";
                 GameTypeSingleton.Instance.GameType = GameType.Clear;
@@ -228,13 +237,24 @@ namespace Scripts.Cores
             else
             {
                 resultText.text =
-                    "클리어 실패...\n"
+                    "평판이 낮아 해고되었습니다!\n"
                     + $"전체 처리한 메시지 수 : {totalMessages}\n"
                     + $"성공:{_totalSuccess}, 실패:{_totalFail}";
                 GameTypeSingleton.Instance.GameType = GameType.Fail;
             }
 
             OnFinalResult?.Invoke(isClear);
+        }
+        
+        private void ForceFail()
+        {
+            LastFinalResult = false;
+
+            resultText.text =
+                "평판이 낮아 해고되었습니다!\n";
+
+            GameTypeSingleton.Instance.GameType = GameType.Fail;
+            OnFinalResult?.Invoke(false);
         }
 
         #endregion
