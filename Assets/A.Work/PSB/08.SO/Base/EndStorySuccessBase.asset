@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EndStorySuccessBase
   m_EditorClassIdentifier: 
   stories:
-  - {fileID: 11400000, guid: 69a30949060151243918096af32ee89b, type: 2}
+  - {fileID: 11400000, guid: c95507acd2693844d877c69e0a5dbf7e, type: 2}
