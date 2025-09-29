@@ -41,6 +41,7 @@ namespace Scripts.Chatting.ChatSystem
             if (_curTime >= 10)
             {
                 StartCoroutine(DownCoroutine());
+                ChatListWindow.Instance.OnRefreshUI?.Invoke(_messageData);
             }
         }
 
@@ -93,7 +94,6 @@ namespace Scripts.Chatting.ChatSystem
 
         private IEnumerator DownCoroutine()
         {
-            Debug.Log("아무 클릭 이벤트가 없습니다. 자동으로 사라집니다.");
             yield return null;
             transform.DOLocalMoveY(transform.localPosition.y - 75f, 0.25f)
                 .SetEase(Ease.InCubic)
@@ -102,7 +102,6 @@ namespace Scripts.Chatting.ChatSystem
                     OnMessageClicked?.Invoke();
                     Destroy(gameObject);
                 });
-            
         }
         
     }

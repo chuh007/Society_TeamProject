@@ -89,6 +89,25 @@ namespace Scripts.Chatting.Stories
             }
         }
         
+        public void SkipStory()
+        {
+            if (_currentStory == null) return;
+
+            StopAllCoroutines();
+
+            textUI.text = "";
+            foreach (StoryNodes node in _currentStory.nodes)
+            {
+                foreach (string message in node.messages)
+                {
+                    textUI.text += message + "\n";
+                }
+            }
+            
+            OnStoryEnd?.Invoke();
+        }
+
+        
         public void EndStory()
         {
             SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 

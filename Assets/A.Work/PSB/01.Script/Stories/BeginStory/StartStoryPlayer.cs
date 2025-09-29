@@ -85,13 +85,7 @@ namespace Scripts.Chatting.Stories.BeginStory
             
             OnStoryEnd?.Invoke();
         }
-
-        public void EndStory()
-        {
-            SaveSystem.Clear(SaveDTO.SaveKeys.ChatLogs); 
-            SaveSystem.Clear(SaveDTO.SaveKeys.DayValue); 
-            SaveSystem.Clear(SaveDTO.SaveKeys.SliderValue); 
-        }
+        
         
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Code.Scripts.Test
@@ -7,13 +8,10 @@ namespace Code.Scripts.Test
     {
         [Tooltip("이 씬이 이전에 방문된 적 있으면 이동할 대체 씬 이름")]
         public string fallbackScene = "GameScene";
-
-        [Tooltip("이 씬이 처음 방문이면 자동으로 방문 처리(MarkVisited)")]
         public bool markOnEnter = true;
-
-        [Tooltip("Guard가 동작하지 않도록 예외 처리: true면 검사 안함 (디버그용)")]
         public bool disableGuard = false;
-        
+
+        private static HashSet<string> _visitedThisSession = new HashSet<string>();
         private static bool _isRedirecting = false;
 
         private void Start()
@@ -28,21 +26,28 @@ namespace Code.Scripts.Test
             }
 
             string current = SceneManager.GetActiveScene().name;
-            
+
             if (_isRedirecting) return;
 
-            if (manager.HasVisited(current))
+            if (_visitedThisSession.Contains(current))
             {
                 if (!string.IsNullOrEmpty(fallbackScene) && fallbackScene != current)
                 {
                     _isRedirecting = true;
                     SceneManager.LoadScene(fallbackScene);
+                    return;
                 }
-                return;
             }
-            
+
             if (markOnEnter)
+            {
                 manager.MarkVisited(current);
+                _visitedThisSession.Add(current);
+            }
+            else
+            {
+                _visitedThisSession.Add(current);
+            }
         }
 
         private void OnEnable()
@@ -59,6 +64,12 @@ namespace Code.Scripts.Test
         {
             _isRedirecting = false;
         }
+
+        public void TrueTrigger()
+        {
+            markOnEnter = true;
+        }
+        
         
     }
 }
